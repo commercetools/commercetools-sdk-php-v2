@@ -11,6 +11,7 @@ namespace Commercetools\Api\Models\Category;
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Api\Models\Type\CustomFieldsDraftModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -96,6 +97,12 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
      */
     protected $key;
 
+    /**
+     *
+     * @var ?StoreResourceIdentifierCollection
+     */
+    protected $stores;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -112,7 +119,8 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         ?LocalizedString $metaKeywords = null,
         ?CustomFieldsDraft $custom = null,
         ?AssetDraftCollection $assets = null,
-        ?string $key = null
+        ?string $key = null,
+        ?StoreResourceIdentifierCollection $stores = null
     ) {
         $this->name = $name;
         $this->slug = $slug;
@@ -126,6 +134,7 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         $this->custom = $custom;
         $this->assets = $assets;
         $this->key = $key;
+        $this->stores = $stores;
     }
 
     /**
@@ -381,6 +390,35 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
         return $this->key;
     }
 
+    /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to assign the Category to.</p>
+     * <ul>
+     * <li>
+     * <p>If not defined or set to an empty array, the Category is global.</p>
+     * </li>
+     * <li>
+     * <p>If defined, you must have access to each referenced Store; otherwise, an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
+     * <p>If the Category has a parent category, and the parent is assigned to Stores, this value must be a non-empty subset of the parent's Stores.</p>
+     * </li>
+     * </ul>
+     *
+     *
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreResourceIdentifierCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
 
     /**
      * @param ?LocalizedString $name
@@ -476,5 +514,13 @@ final class CategoryDraftModel extends JsonObjectModel implements CategoryDraft
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
+    public function setStores(?StoreResourceIdentifierCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 }

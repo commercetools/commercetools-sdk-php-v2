@@ -207,7 +207,7 @@ final class VariantUnpublishedMessageBuilder implements Builder
     }
 
     /**
-     * <p>Reference to the Product containing the Variant that was unpublished.</p>
+     * <p>Reference to the Product containing the Variant.</p>
      *
 
      * @return null|ProductReference

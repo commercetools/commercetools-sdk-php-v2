@@ -51,6 +51,14 @@ class ResourceByProjectKeyInStoreKeyByStoreKey extends ApiResource
     }
     /**
      */
+    public function categories(): ResourceByProjectKeyInStoreKeyByStoreKeyCategories
+    {
+        $args = $this->getArgs();
+
+        return new ResourceByProjectKeyInStoreKeyByStoreKeyCategories($args, $this->getClient());
+    }
+    /**
+     */
     public function customers(): ResourceByProjectKeyInStoreKeyByStoreKeyCustomers
     {
         $args = $this->getArgs();

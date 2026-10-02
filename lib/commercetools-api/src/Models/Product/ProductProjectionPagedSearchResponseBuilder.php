@@ -51,7 +51,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
     private $results;
 
     /**
-
+     * @deprecated
      * @var null|FacetResults|FacetResultsBuilder
      */
     private $facets;
@@ -116,7 +116,7 @@ final class ProductProjectionPagedSearchResponseBuilder implements Builder
      * <p>Facet results for each <a href="/api/projects/product-projection-search#facets">facet expression</a> specified in the search request.</p>
      * <p>Only present if at least one <code>facet</code> parameter was provided with the search request.</p>
      *
-
+     * @deprecated
      * @return null|FacetResults
      */
     public function getFacets()

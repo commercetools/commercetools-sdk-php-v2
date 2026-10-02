@@ -11,6 +11,8 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -31,15 +33,15 @@ final class VariantCreatedMessagePayloadModel extends JsonObjectModel implements
 
     /**
      *
-     * @var ?string
+     * @var ?ProductReference
      */
-    protected $id;
+    protected $product;
 
     /**
      *
      * @var ?string
      */
-    protected $productId;
+    protected $id;
 
     /**
      *
@@ -88,8 +90,8 @@ final class VariantCreatedMessagePayloadModel extends JsonObjectModel implements
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?ProductReference $product = null,
         ?string $id = null,
-        ?string $productId = null,
         ?int $variantId = null,
         ?string $key = null,
         ?string $sku = null,
@@ -99,8 +101,8 @@ final class VariantCreatedMessagePayloadModel extends JsonObjectModel implements
         ?bool $publish = null,
         ?string $type = null
     ) {
+        $this->product = $product;
         $this->id = $id;
-        $this->productId = $productId;
         $this->variantId = $variantId;
         $this->key = $key;
         $this->sku = $sku;
@@ -130,6 +132,27 @@ final class VariantCreatedMessagePayloadModel extends JsonObjectModel implements
     }
 
     /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
+    /**
      * <p>Unique identifier of the Variant.</p>
      *
      *
@@ -147,26 +170,6 @@ final class VariantCreatedMessagePayloadModel extends JsonObjectModel implements
         }
 
         return $this->id;
-    }
-
-    /**
-     * <p>Unique identifier of the Product to which the Variant belongs.</p>
-     *
-     *
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        if (is_null($this->productId)) {
-            /** @psalm-var ?string $data */
-            $data = $this->raw(self::FIELD_PRODUCT_ID);
-            if (is_null($data)) {
-                return null;
-            }
-            $this->productId = (string) $data;
-        }
-
-        return $this->productId;
     }
 
     /**
@@ -311,19 +314,19 @@ final class VariantCreatedMessagePayloadModel extends JsonObjectModel implements
 
 
     /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
+    }
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void
     {
         $this->id = $id;
-    }
-
-    /**
-     * @param ?string $productId
-     */
-    public function setProductId(?string $productId): void
-    {
-        $this->productId = $productId;
     }
 
     /**

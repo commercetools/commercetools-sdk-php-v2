@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifierModel;
 use Commercetools\Api\Models\Common\LocalizedString;
@@ -75,6 +77,12 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
 
     /**
      *
+     * @var ?TaxedPriceDraft
+     */
+    protected $taxedPrice;
+
+    /**
+     *
      * @var ?ChannelResourceIdentifier
      */
     protected $distributionChannel;
@@ -121,6 +129,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         ?int $quantity = null,
         ?PriceDraft $price = null,
         ?TaxRate $taxRate = null,
+        ?TaxedPriceDraft $taxedPrice = null,
         ?ChannelResourceIdentifier $distributionChannel = null,
         ?ChannelResourceIdentifier $supplyChannel = null,
         ?string $inventoryMode = null,
@@ -135,6 +144,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         $this->quantity = $quantity;
         $this->price = $price;
         $this->taxRate = $taxRate;
+        $this->taxedPrice = $taxedPrice;
         $this->distributionChannel = $distributionChannel;
         $this->supplyChannel = $supplyChannel;
         $this->inventoryMode = $inventoryMode;
@@ -268,7 +278,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Line Item if <code>taxedPrice</code> is not provided.</p>
      *
      *
      * @return null|TaxRate
@@ -286,6 +296,28 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
         }
 
         return $this->taxRate;
+    }
+
+    /**
+     * <p>Taxed price of the Line Item. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:LineItem">LineItem</a> instead of being derived from <code>price</code>, <code>quantity</code>, and <code>taxRate</code>.</p>
+     * <p>Can only be set if <code>taxRate</code> is also set.</p>
+     *
+     *
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice()
+    {
+        if (is_null($this->taxedPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxedPrice = TaxedPriceDraftModel::of($data);
+        }
+
+        return $this->taxedPrice;
     }
 
     /**
@@ -471,6 +503,14 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
+    }
+
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
+    {
+        $this->taxedPrice = $taxedPrice;
     }
 
     /**

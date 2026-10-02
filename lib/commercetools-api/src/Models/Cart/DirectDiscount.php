@@ -18,6 +18,7 @@ interface DirectDiscount extends JsonObject
     public const FIELD_ID = 'id';
     public const FIELD_VALUE = 'value';
     public const FIELD_TARGET = 'target';
+    public const FIELD_PARTICIPATE_IN_BEST_DEAL_SELECTION = 'participateInBestDealSelection';
 
     /**
      * <p>Unique identifier of the Direct Discount.</p>
@@ -45,6 +46,18 @@ interface DirectDiscount extends JsonObject
     public function getTarget();
 
     /**
+     * <ul>
+     * <li>If <code>true</code>, Direct Discounts compete against Product Discounts to apply the <a href="/api/pricing-and-discounts-overview#best-deal">best deal</a>.</li>
+     * <li>If <code>false</code>, Direct Discounts are ignored when calculating the best deal comparison, and are applied on top of the discount type that offers the best deal.</li>
+     * </ul>
+     * <p>This applies only when the <a href="ctp:api:type:DiscountCombinationMode">DiscountCombinationMode</a> for the <a href="ctp:api:type:Project">Project</a> is <code>BestDeal</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getParticipateInBestDealSelection();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -58,4 +71,9 @@ interface DirectDiscount extends JsonObject
      * @param ?CartDiscountTarget $target
      */
     public function setTarget(?CartDiscountTarget $target): void;
+
+    /**
+     * @param ?bool $participateInBestDealSelection
+     */
+    public function setParticipateInBestDealSelection(?bool $participateInBestDealSelection): void;
 }

@@ -22,7 +22,7 @@ interface TermFacetResult extends FacetResult
     /**
      * <p>Data type to which the facet is applied.</p>
      *
-
+     * @deprecated
      * @return null|string
      */
     public function getDataType();

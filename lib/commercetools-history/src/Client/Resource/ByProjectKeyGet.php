@@ -198,6 +198,15 @@ class ByProjectKeyGet extends ApiRequest
 
     /**
      * 
+     * @psalm-param scalar|scalar[] $userIds
+     */
+    public function withUserIds($userIds): ByProjectKeyGet
+    {
+        return $this->withQueryParam('userIds', $userIds);
+    }
+
+    /**
+     * 
      * @psalm-param scalar|scalar[] $clientId
      */
     public function withClientId($clientId): ByProjectKeyGet
@@ -248,6 +257,15 @@ class ByProjectKeyGet extends ApiRequest
     public function withResourceId($resourceId): ByProjectKeyGet
     {
         return $this->withQueryParam('resourceId', $resourceId);
+    }
+
+    /**
+     * 
+     * @psalm-param scalar|scalar[] $resourceIds
+     */
+    public function withResourceIds($resourceIds): ByProjectKeyGet
+    {
+        return $this->withQueryParam('resourceIds', $resourceIds);
     }
 
     /**

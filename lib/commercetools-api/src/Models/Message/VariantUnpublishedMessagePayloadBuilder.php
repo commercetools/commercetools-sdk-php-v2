@@ -29,7 +29,7 @@ final class VariantUnpublishedMessagePayloadBuilder implements Builder
     private $product;
 
     /**
-     * <p>Reference to the Product containing the Variant that was unpublished.</p>
+     * <p>Reference to the Product containing the Variant.</p>
      *
 
      * @return null|ProductReference

@@ -28,6 +28,7 @@ class ResourceByProjectKeyProductProjectionsSearch extends ApiResource
     /**
      * @psalm-param ?string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
+     * @deprecated
      */
     public function post(?string $body = null, array $headers = []): ByProjectKeyProductProjectionsSearchPost
     {
@@ -38,6 +39,7 @@ class ResourceByProjectKeyProductProjectionsSearch extends ApiResource
     /**
      * @psalm-param ?object|array|string $body
      * @psalm-param array<string, scalar|scalar[]> $headers
+     * @deprecated
      */
     public function get($body = null, array $headers = []): ByProjectKeyProductProjectionsSearchGet
     {

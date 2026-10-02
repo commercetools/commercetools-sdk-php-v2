@@ -11,13 +11,14 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductReference;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
 interface VariantCreatedMessagePayload extends MessagePayload
 {
+    public const FIELD_PRODUCT = 'product';
     public const FIELD_ID = 'id';
-    public const FIELD_PRODUCT_ID = 'productId';
     public const FIELD_VARIANT_ID = 'variantId';
     public const FIELD_KEY = 'key';
     public const FIELD_SKU = 'sku';
@@ -27,20 +28,20 @@ interface VariantCreatedMessagePayload extends MessagePayload
     public const FIELD_PUBLISH = 'publish';
 
     /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct();
+
+    /**
      * <p>Unique identifier of the Variant.</p>
      *
 
      * @return null|string
      */
     public function getId();
-
-    /**
-     * <p>Unique identifier of the Product to which the Variant belongs.</p>
-     *
-
-     * @return null|string
-     */
-    public function getProductId();
 
     /**
      * <p>Unique identifier of the Variant within its parent Product.</p>
@@ -99,14 +100,14 @@ interface VariantCreatedMessagePayload extends MessagePayload
     public function getPublish();
 
     /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void;
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
-
-    /**
-     * @param ?string $productId
-     */
-    public function setProductId(?string $productId): void;
 
     /**
      * @param ?int $variantId

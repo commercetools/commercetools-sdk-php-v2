@@ -47,6 +47,34 @@ $request = $builder
                 ->withProjectKey("projectKey")
                 ->post(null);
 ```
+## `withProjectKey("projectKey")->agents()->intake()->v1()->responses()->post(null)`
+
+Turns a natural-language prompt, optionally with supporting files, into a created [Cart](ctp:api:type:Cart), [QuoteRequest](ctp:api:type:QuoteRequest), or [ShoppingList](ctp:api:type:ShoppingList), returned in commercetools REST representation. The entity to create is set by `outputType` and is never inferred from the input.
+
+A [ShoppingList](ctp:api:type:ShoppingList) additionally requires a name for the list in the input. The Intake Agent never invents one. Unlike a Cart or Quote Request, a Shopping List does not require a country.
+
+Non-fatal issues, such as requested Products that could not be matched to the catalog or a file that failed to parse, are reported as `warnings` alongside a successful `201` response rather than failing the request.
+
+Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/agents/intake-agent#multipart-form-data) for the file upload format.
+
+If the Intake Agent is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
+
+For a list of possible errors returned by the Intake Agent, see [Intake Agent Errors](/api/errors#intake-agent) type.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->agents()
+                ->intake()
+                ->v1()
+                ->responses()
+                ->post(null);
+```
 ## `withProjectKey("projectKey")->apiClients()->get()`
 
 null
@@ -2465,6 +2493,8 @@ $request = $builder
 
 Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
+Creating a Category with a `parent` locks that parent Category. For details, see [Category tree locking](/api/projects/categories#category-tree-locking).
+
 Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
 
 
@@ -4613,6 +4643,230 @@ $request = $builder
                 ->carts()
                 ->replicate()
                 ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->get()`
+
+Retrieves [Categories](ctp:api:type:Category) that are either assigned to the specified [Store](ctp:api:type:Store) or global.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->head()`
+
+Checks if one or more Categories exist in the [Store](ctp:api:type:Store) for the provided query predicate. Returns a `200` status if any Categories match the query predicate, or a `404` status otherwise.
+
+For global Categories, use the [Check if Category exists by Query Predicate](ctp:api:endpoint:/{projectKey}/categories:HEAD) endpoint.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->post(null)`
+
+Creates a [Category](ctp:api:type:Category) in the specified [Store](ctp:api:type:Store).
+
+For global Categories, use the [Create Category](ctp:api:endpoint:/{projectKey}/categories:POST) endpoint.
+
+Creating a Category with a `parent` locks that parent Category. For details, see [Category tree locking](/api/projects/categories#category-tree-locking).
+
+Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->get()`
+
+Retrieves a [Category](ctp:api:type:Category) by its `id` if it is assigned to the specified [Store](ctp:api:type:Store) or is global.
+
+For global Categories, use the [Get Category by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:GET) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->head()`
+
+Checks if a Category exists with the provided `id` in the specified [Store](ctp:api:type:Store). Returns a `200` status if the Category exists in the Store or is global, or a `404` status otherwise.
+
+For global Categories, use the [Check if Category exists by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:HEAD) endpoint.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->post(null)`
+
+Updates a [Category](ctp:api:type:Category) by its `id` in the specified [Store](ctp:api:type:Store).
+
+To update a global Category, use the [Update Category by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:POST) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withId("ID")->delete()`
+
+Deletes a [Category](ctp:api:type:Category) by its `id` in the specified [Store](ctp:api:type:Store).
+
+To delete a global Category, use the [Delete Category by ID](ctp:api:endpoint:/{projectKey}/categories/{id}:DELETE) endpoint.
+
+If you do not have permissions for a Store the Category is assigned to, an [Unauthorized](ctp:api:type:UnauthorizedError) error is returned.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withId("ID")
+                ->delete();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->get()`
+
+Retrieves a [Category](ctp:api:type:Category) by its `key` in the specified [Store](ctp:api:type:Store).
+
+For global Categories, use the [Get Category by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:GET) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->get();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->head()`
+
+Checks if a Category exists with the provided `key` in the specified [Store](ctp:api:type:Store). Returns a `200` status if the Category exists in the Store or is global, or a `404` status otherwise.
+
+For global Categories, use the [Check if Category exists by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:HEAD) endpoint.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->head();
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->post(null)`
+
+Updates a [Category](ctp:api:type:Category) by its `key` in the specified [Store](ctp:api:type:Store).
+
+To update a global Category, use the [Update Category by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:POST) endpoint.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->post(null);
+```
+## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->categories()->withKey("key")->delete()`
+
+Deletes a [Category](ctp:api:type:Category) by its `key` in the specified [Store](ctp:api:type:Store).
+
+To delete a global Category, use the [Delete Category by Key](ctp:api:endpoint:/{projectKey}/categories/key={key}:DELETE) endpoint.
+
+If you do not have permissions for a Store the Category is assigned to, an [Unauthorized](ctp:api:type:UnauthorizedError) error is returned.
+
+If the Category does not exist in the Store, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
+
+
+### Example
+```php
+use Commercetools\Api\Client\ApiRequestBuilder;
+
+$builder =  new ApiRequestBuilder();
+$request = $builder
+                ->withProjectKey("projectKey")
+                ->inStoreKeyWithStoreKeyValue("storeKey")
+                ->categories()
+                ->withKey("key")
+                ->delete();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->get()`
 
@@ -6808,6 +7062,10 @@ $request = $builder
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->shippingMethods()->matchingCart()->get()`
 
 Retrieves the active ShippingMethods that can ship to the shipping address of the provided Cart in a [Store](ctp:api:type:Store).
+
+The Cart must belong to the Store specified in the path. If no Cart exists for the given `cartId` in the specified Store, either because the Cart does not exist in the Project or because it exists but does not belong to that Store, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
+
+The results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to the Store specified in the path.
 
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -12041,6 +12299,8 @@ $request = $builder
 
 Retrieves the active ShippingMethods that can ship to the shipping address of the provided Cart.
 
+If the Cart belongs to a [Store](ctp:api:type:Store), the results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to that Store. If the Cart has no Store, only globally scoped ShippingMethods are returned.
+
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
@@ -12076,6 +12336,8 @@ $request = $builder
 
 Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location)
 with a `predicate` that matches the provided Cart.
+
+If the Cart belongs to a [Store](ctp:api:type:Store), the results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to that Store. If the Cart has no Store, only globally scoped ShippingMethods are returned.
 
 Each ShippingMethod contains exactly one ShippingRate with the flag `isMatching` set to `true`. This ShippingRate is used when the ShippingMethod is [added to the Cart](ctp:api:type:CartSetShippingMethodAction).
 
@@ -12114,7 +12376,8 @@ Retrieves the active ShippingMethods that can ship to the provided [Location](ct
 
 The following applies:
 
-- ShippingMethods that have a `predicate` defined are automatically disqualified.
+- ShippingMethods that have a `predicate` defined are included in the results, but the predicate is not evaluated because no Cart is available to evaluate it against. Results are therefore a superset of what any given Cart matches, and using [Set ShippingMethod](ctp:api:type:CartSetShippingMethodAction) with a non-matching ShippingMethod fails with an [InvalidOperation](ctp:api:type:InvalidOperationError) error.
+- Store scoping on ShippingMethods is not applied by this endpoint. The results include all active ShippingMethods that match the location regardless of their `stores` field.
 - If the `currency` parameter is provided, then the ShippingMethods must also have a rate defined in the specified currency.
 - Each ShippingMethod contains at least one ShippingRate with the flag `isMatching` set to `true`.
 - If the `currency` parameter is provided, exactly one ShippingRate will contain it.
@@ -12150,6 +12413,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->shippingMethods()->matchingOrderedit()->get()`
 
 Retrieves the active ShippingMethods that can ship to the provided [Location](ctp:api:type:Location) for an [OrderEdit](ctp:api:type:OrderEdit).
+
+Store scoping is evaluated against the Order that results from applying the OrderEdit's staged actions. If the underlying Order belongs to a [Store](ctp:api:type:Store), the results include globally scoped ShippingMethods (those with an empty `stores` field) and ShippingMethods scoped to that Store. If the underlying Order has no Store, only globally scoped ShippingMethods are returned.
 
 If a matching ShippingMethod has `isDefault` set to `true`, it is returned as the first item in the array.
 

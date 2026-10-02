@@ -43,7 +43,9 @@ final class TypeUpdateActionModel extends JsonObjectModel implements TypeUpdateA
        'changeLocalizedEnumValueLabel' => TypeChangeLocalizedEnumValueLabelActionModel::class,
        'changeLocalizedEnumValueOrder' => TypeChangeLocalizedEnumValueOrderActionModel::class,
        'changeName' => TypeChangeNameActionModel::class,
+       'removeEnumValues' => TypeRemoveEnumValuesActionModel::class,
        'removeFieldDefinition' => TypeRemoveFieldDefinitionActionModel::class,
+       'removeLocalizedEnumValues' => TypeRemoveLocalizedEnumValuesActionModel::class,
        'setDescription' => TypeSetDescriptionActionModel::class,
     ];
 

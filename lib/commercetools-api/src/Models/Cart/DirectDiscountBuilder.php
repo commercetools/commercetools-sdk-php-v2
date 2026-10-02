@@ -43,6 +43,12 @@ final class DirectDiscountBuilder implements Builder
     private $target;
 
     /**
+
+     * @var ?bool
+     */
+    private $participateInBestDealSelection;
+
+    /**
      * <p>Unique identifier of the Direct Discount.</p>
      *
 
@@ -74,6 +80,21 @@ final class DirectDiscountBuilder implements Builder
     public function getTarget()
     {
         return $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, Direct Discounts compete against Product Discounts to apply the <a href="/api/pricing-and-discounts-overview#best-deal">best deal</a>.</li>
+     * <li>If <code>false</code>, Direct Discounts are ignored when calculating the best deal comparison, and are applied on top of the discount type that offers the best deal.</li>
+     * </ul>
+     * <p>This applies only when the <a href="ctp:api:type:DiscountCombinationMode">DiscountCombinationMode</a> for the <a href="ctp:api:type:Project">Project</a> is <code>BestDeal</code>.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getParticipateInBestDealSelection()
+    {
+        return $this->participateInBestDealSelection;
     }
 
     /**
@@ -110,6 +131,17 @@ final class DirectDiscountBuilder implements Builder
     }
 
     /**
+     * @param ?bool $participateInBestDealSelection
+     * @return $this
+     */
+    public function withParticipateInBestDealSelection(?bool $participateInBestDealSelection)
+    {
+        $this->participateInBestDealSelection = $participateInBestDealSelection;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withValue() instead
      * @return $this
      */
@@ -136,7 +168,8 @@ final class DirectDiscountBuilder implements Builder
         return new DirectDiscountModel(
             $this->id,
             $this->value instanceof CartDiscountValueBuilder ? $this->value->build() : $this->value,
-            $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target
+            $this->target instanceof CartDiscountTargetBuilder ? $this->target->build() : $this->target,
+            $this->participateInBestDealSelection
         );
     }
 

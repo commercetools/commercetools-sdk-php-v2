@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Agent\AgentResponsesAuthError;
+use Commercetools\Api\Models\Agent\AgentResponsesAuthErrorModel;
+use Commercetools\Api\Models\Agent\AgentResponsesErrorResponse;
+use Commercetools\Api\Models\Agent\AgentResponsesErrorResponseModel;
 use Commercetools\Api\Models\ProductSearch\ProductSearchErrorResponse;
 use Commercetools\Api\Models\ProductSearch\ProductSearchErrorResponseModel;
 use Commercetools\Base\DateTimeImmutableCollection;

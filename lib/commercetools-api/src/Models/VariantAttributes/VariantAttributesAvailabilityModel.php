@@ -29,6 +29,12 @@ final class VariantAttributesAvailabilityModel extends JsonObjectModel implement
      *
      * @var ?int
      */
+    protected $restockableInDays;
+
+    /**
+     *
+     * @var ?int
+     */
     protected $availableQuantity;
 
     /**
@@ -43,16 +49,18 @@ final class VariantAttributesAvailabilityModel extends JsonObjectModel implement
      */
     public function __construct(
         ?bool $isOnStock = null,
+        ?int $restockableInDays = null,
         ?int $availableQuantity = null,
         ?VariantAttributesChannelAvailabilityMap $channels = null
     ) {
         $this->isOnStock = $isOnStock;
+        $this->restockableInDays = $restockableInDays;
         $this->availableQuantity = $availableQuantity;
         $this->channels = $channels;
     }
 
     /**
-     * <p>Indicates whether the Variant is in stock.</p>
+     * <p>Whether the Variant is in stock.</p>
      *
      *
      * @return null|bool
@@ -69,6 +77,26 @@ final class VariantAttributesAvailabilityModel extends JsonObjectModel implement
         }
 
         return $this->isOnStock;
+    }
+
+    /**
+     * <p>Number of days to restock the Variant once it is out of stock.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        if (is_null($this->restockableInDays)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->restockableInDays = (int) $data;
+        }
+
+        return $this->restockableInDays;
     }
 
     /**
@@ -120,6 +148,14 @@ final class VariantAttributesAvailabilityModel extends JsonObjectModel implement
     public function setIsOnStock(?bool $isOnStock): void
     {
         $this->isOnStock = $isOnStock;
+    }
+
+    /**
+     * @param ?int $restockableInDays
+     */
+    public function setRestockableInDays(?int $restockableInDays): void
+    {
+        $this->restockableInDays = $restockableInDays;
     }
 
     /**

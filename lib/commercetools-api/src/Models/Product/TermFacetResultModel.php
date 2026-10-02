@@ -21,13 +21,13 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
 {
     public const DISCRIMINATOR_VALUE = 'terms';
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $type;
 
     /**
-     *
+     * @deprecated
      * @var ?string
      */
     protected $dataType;
@@ -77,7 +77,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     }
 
     /**
-     *
+     * @deprecated
      * @return null|string
      */
     public function getType()
@@ -97,7 +97,7 @@ final class TermFacetResultModel extends JsonObjectModel implements TermFacetRes
     /**
      * <p>Data type to which the facet is applied.</p>
      *
-     *
+     * @deprecated
      * @return null|string
      */
     public function getDataType()

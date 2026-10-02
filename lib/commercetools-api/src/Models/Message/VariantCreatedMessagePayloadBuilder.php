@@ -11,6 +11,8 @@ namespace Commercetools\Api\Models\Message;
 use Commercetools\Api\Models\Common\AssetCollection;
 use Commercetools\Api\Models\Common\ImageCollection;
 use Commercetools\Api\Models\Product\AttributeCollection;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -25,15 +27,15 @@ final class VariantCreatedMessagePayloadBuilder implements Builder
 {
     /**
 
-     * @var ?string
+     * @var null|ProductReference|ProductReferenceBuilder
      */
-    private $id;
+    private $product;
 
     /**
 
      * @var ?string
      */
-    private $productId;
+    private $id;
 
     /**
 
@@ -78,6 +80,17 @@ final class VariantCreatedMessagePayloadBuilder implements Builder
     private $publish;
 
     /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
+    }
+
+    /**
      * <p>Unique identifier of the Variant.</p>
      *
 
@@ -86,17 +99,6 @@ final class VariantCreatedMessagePayloadBuilder implements Builder
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * <p>Unique identifier of the Product to which the Variant belongs.</p>
-     *
-
-     * @return null|string
-     */
-    public function getProductId()
-    {
-        return $this->productId;
     }
 
     /**
@@ -177,23 +179,23 @@ final class VariantCreatedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
+     * @return $this
+     */
+    public function withProduct(?ProductReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $id
      * @return $this
      */
     public function withId(?string $id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * @param ?string $productId
-     * @return $this
-     */
-    public function withProductId(?string $productId)
-    {
-        $this->productId = $productId;
 
         return $this;
     }
@@ -275,12 +277,22 @@ final class VariantCreatedMessagePayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
 
     public function build(): VariantCreatedMessagePayload
     {
         return new VariantCreatedMessagePayloadModel(
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->id,
-            $this->productId,
             $this->variantId,
             $this->key,
             $this->sku,

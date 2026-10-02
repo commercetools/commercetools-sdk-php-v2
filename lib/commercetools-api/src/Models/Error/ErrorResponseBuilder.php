@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Error;
 
+use Commercetools\Api\Models\Agent\AgentResponsesAuthError;
+use Commercetools\Api\Models\Agent\AgentResponsesAuthErrorBuilder;
+use Commercetools\Api\Models\Agent\AgentResponsesErrorResponse;
+use Commercetools\Api\Models\Agent\AgentResponsesErrorResponseBuilder;
 use Commercetools\Api\Models\ProductSearch\ProductSearchErrorResponse;
 use Commercetools\Api\Models\ProductSearch\ProductSearchErrorResponseBuilder;
 use Commercetools\Base\Builder;

@@ -110,6 +110,8 @@ use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDeliveryItemsActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDirectDiscountsAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetDirectDiscountsActionBuilder;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDirectDiscountsIgnoreCartDiscountsAction;
+use Commercetools\Api\Models\OrderEdit\StagedOrderSetDirectDiscountsIgnoreCartDiscountsActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldAction;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomFieldActionBuilder;
 use Commercetools\Api\Models\OrderEdit\StagedOrderSetItemShippingAddressCustomTypeAction;

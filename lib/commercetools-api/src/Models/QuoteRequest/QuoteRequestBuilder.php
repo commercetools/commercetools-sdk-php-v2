@@ -233,6 +233,12 @@ final class QuoteRequestBuilder implements Builder
 
     /**
 
+     * @var ?bool
+     */
+    private $directDiscountsIgnoreCartDiscounts;
+
+    /**
+
      * @var null|CustomFields|CustomFieldsBuilder
      */
     private $custom;
@@ -587,6 +593,20 @@ final class QuoteRequestBuilder implements Builder
     public function getDirectDiscounts()
     {
         return $this->directDiscounts;
+    }
+
+    /**
+     * <ul>
+     * <li>If <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Quote Request. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Quote Request.</li>
+     * </ul>
+     *
+
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        return $this->directDiscountsIgnoreCartDiscounts;
     }
 
     /**
@@ -966,6 +986,17 @@ final class QuoteRequestBuilder implements Builder
     }
 
     /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     * @return $this
+     */
+    public function withDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts)
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
+
+        return $this;
+    }
+
+    /**
      * @param ?CustomFields $custom
      * @return $this
      */
@@ -1228,6 +1259,7 @@ final class QuoteRequestBuilder implements Builder
             $this->shippingRateInput instanceof ShippingRateInputBuilder ? $this->shippingRateInput->build() : $this->shippingRateInput,
             $this->itemShippingAddresses,
             $this->directDiscounts,
+            $this->directDiscountsIgnoreCartDiscounts,
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->state instanceof StateReferenceBuilder ? $this->state->build() : $this->state,
             $this->purchaseOrderNumber,

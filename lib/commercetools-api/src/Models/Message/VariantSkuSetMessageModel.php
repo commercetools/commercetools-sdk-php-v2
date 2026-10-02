@@ -14,6 +14,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -95,6 +97,12 @@ final class VariantSkuSetMessageModel extends JsonObjectModel implements Variant
 
     /**
      *
+     * @var ?ProductReference
+     */
+    protected $product;
+
+    /**
+     *
      * @var ?string
      */
     protected $sku;
@@ -126,6 +134,7 @@ final class VariantSkuSetMessageModel extends JsonObjectModel implements Variant
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?ProductReference $product = null,
         ?string $sku = null,
         ?string $oldSku = null,
         ?bool $staged = null,
@@ -141,6 +150,7 @@ final class VariantSkuSetMessageModel extends JsonObjectModel implements Variant
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->product = $product;
         $this->sku = $sku;
         $this->oldSku = $oldSku;
         $this->staged = $staged;
@@ -381,6 +391,27 @@ final class VariantSkuSetMessageModel extends JsonObjectModel implements Variant
     }
 
     /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
+    /**
      * <p>The SKU that was set on the Variant.</p>
      *
      *
@@ -519,6 +550,14 @@ final class VariantSkuSetMessageModel extends JsonObjectModel implements Variant
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
     }
 
     /**

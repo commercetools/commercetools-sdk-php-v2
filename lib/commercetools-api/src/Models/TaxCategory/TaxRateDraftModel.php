@@ -61,6 +61,12 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
      */
     protected $key;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $taxRoundingTarget;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -72,7 +78,8 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         ?string $country = null,
         ?string $state = null,
         ?SubRateCollection $subRates = null,
-        ?string $key = null
+        ?string $key = null,
+        ?string $taxRoundingTarget = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
@@ -81,6 +88,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         $this->state = $state;
         $this->subRates = $subRates;
         $this->key = $key;
+        $this->taxRoundingTarget = $taxRoundingTarget;
     }
 
     /**
@@ -168,6 +176,7 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     /**
      * <p>State within the country, such as Texas in the United States.
      * The value is case-sensitive and must use the same casing as the <code>state</code> value in the Cart <code>shippingAddress</code>. Empty strings are treated as if <code>state</code> was omitted.</p>
+     * <p>If <code>state</code> is omitted, the resulting TaxRate does <strong>not</strong> act as a wildcard: it only matches a Cart whose <code>shippingAddress</code> also has no <code>state</code> value. To apply the same rate across states, either define an individual TaxRate for each state, or use the <code>region</code> field or a Custom Field on the shipping address as described in <a href="/learning-model-your-business-structure/model-your-taxes/tax-categories-and-tax-rates#address-matching">Address matching</a>.</p>
      * <p>If the provided combination of <code>country</code> and <code>state</code> exists for the TaxCategory, a <a href="ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
      *
      *
@@ -229,6 +238,26 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
         return $this->key;
     }
 
+    /**
+     * <p>Determines whether the <code>taxRoundingMode</code> of the Cart or Order is applied to the net price or the tax amount when this TaxRate is included in the price. The field is ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTaxRoundingTarget()
+    {
+        if (is_null($this->taxRoundingTarget)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRoundingTarget = (string) $data;
+        }
+
+        return $this->taxRoundingTarget;
+    }
+
 
     /**
      * @param ?string $name
@@ -284,5 +313,13 @@ final class TaxRateDraftModel extends JsonObjectModel implements TaxRateDraft
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param ?string $taxRoundingTarget
+     */
+    public function setTaxRoundingTarget(?string $taxRoundingTarget): void
+    {
+        $this->taxRoundingTarget = $taxRoundingTarget;
     }
 }

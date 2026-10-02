@@ -56,6 +56,12 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
      */
     protected $subRates;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $taxRoundingTarget;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -66,7 +72,8 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         ?bool $includedInPrice = null,
         ?string $country = null,
         ?string $state = null,
-        ?SubRateCollection $subRates = null
+        ?SubRateCollection $subRates = null,
+        ?string $taxRoundingTarget = null
     ) {
         $this->name = $name;
         $this->amount = $amount;
@@ -74,6 +81,7 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         $this->country = $country;
         $this->state = $state;
         $this->subRates = $subRates;
+        $this->taxRoundingTarget = $taxRoundingTarget;
     }
 
     /**
@@ -204,6 +212,26 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
         return $this->subRates;
     }
 
+    /**
+     * <p>Determines whether the <code>taxRoundingMode</code> of the Cart or Order is applied to the net price or the tax amount when <code>includedInPrice</code> is <code>true</code>. The field is ignored if <code>includedInPrice</code> is <code>false</code>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getTaxRoundingTarget()
+    {
+        if (is_null($this->taxRoundingTarget)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_TAX_ROUNDING_TARGET);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->taxRoundingTarget = (string) $data;
+        }
+
+        return $this->taxRoundingTarget;
+    }
+
 
     /**
      * @param ?string $name
@@ -251,5 +279,13 @@ final class ExternalTaxRateDraftModel extends JsonObjectModel implements Externa
     public function setSubRates(?SubRateCollection $subRates): void
     {
         $this->subRates = $subRates;
+    }
+
+    /**
+     * @param ?string $taxRoundingTarget
+     */
+    public function setTaxRoundingTarget(?string $taxRoundingTarget): void
+    {
+        $this->taxRoundingTarget = $taxRoundingTarget;
     }
 }

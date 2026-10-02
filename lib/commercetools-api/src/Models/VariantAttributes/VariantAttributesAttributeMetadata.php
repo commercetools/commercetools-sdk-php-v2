@@ -28,7 +28,7 @@ interface VariantAttributesAttributeMetadata extends JsonObject
 
     /**
      * <p>Localized label of the Attribute as defined in the <a href="ctp:api:type:ProductType">ProductType</a>.
-     * Subject to <a href="/../api/projects/productProjections#locales">locale projection</a> if <code>localeProjection</code> is specified.</p>
+     * Subject to <a href="/api/projects/productProjections#locales">locale projection</a> if <code>localeProjection</code> is specified.</p>
      *
 
      * @return null|LocalizedString

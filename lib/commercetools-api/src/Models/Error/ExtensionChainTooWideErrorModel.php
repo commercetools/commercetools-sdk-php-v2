@@ -63,7 +63,7 @@ final class ExtensionChainTooWideErrorModel extends JsonObjectModel implements E
     }
 
     /**
-     * <p><code>&quot;Extension chain breadth exceeds the maximum allowed breadth of 5&quot;</code></p>
+     * <p><code>&quot;Extension chain breadth exceeds the maximum allowed breadth of 5.&quot;</code></p>
      *
      *
      * @return null|string

@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByBuilder;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceBuilder;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -87,6 +89,12 @@ final class VariantImagesSetMessageBuilder implements Builder
      * @var null|UserProvidedIdentifiers|UserProvidedIdentifiersBuilder
      */
     private $resourceUserProvidedIdentifiers;
+
+    /**
+
+     * @var null|ProductReference|ProductReferenceBuilder
+     */
+    private $product;
 
     /**
 
@@ -215,6 +223,17 @@ final class VariantImagesSetMessageBuilder implements Builder
     public function getResourceUserProvidedIdentifiers()
     {
         return $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
     }
 
     /**
@@ -361,6 +380,17 @@ final class VariantImagesSetMessageBuilder implements Builder
     }
 
     /**
+     * @param ?ProductReference $product
+     * @return $this
+     */
+    public function withProduct(?ProductReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
      * @param ?ImageCollection $images
      * @return $this
      */
@@ -437,6 +467,17 @@ final class VariantImagesSetMessageBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
     public function build(): VariantImagesSetMessage
     {
         return new VariantImagesSetMessageModel(
@@ -450,6 +491,7 @@ final class VariantImagesSetMessageBuilder implements Builder
             $this->resource instanceof ReferenceBuilder ? $this->resource->build() : $this->resource,
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->images,
             $this->oldImages,
             $this->staged

@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Channel\ChannelResourceIdentifier;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\PriceDraft;
@@ -26,6 +27,7 @@ interface LineItemImportDraft extends JsonObject
     public const FIELD_QUANTITY = 'quantity';
     public const FIELD_PRICE = 'price';
     public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_DISTRIBUTION_CHANNEL = 'distributionChannel';
     public const FIELD_SUPPLY_CHANNEL = 'supplyChannel';
     public const FIELD_INVENTORY_MODE = 'inventoryMode';
@@ -83,12 +85,21 @@ interface LineItemImportDraft extends JsonObject
     public function getPrice();
 
     /**
-     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Line Item if <code>taxedPrice</code> is not provided.</p>
      *
 
      * @return null|TaxRate
      */
     public function getTaxRate();
+
+    /**
+     * <p>Taxed price of the Line Item. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:LineItem">LineItem</a> instead of being derived from <code>price</code>, <code>quantity</code>, and <code>taxRate</code>.</p>
+     * <p>Can only be set if <code>taxRate</code> is also set.</p>
+     *
+
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice();
 
     /**
      * <p>The Channel used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select a Price</a>.
@@ -176,6 +187,11 @@ interface LineItemImportDraft extends JsonObject
      * @param ?TaxRate $taxRate
      */
     public function setTaxRate(?TaxRate $taxRate): void;
+
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
 
     /**
      * @param ?ChannelResourceIdentifier $distributionChannel

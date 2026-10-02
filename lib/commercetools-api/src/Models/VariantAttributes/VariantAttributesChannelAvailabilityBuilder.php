@@ -30,10 +30,16 @@ final class VariantAttributesChannelAvailabilityBuilder implements Builder
 
      * @var ?int
      */
+    private $restockableInDays;
+
+    /**
+
+     * @var ?int
+     */
     private $availableQuantity;
 
     /**
-     * <p>Indicates whether the Variant is in stock in the specified <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Whether the Variant is in stock in the specified <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
 
      * @return null|bool
@@ -41,6 +47,17 @@ final class VariantAttributesChannelAvailabilityBuilder implements Builder
     public function getIsOnStock()
     {
         return $this->isOnStock;
+    }
+
+    /**
+     * <p>Number of days to restock the Variant once it is out of stock in the specified <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
+
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        return $this->restockableInDays;
     }
 
     /**
@@ -66,6 +83,17 @@ final class VariantAttributesChannelAvailabilityBuilder implements Builder
     }
 
     /**
+     * @param ?int $restockableInDays
+     * @return $this
+     */
+    public function withRestockableInDays(?int $restockableInDays)
+    {
+        $this->restockableInDays = $restockableInDays;
+
+        return $this;
+    }
+
+    /**
      * @param ?int $availableQuantity
      * @return $this
      */
@@ -81,6 +109,7 @@ final class VariantAttributesChannelAvailabilityBuilder implements Builder
     {
         return new VariantAttributesChannelAvailabilityModel(
             $this->isOnStock,
+            $this->restockableInDays,
             $this->availableQuantity
         );
     }

@@ -9,6 +9,8 @@ declare(strict_types=1);
 namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\ImageCollection;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -26,6 +28,12 @@ final class VariantImagesSetMessagePayloadModel extends JsonObjectModel implemen
      * @var ?string
      */
     protected $type;
+
+    /**
+     *
+     * @var ?ProductReference
+     */
+    protected $product;
 
     /**
      *
@@ -50,11 +58,13 @@ final class VariantImagesSetMessagePayloadModel extends JsonObjectModel implemen
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?ProductReference $product = null,
         ?ImageCollection $images = null,
         ?ImageCollection $oldImages = null,
         ?bool $staged = null,
         ?string $type = null
     ) {
+        $this->product = $product;
         $this->images = $images;
         $this->oldImages = $oldImages;
         $this->staged = $staged;
@@ -77,6 +87,27 @@ final class VariantImagesSetMessagePayloadModel extends JsonObjectModel implemen
         }
 
         return $this->type;
+    }
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
     }
 
     /**
@@ -139,6 +170,14 @@ final class VariantImagesSetMessagePayloadModel extends JsonObjectModel implemen
         return $this->staged;
     }
 
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
+    }
 
     /**
      * @param ?ImageCollection $images

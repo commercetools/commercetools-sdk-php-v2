@@ -93,7 +93,7 @@ final class VariantReferenceModel extends JsonObjectModel implements VariantRefe
     }
 
     /**
-     * <p>Contains the representation of the expanded Variant. Only present in responses to requests with <a href="/../api/general-concepts#reference-expansion">Reference Expansion</a> for Variants.</p>
+     * <p>Contains the representation of the expanded Variant. Only present in responses to requests with <a href="/api/general-concepts#reference-expansion">Reference Expansion</a> for Variants.</p>
      *
      *
      * @return null|Variant

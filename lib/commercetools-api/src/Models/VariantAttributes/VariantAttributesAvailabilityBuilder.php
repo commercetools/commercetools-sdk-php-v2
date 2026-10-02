@@ -30,6 +30,12 @@ final class VariantAttributesAvailabilityBuilder implements Builder
 
      * @var ?int
      */
+    private $restockableInDays;
+
+    /**
+
+     * @var ?int
+     */
     private $availableQuantity;
 
     /**
@@ -39,7 +45,7 @@ final class VariantAttributesAvailabilityBuilder implements Builder
     private $channels;
 
     /**
-     * <p>Indicates whether the Variant is in stock.</p>
+     * <p>Whether the Variant is in stock.</p>
      *
 
      * @return null|bool
@@ -47,6 +53,17 @@ final class VariantAttributesAvailabilityBuilder implements Builder
     public function getIsOnStock()
     {
         return $this->isOnStock;
+    }
+
+    /**
+     * <p>Number of days to restock the Variant once it is out of stock.</p>
+     *
+
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        return $this->restockableInDays;
     }
 
     /**
@@ -79,6 +96,17 @@ final class VariantAttributesAvailabilityBuilder implements Builder
     public function withIsOnStock(?bool $isOnStock)
     {
         $this->isOnStock = $isOnStock;
+
+        return $this;
+    }
+
+    /**
+     * @param ?int $restockableInDays
+     * @return $this
+     */
+    public function withRestockableInDays(?int $restockableInDays)
+    {
+        $this->restockableInDays = $restockableInDays;
 
         return $this;
     }
@@ -120,6 +148,7 @@ final class VariantAttributesAvailabilityBuilder implements Builder
     {
         return new VariantAttributesAvailabilityModel(
             $this->isOnStock,
+            $this->restockableInDays,
             $this->availableQuantity,
             $this->channels instanceof VariantAttributesChannelAvailabilityMapBuilder ? $this->channels->build() : $this->channels
         );

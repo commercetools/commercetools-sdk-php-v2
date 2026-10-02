@@ -21,7 +21,7 @@ use stdClass;
 final class TermFacetResultBuilder implements Builder
 {
     /**
-
+     * @deprecated
      * @var ?string
      */
     private $dataType;
@@ -53,7 +53,7 @@ final class TermFacetResultBuilder implements Builder
     /**
      * <p>Data type to which the facet is applied.</p>
      *
-
+     * @deprecated
      * @return null|string
      */
     public function getDataType()

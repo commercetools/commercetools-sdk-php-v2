@@ -155,6 +155,28 @@ class ResourceByProjectKeyByResourceTypeTest extends TestCase
                 'get',
                 'test_projectKey/test_resourceType?userId=userId',
             ],
+            'ByProjectKeyByResourceTypeGet_withUserIds' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withUserIds('userIds');
+                },
+                'get',
+                'test_projectKey/test_resourceType?userIds=userIds',
+            ],
+            'ByProjectKeyByResourceTypeGet_withResourceIds' => [
+                function (HistoryRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKeyValue('test_projectKey')
+                        ->withResourceTypeValue('test_resourceType')
+                        ->get()
+                        ->withResourceIds('resourceIds');
+                },
+                'get',
+                'test_projectKey/test_resourceType?resourceIds=resourceIds',
+            ],
             'ByProjectKeyByResourceTypeGet_withClientId' => [
                 function (HistoryRequestBuilder $builder): RequestInterface {
                     return $builder

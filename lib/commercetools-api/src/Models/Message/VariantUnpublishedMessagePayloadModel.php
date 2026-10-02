@@ -65,7 +65,7 @@ final class VariantUnpublishedMessagePayloadModel extends JsonObjectModel implem
     }
 
     /**
-     * <p>Reference to the Product containing the Variant that was unpublished.</p>
+     * <p>Reference to the Product containing the Variant.</p>
      *
      *
      * @return null|ProductReference

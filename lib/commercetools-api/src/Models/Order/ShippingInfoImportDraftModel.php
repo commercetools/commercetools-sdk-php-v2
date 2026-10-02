@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\Common\MoneyModel;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
@@ -55,6 +57,12 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
 
     /**
      *
+     * @var ?TaxedPriceDraft
+     */
+    protected $taxedPrice;
+
+    /**
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
@@ -92,6 +100,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
         ?Money $price = null,
         ?ShippingRateDraft $shippingRate = null,
         ?TaxRate $taxRate = null,
+        ?TaxedPriceDraft $taxedPrice = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?ShippingMethodResourceIdentifier $shippingMethod = null,
         ?DeliveryDraftCollection $deliveries = null,
@@ -102,6 +111,7 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
         $this->price = $price;
         $this->shippingRate = $shippingRate;
         $this->taxRate = $taxRate;
+        $this->taxedPrice = $taxedPrice;
         $this->taxCategory = $taxCategory;
         $this->shippingMethod = $shippingMethod;
         $this->deliveries = $deliveries;
@@ -190,6 +200,27 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
         }
 
         return $this->taxRate;
+    }
+
+    /**
+     * <p>Taxed price of the Shipping Method. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> instead of being derived from <code>price</code> and <code>taxRate</code>.</p>
+     *
+     *
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice()
+    {
+        if (is_null($this->taxedPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxedPrice = TaxedPriceDraftModel::of($data);
+        }
+
+        return $this->taxedPrice;
     }
 
     /**
@@ -326,6 +357,14 @@ final class ShippingInfoImportDraftModel extends JsonObjectModel implements Ship
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
+    }
+
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
+    {
+        $this->taxedPrice = $taxedPrice;
     }
 
     /**
