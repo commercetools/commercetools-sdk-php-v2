@@ -211,7 +211,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
+<p>Set to <code>false</code>, if the StandalonePrice should not be considered during <a href="../..//api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#ab22987145f8543f2c5e5d78f69b1c5c7">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>.</p>
@@ -233,6 +233,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Sets the product distribution <a href="../../ctp:api:type:Channel">Channel</a> for which this Price is valid.</p>
+<p>If the referenced Channel does not contain the <code>ProductDistribution</code> role, a <a href="../../ctp:api:type:MissingRoleOnChannelError">MissingRoleOnChannel</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#aef88908662d20ac0ac544b980eb6faa7">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>.</p>
@@ -338,6 +339,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the StandalonePrice.</p>
+<p>If the value is used by another Standalone Price, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#af032addf49f5dbf528d6dd008ce629eb">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>.</p>
@@ -464,7 +466,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the date until the Price is valid. Must be at least 1 ms later than <code>validFrom</code>. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="../..//../api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
+<p>Sets the date until the Price is valid. Must be at least 1 ms later than <code>validFrom</code>. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="../..//api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../db/d24/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_draft_model.html#a81126013be84517ee4bb4a7e0cd39045">Commercetools\Api\Models\StandalonePrice\StandalonePriceDraftModel</a>.</p>

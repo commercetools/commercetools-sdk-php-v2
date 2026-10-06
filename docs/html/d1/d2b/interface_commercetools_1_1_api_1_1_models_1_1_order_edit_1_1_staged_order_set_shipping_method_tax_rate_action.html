@@ -147,7 +147,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Value to set. If empty, any existing value is removed.</p>
+<p>Value to set. If omitted, any existing value is removed.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ExternalTaxRateDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d24/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_shipping_method_tax_rate_action_model.html#aac5493fdba8a8dee29ca4af9d1433946">Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxRateActionModel</a>.</p>
@@ -168,7 +168,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>key</code> of the <a href="../../ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required for Orders with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+<p><code>key</code> of the <a href="../../ctp:api:type:ShippingMethod">ShippingMethod</a> to update. This is required and valid only for Orders with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>. An <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned if <code>shippingKey</code> is provided for Orders with <code>Single</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>, or omitted for Orders with <code>Multiple</code> <a href="../../ctp:api:type:ShippingMode">ShippingMode</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d24/class_commercetools_1_1_api_1_1_models_1_1_order_edit_1_1_staged_order_set_shipping_method_tax_rate_action_model.html#a796cbd306c4ae2450c6fcf7986b55829">Commercetools\Api\Models\OrderEdit\StagedOrderSetShippingMethodTaxRateActionModel</a>.</p>

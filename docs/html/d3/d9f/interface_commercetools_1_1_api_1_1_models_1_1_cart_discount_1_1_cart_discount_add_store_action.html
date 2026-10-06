@@ -142,13 +142,8 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><a href="../../ctp:api:type:Store">Store</a> to add.</p>
-<p>A failed update can return the following errors:</p>
-<ul>
-<li>
-If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned. </li>
-<li>
-If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned. </li>
-</ul>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../df/db8/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_add_store_action_model.html#a4526acb430f6917a95666ec8ccc7271c">Commercetools\Api\Models\CartDiscount\CartDiscountAddStoreActionModel</a>.</p>

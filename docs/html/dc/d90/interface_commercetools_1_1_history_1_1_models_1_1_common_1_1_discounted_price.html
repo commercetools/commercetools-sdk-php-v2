@@ -161,6 +161,12 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Money value of the discounted price.</p>
+<ul>
+<li>
+When a <a href="../../ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> applies and the fractional part of the resulting discounted price is 0.5, the discounted price is <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">rounded half down</a>. </li>
+<li>
+When an <a href="../../ctp:api:type:ProductDiscountValueAbsolute">absolute Product Discount</a> exceeds the price of the Product Variant, the resulting discounted price is set to <code>0</code>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/daa/class_commercetools_1_1_history_1_1_models_1_1_common_1_1_discounted_price_model.html#a0cb737b848cba653657f09a4c7c98c6d">Commercetools\History\Models\Common\DiscountedPriceModel</a>.</p>

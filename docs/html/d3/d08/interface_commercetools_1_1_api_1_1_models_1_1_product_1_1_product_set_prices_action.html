@@ -159,7 +159,10 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Embedded Prices to set. Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+<p>The Embedded Prices to set.</p>
+<p>If any two Embedded Prices in this array have the same key, a <a href="../../ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
+<p>If any two Embedded Prices in this array have the same price scope, a <a href="../../ctp:api:type:DuplicatePriceScopeError">DuplicatePriceScope</a> error is returned.</p>
+<p>If any two Embedded Prices in this array have overlapping validity periods within the same price scope, an <a href="../../ctp:api:type:OverlappingPriceValidityError">OverlappingPriceValidity</a> error is returned. An Embedded Price without validity period does not conflict with an Embedded Price defined for a time period.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceDraftCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d15/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action_model.html#a669e0067a5bc8de66cd0159cba83e5f1">Commercetools\Api\Models\Product\ProductSetPricesActionModel</a>.</p>
@@ -201,7 +204,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
+<p>Whether only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d1/d15/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action_model.html#ae664985623ad9c0ca233020d1d8eeb2c">Commercetools\Api\Models\Product\ProductSetPricesActionModel</a>.</p>

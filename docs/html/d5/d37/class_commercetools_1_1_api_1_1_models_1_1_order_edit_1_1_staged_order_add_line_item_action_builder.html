@@ -213,7 +213,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) the Product Variant is added to the Cart. If not set, it defaults to the current date and time.</p>
+<p>Date and time (UTC) the Product Variant was added to the Cart. If not set, it defaults to the current date and time.</p>
 <p>Optional for backwards compatibility reasons.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
@@ -256,7 +256,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The Channel must have the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>. If the Cart is bound to a <a href="../../ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
+<p>Used to <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The Channel must have the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>. If the Cart is bound to a <a href="../../ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00210">210</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -362,7 +362,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the LineItem.</p>
+<p>User-defined identifier of the LineItem. Must be unique among LineItems in the StagedOrder.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00136">136</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -490,7 +490,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to identify <a href="../..//../api/projects/inventory">Inventory entries</a> that must be reserved. The Channel must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to identify <a href="../..//api/projects/inventory">Inventory entries</a> that must be reserved. The Channel must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00222">222</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -511,7 +511,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> in the Product. If not provided, the Master Variant is used.</p>
+<p><code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> in the Product. If omitted, the Master Variant is used.</p>
 <p>Either the <code>productId</code> and <code>variantId</code>, or <code>sku</code> must be provided.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
@@ -615,7 +615,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002790">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002999">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00541">541</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -664,7 +664,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002784">Deprecated:</a></b></dt><dd>use withDistributionChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002993">Deprecated:</a></b></dt><dd>use withDistributionChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00475">475</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -713,7 +713,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002786">Deprecated:</a></b></dt><dd>use withExternalPrice() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002995">Deprecated:</a></b></dt><dd>use withExternalPrice() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00497">497</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -762,7 +762,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002788">Deprecated:</a></b></dt><dd>use withExternalTaxRate() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002997">Deprecated:</a></b></dt><dd>use withExternalTaxRate() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00519">519</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -811,7 +811,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002787">Deprecated:</a></b></dt><dd>use withExternalTotalPrice() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002996">Deprecated:</a></b></dt><dd>use withExternalTotalPrice() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00508">508</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -968,7 +968,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002791">Deprecated:</a></b></dt><dd>use withRecurrenceInfo() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003000">Deprecated:</a></b></dt><dd>use withRecurrenceInfo() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00552">552</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -1017,7 +1017,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002789">Deprecated:</a></b></dt><dd>use withShippingDetails() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002998">Deprecated:</a></b></dt><dd>use withShippingDetails() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00530">530</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>
@@ -1093,7 +1093,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002785">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated002994">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html#l00486">486</a> of file <a class="el" href="../../db/d23/_staged_order_add_line_item_action_builder_8php_source.html">StagedOrderAddLineItemActionBuilder.php</a>.</p>

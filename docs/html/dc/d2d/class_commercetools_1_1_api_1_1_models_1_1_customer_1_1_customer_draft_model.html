@@ -599,7 +599,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Deprecated since an anonymous <a href="../../ctp:api:type:Cart">Cart</a> can be identified by its <code>id</code> or external <code>key</code>.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000632">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000663">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -775,7 +775,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
       </table>
 </div><div class="memdoc">
 <p>Customer Groups to assign the Customer to.</p>
-<p>Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+<p>Used for <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupAssignmentDraftCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -896,7 +896,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Email address of the Customer that must be <a href="../..//../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to. It is the mandatory unique identifier of a Customer.</p>
+<p>Email address of the Customer that must be <a href="../..//api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to. It is the mandatory unique identifier of a Customer.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -968,7 +968,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set to <code>true</code> if the email address of the Customer has been verified already. The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
+<p>Whether the email address of the Customer has been verified already. The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
@@ -993,7 +993,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the Customer. The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
-<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="../..//../api/import-export/overview">Import API</a>.</p>
+<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="../..//api/import-export/overview">Import API</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -1164,9 +1164,9 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 <p>Sets the <a href="../../ctp:api:type:Store">Stores</a> for the Customer.</p>
 <ul>
 <li>
-If no Stores are specified, the Customer is a global customer, and can log in using the <a href="../..//../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>. </li>
+If no Stores are specified, the Customer is a global customer, and can log in using the <a href="../..//api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>. </li>
 <li>
-If any Stores are specified, the Customer can only log in using the <a href="../..//../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores. </li>
+If any Stores are specified, the Customer can only log in using the <a href="../..//api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifierCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>

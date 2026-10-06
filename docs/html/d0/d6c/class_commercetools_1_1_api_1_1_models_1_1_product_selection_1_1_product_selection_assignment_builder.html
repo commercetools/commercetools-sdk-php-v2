@@ -204,7 +204,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Defines which particular Variants of the Product are excluded from the Product Selection. If undefined all Variants of the referenced Product are excluded.</p>
-<p>This field is only available for assignments to a Product Selection with <code>IndividualExclusion</code> <a href="../../ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>. The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
+<p>This field is only available for assignments to a Product Selection with <code>IndividualExclusion</code> <a href="../../ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>. The list of SKUs will be updated automatically on any published change of those performed on the respective Product itself. Staged changes do not affect this field.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantExclusion </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html#l00094">94</a> of file <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html">ProductSelectionAssignmentBuilder.php</a>.</p>
@@ -226,7 +226,7 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Defines which particular Variants of the Product are included in the Product Selection. If undefined all Variants of the referenced Product are included.</p>
-<p>This field is only available for assignments to a Product Selection with <code>Individual</code> <a href="../../ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>. The list of SKUs will be updated automatically on any change of those performed on the respective Product itself.</p>
+<p>This field is only available for assignments to a Product Selection with <code>Individual</code> <a href="../../ctp:api:type:ProductSelectionMode">ProductSelectionMode</a>. The list of SKUs will be updated automatically on any published change of those performed on the respective Product itself. Staged changes do not affect this field.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantSelection </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html#l00080">80</a> of file <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html">ProductSelectionAssignmentBuilder.php</a>.</p>
@@ -302,7 +302,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003071">Deprecated:</a></b></dt><dd>use withProduct() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003301">Deprecated:</a></b></dt><dd>use withProduct() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html#l00147">147</a> of file <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html">ProductSelectionAssignmentBuilder.php</a>.</p>
@@ -351,7 +351,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003072">Deprecated:</a></b></dt><dd>use withProductSelection() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003302">Deprecated:</a></b></dt><dd>use withProductSelection() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html#l00158">158</a> of file <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html">ProductSelectionAssignmentBuilder.php</a>.</p>
@@ -400,7 +400,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003074">Deprecated:</a></b></dt><dd>use withVariantExclusion() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003304">Deprecated:</a></b></dt><dd>use withVariantExclusion() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html#l00180">180</a> of file <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html">ProductSelectionAssignmentBuilder.php</a>.</p>
@@ -449,7 +449,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003073">Deprecated:</a></b></dt><dd>use withVariantSelection() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003303">Deprecated:</a></b></dt><dd>use withVariantSelection() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html#l00169">169</a> of file <a class="el" href="../../dc/dd8/commercetools-api_2src_2_models_2_product_selection_2_product_selection_assignment_builder_8php_source.html">ProductSelectionAssignmentBuilder.php</a>.</p>

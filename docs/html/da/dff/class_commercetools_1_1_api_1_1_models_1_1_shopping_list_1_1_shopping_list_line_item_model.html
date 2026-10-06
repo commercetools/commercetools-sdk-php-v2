@@ -388,7 +388,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If the Product or Product Variant is deleted, <code>deactivatedAt</code> is the date and time (UTC) of deletion.</p>
+<p>If the Product or Product Variant is deleted or unpublished, <code>deactivatedAt</code> is the date and time (UTC) this occurred.</p>
 <p>This data is updated in an <a href="../..//general-concepts#eventual-consistency">eventual consistent manner</a> when the Product Variant cannot be ordered anymore.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 <p>@psalm-var ?string $data</p>
@@ -517,7 +517,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#ab5c37c31402330e3e5c4b1f9959accc0">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00406">406</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00407">407</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -615,7 +615,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#abd059bb18121dd5b76f50dbfaceeddb0">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00384">384</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00385">385</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -634,12 +634,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> the ShoppingListLineItem refers to. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+<p>For a Project with <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> set to <code>Modular</code>, when <code>variantId</code> is not set, the ShoppingListLineItem refers to the Product's default <a href="../../ctp:api:type:Variant">Variant</a> (<code>defaultVariant</code>) instead of the Master Variant. If no default Variant is set, the ShoppingListLineItem refers to the Variant with the lowest <code>variantId</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#afea8abf6cb84c44226980865a7e7dfba">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00363">363</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00364">364</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -660,7 +661,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../dd/dc2/class_commercetools_1_1_base_1_1_base_json_object.html#a96e992c3a9ef593f3214ea9cbeda88c5">Commercetools\Base\BaseJsonObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00528">528</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00529">529</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -688,7 +689,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#abbcb73b68fa0f4c50fa08fcf82d8b007">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00425">425</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00426">426</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -716,7 +717,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a7dca799a5828de729ee4b64211746f01">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00433">433</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00434">434</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -744,7 +745,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#aaeea34461e38b2fc5f74565829f4fe4d">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00441">441</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00442">442</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -772,7 +773,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a32c94c7b7390536d3628fb54c06e6ccc">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00449">449</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00450">450</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -800,7 +801,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a5b5cd66009fdcc1977016697d4dc7ce0">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00457">457</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00458">458</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -828,7 +829,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a283de4c0a3546bcf59dec84791a8ccc6">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00465">465</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00466">466</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -856,7 +857,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#add8486f1a317040750479ad77229ae0d">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00473">473</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00474">474</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -884,7 +885,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a27ff0a2c6626172b4acb04e5673a073e">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00521">521</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00522">522</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -912,7 +913,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a03ed7b7b604a17f021f13ad562cfb522">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00481">481</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00482">482</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -940,7 +941,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a0146b7344f2121c930eae3b616dafaca">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00489">489</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00490">490</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -968,7 +969,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a0c257b55728b9f869517be4d15caaee0">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00497">497</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00498">498</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -996,7 +997,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a1dd56f75f761b1b6aad26962130b6d29">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00513">513</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00514">514</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +1025,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d2/d0d/interface_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item.html#a4f70e8953e389b19f6c59e3a6cb92b6f">Commercetools\Api\Models\ShoppingList\ShoppingListLineItem</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00505">505</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html#l00506">506</a> of file <a class="el" href="../../d0/d20/commercetools-api_2src_2_models_2_shopping_list_2_shopping_list_line_item_model_8php_source.html">ShoppingListLineItemModel.php</a>.</p>
 
 </div>
 </div>

@@ -608,7 +608,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -904,7 +904,7 @@ Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted. The <code>productSlug</code> field of LineItem is not expanded when using <a href="../..//../api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
+<p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted. The <code>productSlug</code> field of LineItem is not expanded when using <a href="../..//api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -952,7 +952,7 @@ Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of Line Items of the given Product Variant present in the <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a>.</p>
+<p>Quantity of Line Items of the given Product Variant present in the <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
@@ -1048,7 +1048,7 @@ Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Identifies <a href="../..//../api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Identifies <a href="../..//api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelReference </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -1150,7 +1150,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
       </table>
 </div><div class="memdoc">
 <p>Total price of this Line Item equalling <code>price</code> multiplied by <code>quantity</code>. If the Line Item is discounted, the total price is the <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>. Includes taxes if the <a href="../../ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
-<p>If <code>ExternalPrice</code> <a href="#ctp:api:type:LineItemPriceMode">LineItemPriceMode</a> is used with high-precision money, then the total price is rounded by using the <code>HalfEven</code> rounding mode.</p>
+<p>If <code>ExternalPrice</code> <a href="../../ctp:api:type:LineItemPriceMode">LineItemPriceMode</a> is used with high-precision money, then the total price is rounded by using the <code>HalfEven</code> rounding mode.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CentPrecisionMoney </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 

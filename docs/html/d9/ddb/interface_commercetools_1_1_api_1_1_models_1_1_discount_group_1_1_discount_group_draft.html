@@ -200,6 +200,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the DiscountGroup.</p>
+<p>If the value is used by another Discount Group, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d3a/class_commercetools_1_1_api_1_1_models_1_1_discount_group_1_1_discount_group_draft_model.html#ae85fedd1fa956b78fbbb3243b4be430e">Commercetools\Api\Models\DiscountGroup\DiscountGroupDraftModel</a>.</p>
@@ -242,7 +243,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscount from the DiscountGroup will be applied; a CartDiscount with a higher value will be prioritized.</p>
-<p>The sort order must be unique among all DiscountGroups and CartDiscounts.</p>
+<p>If the value is used by another Cart Discount or Discount Group, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d3a/class_commercetools_1_1_api_1_1_models_1_1_discount_group_1_1_discount_group_draft_model.html#ac28bdace8e9db3e69eea305fca336367">Commercetools\Api\Models\DiscountGroup\DiscountGroupDraftModel</a>.</p>

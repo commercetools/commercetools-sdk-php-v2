@@ -141,7 +141,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>New value to set. Must not be empty.</p>
+<p>New value to set.</p>
+<p>If set to an empty value, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+<p>If the value is used by another Channel in the Project, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../df/df6/class_commercetools_1_1_api_1_1_models_1_1_channel_1_1_channel_change_key_action_model.html#a6ca54940102640d8499c24d083ee4acb">Commercetools\Api\Models\Channel\ChannelChangeKeyActionModel</a>.</p>

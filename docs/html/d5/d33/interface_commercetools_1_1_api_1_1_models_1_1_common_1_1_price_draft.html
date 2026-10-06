@@ -308,6 +308,7 @@ A <code>predicate</code> that matches the <a href="../../ctp:api:type:ProductVar
       </table>
 </div><div class="memdoc">
 <p>User-defined identifier for the Price. It must be unique per <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+<p>If the value is used by another Embedded Price on the same ProductVariant, a <a href="../../ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/de1/class_commercetools_1_1_api_1_1_models_1_1_common_1_1_price_draft_model.html#a20cc3e88c801b313fb1df5159eb98721">Commercetools\Api\Models\Common\PriceDraftModel</a>.</p>

@@ -190,7 +190,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) the ImportContainer is automatically deleted. Only present if a <code>retentionPolicy</code> is set. ImportContainers without <code>expiresAt</code> are permanent until <a href="#delete-importcontainer">manually deleted</a>.</p>
+<p>Date and time (UTC) when the ImportContainer is automatically deleted. If no <code>retentionPolicy</code> was set at creation, this is <b>72 hours</b> after <code>createdAt</code>. If a <code>TimeToLiveRetentionPolicy</code> was set, it is derived from <code>timeToLive</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/d42/class_commercetools_1_1_import_1_1_models_1_1_importcontainers_1_1_import_container_model.html#a6d68beba0ff1b1d6b42d469cc072c374">Commercetools\Import\Models\Importcontainers\ImportContainerModel</a>.</p>
@@ -274,7 +274,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The retention policy of the ImportContainer.</p>
+<p>Retention policy for this ImportContainer. If not set, the ImportContainer will expire <b>72 hours</b> after creation.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|RetentionPolicy </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dd/d42/class_commercetools_1_1_import_1_1_models_1_1_importcontainers_1_1_import_container_model.html#a6260c45ec060f02349d3d5ac5e68780b">Commercetools\Import\Models\Importcontainers\ImportContainerModel</a>.</p>

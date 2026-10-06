@@ -154,6 +154,9 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Value to set.</p>
+<p>If the key of the Price is used by another Embedded Price on the ProductVariant, a <a href="../../ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
+<p>If the new Embedded Price has the same price scope as another Embedded Price on the ProductVariant, a <a href="../../ctp:api:type:DuplicatePriceScopeError">DuplicatePriceScope</a> error is returned.</p>
+<p>If the new Embedded Price has overlapping validity periods within the same price scope, an <a href="../../ctp:api:type:OverlappingPriceValidityError">OverlappingPriceValidity</a> error is returned. An Embedded Price without validity period does not conflict with an Embedded Price defined for a time period.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceDraft </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/ddc/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_change_price_action_model.html#ab02c7f0ac60442ffb9c7018ca273b83e">Commercetools\Api\Models\Product\ProductChangePriceActionModel</a>.</p>
@@ -195,7 +198,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If <code>true</code>, only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
+<p>Whether only the staged Embedded Price is updated. If <code>false</code>, both the current and staged Embedded Price are updated.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/ddc/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_change_price_action_model.html#a98936c40fc627fd6a8f0b6201ce7504f">Commercetools\Api\Models\Product\ProductChangePriceActionModel</a>.</p>

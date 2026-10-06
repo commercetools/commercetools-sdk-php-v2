@@ -223,7 +223,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Valid <a href="../..//../api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
+<p>Valid <a href="../..//api/projects/predicates#cart-predicates">Cart Predicate</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d04/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_draft_model.html#aa534f626a162d566b28f279cd7aae31f">Commercetools\Api\Models\CartDiscount\CartDiscountDraftModel</a>.</p>
@@ -287,6 +287,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Reference to a DiscountGroup that the CartDiscount must belong to.</p>
+<p>A CartDiscount can only be added to a DiscountGroup if its <code>target.type</code> is <code>lineItems</code>, <code>customLineItems</code>, <code>multiBuyLineItems</code>, <code>multiBuyCustomLineItems</code>, or <code>pattern</code>; otherwise, an <a href="../../ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountGroupResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d04/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_draft_model.html#a10cd336e103dd727c796000ac4eb96e9">Commercetools\Api\Models\CartDiscount\CartDiscountDraftModel</a>.</p>
@@ -307,7 +308,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only active Discounts can be applied to the Cart. If the <a href="../..//../api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="../../ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
+<p>Only active Discounts can be applied to the Cart. If the <a href="../..//api/limits#cart-discounts">limit</a> for active Cart Discounts is reached, a <a href="../../ctp:api:type:MaxCartDiscountsReachedError">MaxCartDiscountsReached</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d04/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_draft_model.html#afadb758771f82f7b875cb3e715121728">Commercetools\Api\Models\CartDiscount\CartDiscountDraftModel</a>.</p>
@@ -329,6 +330,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the CartDiscount.</p>
+<p>If the value is used by another Cart Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d04/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_draft_model.html#afca8a2ec57cfc0d3fe7dec1ccf79f4c4">Commercetools\Api\Models\CartDiscount\CartDiscountDraftModel</a>.</p>
@@ -414,7 +416,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Value between <code>0</code> and <code>1</code> that determines the order in which the CartDiscounts will be applied; a CartDiscount with a higher value will be prioritized.</p>
-<p>It must be unique among all CartDiscounts and DiscountGroups.</p>
+<p>If the value is used by another Cart Discount or Discount Group, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <p>If the CartDiscount is part of a DiscountGroup, it will use the sort order of the DiscountGroup.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
@@ -463,8 +465,8 @@ If defined, the Cart Discount applies on <a href="../../ctp:api:type:Cart">Carts
 <li>
 If not defined, the Cart Discount applies on all Carts, irrespective of a Store. </li>
 </ul>
-<p>If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
-<p>If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifierCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d2/d04/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_draft_model.html#a0b28db5ffb80f6335791f42cadfd80ba">Commercetools\Api\Models\CartDiscount\CartDiscountDraftModel</a>.</p>

@@ -260,7 +260,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If the payload does not fit into the size limit or its format is not accepted by the messaging service, the <code>payloadNotIncluded</code> field is present.</p>
+<p>Present when the payload exceeds the size limit of the message queue (the limit is often 256 KB) or its format is not accepted by the messaging service. If the payload exceeds the size limit, the additional Message fields are replaced with a <a href="../../ctp:api:type:PayloadNotIncluded">PayloadNotIncluded</a> object. You can retrieve the full Message using the <a href="../../ctp:api:endpoint:/{projectKey}/messages/{id}:GET">Messages API</a> if the feature is enabled.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PayloadNotIncluded </dd></dl>
 
 <p>Implemented in <a class="el" href="../../de/d67/class_commercetools_1_1_api_1_1_models_1_1_subscription_1_1_message_delivery_payload_model.html#ac833314027a8977bedb9a16b7a137e38">Commercetools\Api\Models\Subscription\MessageDeliveryPayloadModel</a>.</p>

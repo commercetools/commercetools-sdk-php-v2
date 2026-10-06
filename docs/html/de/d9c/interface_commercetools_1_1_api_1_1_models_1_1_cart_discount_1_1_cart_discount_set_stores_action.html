@@ -141,14 +141,9 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:Store">Stores</a> to set. Overrides the current list of Stores. If empty, any existing values will be removed.</p>
-<p>A failed update can return the following errors:</p>
-<ul>
-<li>
-If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned. </li>
-<li>
-If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned. </li>
-</ul>
+<p><a href="../../ctp:api:type:Store">Stores</a> to set. Overrides the current list of Stores. Set to an empty array to remove all existing values.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifierCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/ddc/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_set_stores_action_model.html#a923c3eefcf858ac07e756a6e63d09a51">Commercetools\Api\Models\CartDiscount\CartDiscountSetStoresActionModel</a>.</p>

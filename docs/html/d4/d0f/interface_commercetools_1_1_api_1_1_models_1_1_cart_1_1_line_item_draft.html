@@ -223,7 +223,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) the Product Variant is added to the Cart. If not set, it defaults to the current date and time.</p>
+<p>Date and time (UTC) the Line Item was added to the Cart. If not set, it defaults to the current date and time.</p>
 <p>Optional for backwards compatibility reasons.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
@@ -266,7 +266,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel must have the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel must have the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <p>If the Cart is bound to a <a href="../../ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
@@ -373,7 +373,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the LineItem.</p>
+<p>User-defined identifier of the LineItem. Must be unique among LineItems in the Cart.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/dbd/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_draft_model.html#a22841ccf5f96911e80b32255bc71bc7e">Commercetools\Api\Models\Cart\LineItemDraftModel</a>.</p>
@@ -520,7 +520,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to identify <a href="../..//../api/projects/inventory">Inventory entries</a> that must be reserved. The referenced Channel must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to identify <a href="../..//api/projects/inventory">Inventory entries</a> that must be reserved. The referenced Channel must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d5/dbd/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_line_item_draft_model.html#a2769c198630c15a8e0a803f75489afb7">Commercetools\Api\Models\Cart\LineItemDraftModel</a>.</p>

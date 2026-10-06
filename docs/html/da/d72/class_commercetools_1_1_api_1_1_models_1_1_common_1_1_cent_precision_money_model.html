@@ -229,7 +229,7 @@ Cents for EUR and USD, pence for GBP, or centime for CHF (5 CHF is specified as 
 <li>
 The value in the major unit for currencies without minor units, like JPY (5 JPY is specified as <code>5</code>). </li>
 </ul>
-<p><code>centAmount</code> is represented as 64-bit integers. If this limit is exceeded, a <a href="../..//errors#moneyoverflow">MoneyOverflow</a> error will be returned.</p>
+<p><code>centAmount</code> is represented as 64-bit integers. If this limit is exceeded, a <a href="../../ctp:api:type:MoneyOverflowError">MoneyOverflow</a> error will be returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
@@ -253,7 +253,7 @@ The value in the major unit for currencies without minor units, like JPY (5 JPY 
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Currency code compliant to <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a>.</p>
+<p>A currency code compliant with <a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> or a <a href="../../ctp:api:type:NonStandardCurrency">non-standard currency</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 

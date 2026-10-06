@@ -310,7 +310,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the Product Variant matches the search query. Only available in response to a <a href="../../ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request.</p>
+<p>Whether the Product Variant matches the search query. Only available in response to a <a href="../..//api/projects/product-projection-search">Product Projection Search</a> request.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#a68c0df036713b00635a56e164fcb105e">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>
@@ -331,7 +331,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the ProductVariant.</p>
+<p>User-defined identifier of the ProductVariant. Unique among ProductVariants in the same Product.</p>
 <p>This is different from <a href="../../ctp:api:type:Product">Product</a> <code>key</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
@@ -353,7 +353,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only available when <a href="../..//../api/pricing-and-discounts-overview#price-selection">price selection</a> is used. Cannot be used in a <a href="../../ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+<p>Only present when <a href="../..//api/pricing-and-discounts-overview#price-selection">price selection</a> is applied. Cannot be used in a <a href="../..//api/predicates/query">Query Predicate</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|Price </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#a116765c0513c09ee7ca3e0e7f8c557c0">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>
@@ -374,7 +374,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Embedded Prices of the Product Variant. Cannot contain two Prices of the same Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+<p>If the Product is <a href="../..//api/projects/productProjections#projection-by-store">projected by Store</a>, this field only contains Embedded Prices that are valid for that Store.</p>
+<p>Cannot contain two Embedded Prices with the same scopes (currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#ad207d10ed716cc75e562a63225614d51">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>
@@ -395,7 +396,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only available when <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used. Cannot be used in a <a href="../../ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+<p>Only available when <a href="../..//api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used. Cannot be used in a <a href="../..//api/predicates/query">Query Predicate</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#ae0e8732c183c39db25088f05c55ddf46">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>
@@ -416,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only available in response to a <a href="../../ctp:api:type:ProductProjectionSearch">Product Projection Search</a> request with <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can be used to sort, <a href="../../ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
+<p>Only available in response to a <a href="../..//api/projects/product-projection-search">Product Projection Search</a> request with <a href="../..//api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. Can be used to sort, <a href="../../ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ScopedPrice </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#ad0db0af9d0328571e9a094f8103cf9b8">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>
@@ -437,7 +438,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Only available in response to a <a href="../../ctp:api:type:ProductProjectionSearchFilterScopedPrice">Product Projection Search</a> request with <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
+<p>Only available in response to a <a href="../..//api/projects/product-projection-search">Product Projection Search</a> request with <a href="../..//api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#a38670e5e174d7dc206cbb09967991bbb">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>
@@ -458,7 +459,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique SKU of the Product Variant.</p>
+<p>User-defined SKU of the Product Variant. Unique across all ProductVariants in a Project.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/dee/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_variant_model.html#a67acf9fa80c1011984b707c9bfb6f336">Commercetools\Api\Models\Product\ProductVariantModel</a>.</p>

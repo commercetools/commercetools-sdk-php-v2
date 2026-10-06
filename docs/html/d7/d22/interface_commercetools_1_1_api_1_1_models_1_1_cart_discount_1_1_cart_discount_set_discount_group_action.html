@@ -147,7 +147,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Reference to a DiscountGroup that the Cart Discount must belong to. If empty, any existing value will be removed.</p>
+<p>Reference to a DiscountGroup that the CartDiscount must belong to. If omitted, any existing value is removed.</p>
+<p>A CartDiscount can only be added to a DiscountGroup if its <code>target.type</code> is <code>lineItems</code>, <code>customLineItems</code>, <code>multiBuyLineItems</code>, <code>multiBuyCustomLineItems</code>, or <code>pattern</code>; otherwise, an <a href="../../ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountGroupResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d0/d97/class_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_set_discount_group_action_model.html#ad3f01ab70edd474d6fcc3e80cc7e4c64">Commercetools\Api\Models\CartDiscount\CartDiscountSetDiscountGroupActionModel</a>.</p>

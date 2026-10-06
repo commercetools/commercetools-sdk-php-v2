@@ -147,7 +147,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the Store.</p>
+<p>Object containing the <a href="../../ctp:api:type:CustomFields">Custom Fields</a> fields for the Store.</p>
+<p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="../../ctp:api:type:Type">Type</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FieldContainer </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d59/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_set_custom_type_action_model.html#ab1b947e2aa20c3f0aebcff1f2eb53f71">Commercetools\Api\Models\Store\StoreSetCustomTypeActionModel</a>.</p>
@@ -168,7 +169,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the Store with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the Store.</p>
+<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the Store with <a href="../../ctp:api:type:CustomFields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the Store.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypeResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d59/class_commercetools_1_1_api_1_1_models_1_1_store_1_1_store_set_custom_type_action_model.html#a6fd511b0f3621f59abfa18417de413fa">Commercetools\Api\Models\Store\StoreSetCustomTypeActionModel</a>.</p>

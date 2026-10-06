@@ -334,7 +334,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The referenced Channel has the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00406">406</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -594,7 +594,7 @@ Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted. The <code>productSlug</code> field of LineItem is not expanded when using <a href="../..//../api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
+<p><code>slug</code> of the current version of the Product. Updated automatically if the <code>slug</code> changes. Empty if the Product has been deleted. The <code>productSlug</code> field of LineItem is not expanded when using <a href="../..//api/general-concepts#reference-expansion">Reference Expansion</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00254">254</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -636,7 +636,7 @@ Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of Line Items of the given Product Variant present in the <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a>.</p>
+<p>Quantity of Line Items of the given Product Variant present in the <a href="../../ctp:api:type:Cart">Cart</a> or <a href="../../ctp:api:type:Order">Order</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00300">300</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -720,7 +720,7 @@ Line Items in an <a href="../../ctp:api:type:Order">Order</a> when the <code>key
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Identifies <a href="../..//../api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Identifies <a href="../..//api/projects/inventory">Inventory entries</a> that are reserved. The referenced Channel has the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelReference </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00395">395</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -810,7 +810,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
       </table>
 </div><div class="memdoc">
 <p>Total price of this Line Item equalling <code>price</code> multiplied by <code>quantity</code>. If the Line Item is discounted, the total price is the <code>discountedPricePerQuantity</code> multiplied by <code>quantity</code>. Includes taxes if the <a href="../../ctp:api:type:TaxRate">TaxRate</a> <code>includedInPrice</code> is <code>true</code>.</p>
-<p>If <code>ExternalPrice</code> <a href="#ctp:api:type:LineItemPriceMode">LineItemPriceMode</a> is used with high-precision money, then the total price is rounded by using the <code>HalfEven</code> rounding mode.</p>
+<p>If <code>ExternalPrice</code> <a href="../../ctp:api:type:LineItemPriceMode">LineItemPriceMode</a> is used with high-precision money, then the total price is rounded by using the <code>HalfEven</code> rounding mode.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CentPrecisionMoney </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00313">313</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -935,7 +935,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003981">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004245">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00922">922</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1011,7 +1011,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003979">Deprecated:</a></b></dt><dd>use withDistributionChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004243">Deprecated:</a></b></dt><dd>use withDistributionChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00900">900</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1195,7 +1195,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003970">Deprecated:</a></b></dt><dd>use withName() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004234">Deprecated:</a></b></dt><dd>use withName() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00801">801</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1271,7 +1271,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003974">Deprecated:</a></b></dt><dd>use withPrice() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004238">Deprecated:</a></b></dt><dd>use withPrice() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00845">845</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1401,7 +1401,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003971">Deprecated:</a></b></dt><dd>use withProductSlug() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004235">Deprecated:</a></b></dt><dd>use withProductSlug() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00812">812</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1450,7 +1450,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003972">Deprecated:</a></b></dt><dd>use withProductType() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004236">Deprecated:</a></b></dt><dd>use withProductType() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00823">823</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1526,7 +1526,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003982">Deprecated:</a></b></dt><dd>use withRecurrenceInfo() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004246">Deprecated:</a></b></dt><dd>use withRecurrenceInfo() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00933">933</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1575,7 +1575,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003980">Deprecated:</a></b></dt><dd>use withShippingDetails() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004244">Deprecated:</a></b></dt><dd>use withShippingDetails() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00911">911</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1651,7 +1651,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003978">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004242">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00889">889</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1700,7 +1700,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003976">Deprecated:</a></b></dt><dd>use withTaxedPrice() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004240">Deprecated:</a></b></dt><dd>use withTaxedPrice() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00867">867</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1776,7 +1776,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003977">Deprecated:</a></b></dt><dd>use withTaxRate() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004241">Deprecated:</a></b></dt><dd>use withTaxRate() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00878">878</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1825,7 +1825,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003975">Deprecated:</a></b></dt><dd>use withTotalPrice() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004239">Deprecated:</a></b></dt><dd>use withTotalPrice() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00856">856</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>
@@ -1874,7 +1874,7 @@ For a Cart with <code>External</code> TaxMode, the <code>taxRate</code> of Line 
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003973">Deprecated:</a></b></dt><dd>use withVariant() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004237">Deprecated:</a></b></dt><dd>use withVariant() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html#l00834">834</a> of file <a class="el" href="../../d7/da0/commercetools-history_2src_2_models_2_common_2_line_item_builder_8php_source.html">LineItemBuilder.php</a>.</p>

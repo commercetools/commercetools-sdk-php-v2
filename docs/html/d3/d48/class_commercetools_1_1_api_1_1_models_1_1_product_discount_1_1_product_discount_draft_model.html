@@ -290,7 +290,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#adda6d7e09eeb622461d1411626fd52a7">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00152">152</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00153">153</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -308,13 +308,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
+<p>Whether to activate the ProductDiscount. To deactivate it even though the <code>predicate</code> matches, set to <code>false</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a303e9431f2708eab4882c181ac50f2dd">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00235">235</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00236">236</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -333,12 +333,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the ProductDiscount.</p>
+<p>If the value is used by another Product Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a67e7d09d1e6179bad50fe30c89a4a8b2">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00132">132</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00133">133</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -380,13 +381,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Valid <a href="../..//../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
+<p>Valid <a href="../..//api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a32a422e7ae301c165552f5cd2bc6d749">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00194">194</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00195">195</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -404,13 +405,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized. The value must be <b>unique</b> among all ProductDiscounts in the <a href="../../ctp:api:type:Project">Project</a>.</p>
+<p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.</p>
+<p>If the value is used by another Product Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a1399904de98dc73e1edf7341b900bab8">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00215">215</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00216">216</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -428,13 +430,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) from which the Discount is effective. Take <a href="../..//../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
+<p>Date and time (UTC) from which the Discount is effective. Take <a href="../..//api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a4210193d58391d56c20c3ad9fa4b1fa1">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00256">256</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00257">257</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -452,13 +454,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) until which the Discount is effective. Take <a href="../..//../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+<p>Date and time (UTC) until which the Discount is effective. Take <a href="../..//api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#ab5a114ebf2ffee2092119b658be64f4b">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00281">281</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00282">282</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -482,7 +484,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a3b575a179632ef12700d678bb3b1c339">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00173">173</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00174">174</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -503,7 +505,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../dd/dc2/class_commercetools_1_1_base_1_1_base_json_object.html#a96e992c3a9ef593f3214ea9cbeda88c5">Commercetools\Base\BaseJsonObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00374">374</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00375">375</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -531,7 +533,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#ad2e78a52486aa7ec470f08c536c42e00">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00319">319</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00320">320</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -559,7 +561,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a640f97878da1accecf2e2df46d18fbd9">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00351">351</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00352">352</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -587,7 +589,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a93b9646bb417c5926879609775059be5">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00311">311</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00312">312</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -615,7 +617,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a2b4b93695b053a1d937f0a7d7fbdb0f5">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00303">303</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00304">304</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -643,7 +645,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a2677c045c4d0a5c5b2c237473d2fdf9e">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00335">335</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00336">336</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -671,7 +673,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#aa215c69fde3aef0465bb8381de3944e7">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00343">343</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00344">344</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -699,7 +701,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#ab9a5522729afbaf93572f43614b42ab8">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00359">359</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00360">360</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -727,7 +729,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a565b42029eda3e53c3cbec30c395951c">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00367">367</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00368">368</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -755,7 +757,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dd/d2b/interface_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft.html#a4fa6f33bd4703f11c0f649afaee5f48b">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00327">327</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html#l00328">328</a> of file <a class="el" href="../../d7/d60/_product_discount_draft_model_8php_source.html">ProductDiscountDraftModel.php</a>.</p>
 
 </div>
 </div>

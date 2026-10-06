@@ -243,12 +243,12 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../..//../api/projects/custom-fields">Custom Fields</a> to be added to the Quote.</p>
+<p><a href="../../ctp:api:type:CustomFields">Custom Fields</a> to be added to the Quote.</p>
 <ul>
 <li>
-If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="../..//../api/projects/staged-quotes#stagedquote">StagedQuote</a> and added to the Quote. </li>
+If specified, the Custom Fields are merged with the Custom Fields on the referenced <a href="../../ctp:api:type:StagedQuote">StagedQuote</a> and added to the Quote. </li>
 <li>
-If empty, the Custom Fields on the referenced <a href="../..//../api/projects/staged-quotes#stagedquote">StagedQuote</a> are added to the Quote automatically. </li>
+If empty, the Custom Fields on the referenced <a href="../../ctp:api:type:StagedQuote">StagedQuote</a> are added to the Quote automatically. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomFieldsDraft </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
@@ -321,7 +321,7 @@ If empty, the Custom Fields on the referenced <a href="../..//../api/projects/st
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If <code>true</code>, the <code>stagedQuoteState</code> of the referenced <a href="../..//../api/projects/staged-quotes#stagedquote">StagedQuote</a> will be set to <code>Sent</code>.</p>
+<p>Whether the <code>stagedQuoteState</code> of the referenced <a href="../../ctp:api:type:StagedQuote">StagedQuote</a> will be set to <code>Sent</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 

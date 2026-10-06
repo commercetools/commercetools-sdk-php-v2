@@ -231,18 +231,19 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Whether to enable product indexing for the storefront search APIs selected by <code>mode</code>.</p>
 <ul>
 <li>
-If <code>false</code>, the indexing of <a href="../../ctp:api:type:Product">Product</a> information will stop and the <a href="../..//../api/projects/product-projection-search">Product Projection Search</a> as well as the <a href="../..//../api/projects/search-term-suggestions">Search Term Suggestions</a> API will no longer be available for this Project. The Project's <a href="../../ctp:api:type:SearchIndexingConfiguration">SearchIndexingConfiguration</a> <code>status</code> for <code>products</code> will be changed to <code>&quot;Deactivated&quot;</code>. </li>
+If <code>true</code>, indexing starts for the selected API and the corresponding status changes to <code>&quot;Indexing&quot;</code>. After indexing finishes, the status changes to <code>&quot;Activated&quot;</code> and the selected API becomes available. </li>
 <li>
-If <code>true</code>, the indexing of <a href="../../ctp:api:type:Product">Product</a> information will start and the <a href="../..//../api/projects/product-projection-search">Product Projection Search</a> as well as the <a href="../..//../api/projects/search-term-suggestions">Search Term Suggestions</a> API will become available soon after for this Project. Proportional to the amount of information being indexed, the Project's <a href="../../ctp:api:type:SearchIndexingConfiguration">SearchIndexingConfiguration</a> <code>status</code> for <code>products</code> will be shown as <code>&quot;Indexing&quot;</code> during this time. As soon as the indexing has finished, the configuration status will be changed to <code>&quot;Activated&quot;</code> making the aforementioned APIs fully available for this Project. </li>
+If <code>false</code>, indexing stops and the selected API become unavailable. The corresponding <a href="../../ctp:api:type:SearchIndexingConfiguration">SearchIndexingConfiguration</a> <code>status</code> changes to <code>&quot;Deactivated&quot;</code>. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../db/d5b/interface_commercetools_1_1_api_1_1_models_1_1_project_1_1_project_change_product_search_indexing_enabled_action.html#ad8115a703feb610b572393ff871efd85">Commercetools\Api\Models\Project\ProjectChangeProductSearchIndexingEnabledAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00082">82</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00083">83</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -260,13 +261,13 @@ If <code>true</code>, the indexing of <a href="../../ctp:api:type:Product">Produ
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Controls whether the action should apply to <a href="../..//../api/projects/product-projection-search">Product Projection Search</a> or to <a href="../..//../api/projects/product-search">Product Search</a>.</p>
+<p>Controls whether the action should apply to <a href="../..//api/projects/product-projection-search">Product Projection Search</a> or to <a href="../..//api/projects/product-search">Product Search</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../db/d5b/interface_commercetools_1_1_api_1_1_models_1_1_project_1_1_project_change_product_search_indexing_enabled_action.html#acdb45f6e130a1f77e639b8942efb044f">Commercetools\Api\Models\Project\ProjectChangeProductSearchIndexingEnabledAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00102">102</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00103">103</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -294,7 +295,7 @@ If <code>true</code>, the indexing of <a href="../../ctp:api:type:Product">Produ
 
 <p>Implements <a class="el" href="../../db/d5b/interface_commercetools_1_1_api_1_1_models_1_1_project_1_1_project_change_product_search_indexing_enabled_action.html#abf56cb7a1ed2675fe75b7ada21d3f296">Commercetools\Api\Models\Project\ProjectChangeProductSearchIndexingEnabledAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00120">120</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00121">121</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -322,7 +323,7 @@ If <code>true</code>, the indexing of <a href="../../ctp:api:type:Product">Produ
 
 <p>Implements <a class="el" href="../../db/d5b/interface_commercetools_1_1_api_1_1_models_1_1_project_1_1_project_change_product_search_indexing_enabled_action.html#a8810d1c0610a11eea28906c99de3607b">Commercetools\Api\Models\Project\ProjectChangeProductSearchIndexingEnabledAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00128">128</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html#l00129">129</a> of file <a class="el" href="../../d0/d55/_project_change_product_search_indexing_enabled_action_model_8php_source.html">ProjectChangeProductSearchIndexingEnabledActionModel.php</a>.</p>
 
 </div>
 </div>

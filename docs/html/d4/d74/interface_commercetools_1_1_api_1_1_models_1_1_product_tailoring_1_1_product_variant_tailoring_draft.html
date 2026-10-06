@@ -178,12 +178,10 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attributes of the tailored Product Variant according to the respective <a href="../../ctp:api:type:AttributeDefinition">AttributeDefinition</a>. If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+<p>Attributes of the tailored Product Variant according to the respective <a href="../../ctp:api:type:AttributeDefinition">AttributeDefinition</a>. If provided, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a>:</p>
 <ul>
 <li>
-If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten, </li>
-<li>
-otherwise the Attribute and its value are added to the ProductVariant. </li>
+If the ProductVariant or Variant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten. Otherwise, the Attribute and its value are added to the ProductVariant or Variant. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductTailoringAttributeCollection </dd></dl>
 
@@ -205,7 +203,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> to be tailored.</p>
+<p>The <code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a> to be tailored.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d5b/class_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring_draft_model.html#a8cfb29163ec981a2f46f4e774b34a96f">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringDraftModel</a>.</p>
@@ -247,7 +245,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <code>sku</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> to be tailored.</p>
+<p>The <code>sku</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a> to be tailored.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d5b/class_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring_draft_model.html#a944ce45e8d5b6191bbaf038ad7c3b7ef">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoringDraftModel</a>.</p>

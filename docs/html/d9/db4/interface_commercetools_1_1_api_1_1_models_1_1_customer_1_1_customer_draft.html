@@ -338,7 +338,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Deprecated since an anonymous <a href="../../ctp:api:type:Cart">Cart</a> can be identified by its <code>id</code> or external <code>key</code>.</p>
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000625">Deprecated:</a></b></dt><dd></dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000656">Deprecated:</a></b></dt><dd></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#a74625f447d5ea849a35b09a1a8d4f100">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
@@ -493,7 +493,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
       </table>
 </div><div class="memdoc">
 <p>Customer Groups to assign the Customer to.</p>
-<p>Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+<p>Used for <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupAssignmentDraftCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#a1e9ecb957d5a330a50480274acf3cb6d">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
@@ -599,7 +599,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Email address of the Customer that must be <a href="../..//../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to. It is the mandatory unique identifier of a Customer.</p>
+<p>Email address of the Customer that must be <a href="../..//api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to. It is the mandatory unique identifier of a Customer.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#a067dfd5384759c46d2719692959d6aa8">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
@@ -662,7 +662,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set to <code>true</code> if the email address of the Customer has been verified already. The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
+<p>Whether the email address of the Customer has been verified already. The intended use is to leave this field unset upon sign-up of the Customer and initiate the <a href="#email-verification-of-customer">email verification</a> afterwards.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#acf2ae6e8437d41f977d615e0eca688a2">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
@@ -684,7 +684,7 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the Customer. The <code>key</code> field is preferred over <code>customerNumber</code> as it is mutable and provides more flexibility.</p>
-<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="../..//../api/import-export/overview">Import API</a>.</p>
+<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Customers with the <a href="../..//api/import-export/overview">Import API</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d2d/class_commercetools_1_1_api_1_1_models_1_1_customer_1_1_customer_draft_model.html#abdcf080bf966ef2b85835cc6242c5afd">Commercetools\Api\Models\Customer\CustomerDraftModel</a>.</p>
@@ -834,9 +834,9 @@ Set to <code>ExternalAuth</code> when the password is not required for the Custo
 <p>Sets the <a href="../../ctp:api:type:Store">Stores</a> for the Customer.</p>
 <ul>
 <li>
-If no Stores are specified, the Customer is a global customer, and can log in using the <a href="../..//../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>. </li>
+If no Stores are specified, the Customer is a global customer, and can log in using the <a href="../..//api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>. </li>
 <li>
-If any Stores are specified, the Customer can only log in using the <a href="../..//../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores. </li>
+If any Stores are specified, the Customer can only log in using the <a href="../..//api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifierCollection </dd></dl>
 

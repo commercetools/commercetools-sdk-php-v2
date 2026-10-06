@@ -141,7 +141,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Unique value to set. If empty, any existing value will be removed.</p>
+<p>Value to set. If omitted, any existing value is removed.</p>
+<p>If the value is used by another Discount Code, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d3/d1d/_discount_code_set_key_action_builder_8php_source.html#l00036">36</a> of file <a class="el" href="../../d3/d1d/_discount_code_set_key_action_builder_8php_source.html">DiscountCodeSetKeyActionBuilder.php</a>.</p>

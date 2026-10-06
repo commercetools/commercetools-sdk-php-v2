@@ -219,7 +219,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the Asset.</p>
+<p>Object containing the <a href="../../ctp:api:type:CustomFields">Custom Fields</a> fields for the Asset.</p>
+<p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="../../ctp:api:type:Type">Type</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FieldContainer </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d0/dfe/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_asset_custom_type_action_model.html#a6bbeb28dc3762f122a71732d7ef829f1">Commercetools\Api\Models\Product\ProductSetAssetCustomTypeActionModel</a>.</p>
@@ -261,7 +262,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If <code>true</code>, only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
+<p>Whether only the staged Asset is updated. If <code>false</code>, both the current and staged Asset is updated.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d0/dfe/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_asset_custom_type_action_model.html#a80e73679fdd9ddc2f66cc336d34cc8d5">Commercetools\Api\Models\Product\ProductSetAssetCustomTypeActionModel</a>.</p>
@@ -282,7 +283,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the Asset with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the Asset.</p>
+<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the Asset with <a href="../../ctp:api:type:CustomFields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the Asset.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypeResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d0/dfe/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_asset_custom_type_action_model.html#a11f023579f22dd7f05120420e7092c88">Commercetools\Api\Models\Product\ProductSetAssetCustomTypeActionModel</a>.</p>

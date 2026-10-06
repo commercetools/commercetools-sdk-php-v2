@@ -161,6 +161,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Money value of the applicable discount.</p>
+<p>When a Cart Discount with <a href="../../ctp:api:type:CartDiscountPatternTarget">CartDiscountPatternTarget</a> is used:</p>
+<ul>
+<li>
+The value is zero for a (Custom) Line Item matching the <code>triggerPattern</code>, indicating it participated in the discount as a trigger. </li>
+<li>
+The value is the actual discount amount for a (Custom) Line Item matching the <code>targetPattern</code>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/d52/class_commercetools_1_1_api_1_1_models_1_1_cart_1_1_discounted_line_item_portion_model.html#a494904ee7ae023333250038effcba01c">Commercetools\Api\Models\Cart\DiscountedLineItemPortionModel</a>.</p>

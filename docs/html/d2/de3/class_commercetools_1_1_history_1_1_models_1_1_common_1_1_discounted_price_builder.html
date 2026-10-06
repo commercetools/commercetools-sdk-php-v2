@@ -131,7 +131,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00101">101</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00105">105</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -152,7 +152,7 @@ Static Public Member Functions</h2></td></tr>
 <p><a href="../../ctp:api:type:ProductDiscount">ProductDiscount</a> related to the discounted price.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductDiscountReference </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00052">52</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00056">56</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -171,9 +171,15 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Money value of the discounted price.</p>
+<ul>
+<li>
+When a <a href="../../ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> applies and the fractional part of the resulting discounted price is 0.5, the discounted price is <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">rounded half down</a>. </li>
+<li>
+When an <a href="../../ctp:api:type:ProductDiscountValueAbsolute">absolute Product Discount</a> exceeds the price of the Product Variant, the resulting discounted price is set to <code>0</code>. </li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00041">41</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00045">45</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -200,7 +206,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00109">109</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00113">113</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -227,7 +233,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00072">72</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00076">76</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -246,10 +252,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003957">Deprecated:</a></b></dt><dd>use withDiscount() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004221">Deprecated:</a></b></dt><dd>use withDiscount() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00094">94</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00098">98</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -276,7 +282,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00061">61</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00065">65</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -295,10 +301,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003956">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated004220">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00083">83</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html#l00087">87</a> of file <a class="el" href="../../d1/d65/commercetools-history_2src_2_models_2_common_2_discounted_price_builder_8php_source.html">DiscountedPriceBuilder.php</a>.</p>
 
 </div>
 </div>

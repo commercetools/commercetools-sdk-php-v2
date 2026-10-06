@@ -191,7 +191,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) the Product Variant is added to the Cart. If not set, it defaults to the current date and time.</p>
+<p>Date and time (UTC) the Product Variant was added to the Cart. If not set, it defaults to the current date and time.</p>
 <p>Optional for backwards compatibility reasons.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
@@ -234,7 +234,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The Channel must have the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">select</a> a Product Price. The Channel must have the <code>ProductDistribution</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <p>If the Cart is bound to a <a href="../../ctp:api:type:Store">Store</a> with <code>distributionChannels</code> set, the Channel must match one of the Store's distribution channels.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
@@ -256,7 +256,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined unique identifier of the LineItem.</p>
+<p>User-defined identifier of the LineItem. Must be unique among LineItems in the Cart.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00104">104</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -298,7 +298,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Number of Product Variants to add to the Cart.</p>
+<p>Quantity of Product Variants to add to the Cart.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00149">149</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -382,7 +382,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used to identify <a href="../..//../api/projects/inventory">Inventory entries</a> that must be reserved. The Channel must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
+<p>Used to identify <a href="../..//api/projects/inventory">Inventory entries</a> that must be reserved. The Channel must have the <code>InventorySupply</code> <a href="../../ctp:api:type:ChannelRoleEnum">ChannelRoleEnum</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ChannelResourceIdentifier </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00174">174</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -506,7 +506,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000837">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000896">Deprecated:</a></b></dt><dd>use withCustom() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00395">395</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -555,7 +555,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000834">Deprecated:</a></b></dt><dd>use withDistributionChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000893">Deprecated:</a></b></dt><dd>use withDistributionChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00362">362</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -685,7 +685,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000836">Deprecated:</a></b></dt><dd>use withRecurrenceInfo() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000895">Deprecated:</a></b></dt><dd>use withRecurrenceInfo() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00384">384</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -734,7 +734,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000835">Deprecated:</a></b></dt><dd>use withShippingDetails() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000894">Deprecated:</a></b></dt><dd>use withShippingDetails() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00373">373</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>
@@ -810,7 +810,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000833">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated000892">Deprecated:</a></b></dt><dd>use withSupplyChannel() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html#l00351">351</a> of file <a class="el" href="../../dc/db1/_my_line_item_draft_builder_8php_source.html">MyLineItemDraftBuilder.php</a>.</p>

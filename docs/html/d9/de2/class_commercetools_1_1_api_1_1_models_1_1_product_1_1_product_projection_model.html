@@ -501,7 +501,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#af7b654dffea5fb5a81a9569dbee7bb0c">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00726">726</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00729">729</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -615,7 +615,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the staged data is different from the current data.</p>
+<p>Whether the staged data is different from the current data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
@@ -712,12 +712,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The Master Variant of the <a href="../../ctp:api:type:Product">Product</a>.</p>
+<p>Omitted when the Project has the <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="../..//projects/variant-projections">Variant Projections API</a> instead.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariant </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a38852d5811d39c6f824b8116eac7fa8e">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00602">602</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00603">603</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -831,13 +832,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Indicates whether the Prices of the Product Projection are <a href="../../ctp:api:type:Price">embedded</a> or <a href="../../ctp:api:type:StandalonePrice">standalone</a>. <a href="#prices">Projecting Prices</a> only works with <code>Embedded</code>, there is currently no support for <code>Standalone</code>.</p>
+<p>Indicates whether the Prices of the Product Projection are <a href="../../ctp:api:type:Price">embedded</a> or <a href="../../ctp:api:type:StandalonePrice">standalone</a>.</p>
+<p>When <a href="../..//api/projects/productProjections#projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#aa0e96bf586689fb6be23ac81faf17ba3">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00706">706</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00709">709</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -879,7 +881,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the <a href="../../ctp:api:type:Product">Product</a> is <a href="../../ctp:api:type:CurrentStaged">published</a>.</p>
+<p>Whether the <a href="../../ctp:api:type:Product">Product</a> is <a href="../../ctp:api:type:CurrentStaged">published</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
@@ -909,7 +911,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a70c7321e33b4f8b902df51372eba6b6c">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00685">685</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00687">687</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -927,7 +929,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used by <a href="../..//../api/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="../..//projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
+<p>Used by <a href="../..//api/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="../..//projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SearchKeywords </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -951,7 +953,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined identifier used in a deep-link URL for the <a href="../../ctp:api:type:Product">Product</a>. Must be unique across a Project, but can be the same for Products in different locales. Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="../..//../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="../../ctp:api:type:Project">Project</a>.</p>
+<p>User-defined identifier used in a deep-link URL for the <a href="../../ctp:api:type:Product">Product</a>. Must be unique across a Project, but can be the same for Products in different locales. Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="../..//api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="../../ctp:api:type:Project">Project</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
@@ -981,7 +983,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a3b2f8573ae9399af8954cb5f252a93eb">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00664">664</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00666">666</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1005,7 +1007,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a76137421d57aacb69b4c9aac7f362a00">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00643">643</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00645">645</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1024,12 +1026,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Additional Product Variants.</p>
+<p>Empty when the Project has the <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="../..//projects/variant-projections">Variant Projections API</a> instead.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a1f7428a9bd452e3a93b6425f4a68fb52">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00623">623</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00625">625</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1074,7 +1077,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="../../dd/dc2/class_commercetools_1_1_base_1_1_base_json_object.html#a96e992c3a9ef593f3214ea9cbeda88c5">Commercetools\Base\BaseJsonObject</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00935">935</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00938">938</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1102,7 +1105,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#aea64bb450bbca811387820dcf96ad489">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00928">928</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00931">931</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1130,7 +1133,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a4c821ed646c00b560c9e351462271e52">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00816">816</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00819">819</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1158,7 +1161,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a1cfd1d4453d59b08bd9bffd2d9c14ae7">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00824">824</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00827">827</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1186,7 +1189,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#aca073aabd3ee8210e59cbe676feece96">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00760">760</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00763">763</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1214,7 +1217,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#ac6b02ededbe8b1c834b0b8cad3d846ff">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00800">800</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00803">803</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1242,7 +1245,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a5cb76a061730ef8dab40e637e78ddf97">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00864">864</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00867">867</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1270,7 +1273,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a291c91d54bdf59bc58c8c17224c23bbb">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00744">744</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00747">747</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1298,7 +1301,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#ae3c36e199dca2f372fbad2d5fd03c293">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00776">776</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00779">779</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1326,7 +1329,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#afa5bc757c56130b056ca1f3c2229b80c">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00768">768</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00771">771</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1354,7 +1357,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#ab7b63a92c3af68d4701d43895709d79a">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00880">880</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00883">883</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1382,7 +1385,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a8c9fcfb29c8e6706f985b9df3413e7f1">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00840">840</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00843">843</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1410,7 +1413,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a2db5a2c9755e0526e0e710b9db49fdd5">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00848">848</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00851">851</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1438,7 +1441,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a63a40d5046f86a711b6c7f48cec1f245">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00832">832</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00835">835</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1466,7 +1469,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a4ee16f875dccc51169fa923b82c793d8">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00792">792</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00795">795</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1494,7 +1497,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a6ad2f3b9de32404db3324b90d7d59e7e">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00920">920</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00923">923</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1522,7 +1525,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a8083ee446a670c5d4682e4329e5b7f1a">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00784">784</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00787">787</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1550,7 +1553,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#acf9a3c51ce76fb8249411787aedd10f4">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00872">872</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00875">875</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1578,7 +1581,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a212162ded9ce1e214fa32392a122b498">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00912">912</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00915">915</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1606,7 +1609,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a7b64798910dfc7bb48cba83daf015fd7">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00856">856</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00859">859</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1634,7 +1637,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#afc40489a7ab7338a6be469db20854cf8">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00808">808</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00811">811</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1662,7 +1665,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a5ebb4f4d0b20a2f9f471531c5df37d34">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00904">904</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00907">907</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1690,7 +1693,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a4b63f42f40271a99e4edd70cfa2c6610">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00896">896</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00899">899</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1718,7 +1721,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a03260d085b4692141d32b66bd0c3cd8e">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00888">888</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00891">891</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>
@@ -1746,7 +1749,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../dc/de7/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection.html#a8f287df33f0504302d54f29d839e3480">Commercetools\Api\Models\Product\ProductProjection</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00752">752</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html#l00755">755</a> of file <a class="el" href="../../d9/d99/_product_projection_model_8php_source.html">ProductProjectionModel.php</a>.</p>
 
 </div>
 </div>

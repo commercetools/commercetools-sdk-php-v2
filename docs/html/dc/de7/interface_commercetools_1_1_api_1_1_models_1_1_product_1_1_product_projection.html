@@ -379,7 +379,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the staged data is different from the current data.</p>
+<p>Whether the staged data is different from the current data.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#af07a0d316288d64ab2453b26d8526f5c">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>
@@ -468,6 +468,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The Master Variant of the <a href="../../ctp:api:type:Product">Product</a>.</p>
+<p>Omitted when the Project has the <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="../..//projects/variant-projections">Variant Projections API</a> instead.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariant </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#af3c5212efb7803532b42dca384db5ffd">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>
@@ -572,7 +573,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Indicates whether the Prices of the Product Projection are <a href="../../ctp:api:type:Price">embedded</a> or <a href="../../ctp:api:type:StandalonePrice">standalone</a>. <a href="#prices">Projecting Prices</a> only works with <code>Embedded</code>, there is currently no support for <code>Standalone</code>.</p>
+<p>Indicates whether the Prices of the Product Projection are <a href="../../ctp:api:type:Price">embedded</a> or <a href="../../ctp:api:type:StandalonePrice">standalone</a>.</p>
+<p>When <a href="../..//api/projects/productProjections#projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#a6c7f3af1292d877abf4cea67806bd964">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>
@@ -614,7 +616,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><code>true</code> if the <a href="../../ctp:api:type:Product">Product</a> is <a href="../../ctp:api:type:CurrentStaged">published</a>.</p>
+<p>Whether the <a href="../../ctp:api:type:Product">Product</a> is <a href="../../ctp:api:type:CurrentStaged">published</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#af55632903284d3a49acbf99d883ffd40">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>
@@ -656,7 +658,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Used by <a href="../..//../api/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="../..//projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
+<p>Used by <a href="../..//api/projects/search-term-suggestions">Search Term Suggestions</a>, but is also considered for a <a href="../..//projects/product-projection-search#full-text-search">full text search</a> in the Product Projection Search API.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|SearchKeywords </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#a79e396a3fac08f84d8fc8c3744f664b9">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>
@@ -677,7 +679,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>User-defined identifier used in a deep-link URL for the <a href="../../ctp:api:type:Product">Product</a>. Must be unique across a Project, but can be the same for Products in different locales. Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="../..//../api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="../../ctp:api:type:Project">Project</a>.</p>
+<p>User-defined identifier used in a deep-link URL for the <a href="../../ctp:api:type:Product">Product</a>. Must be unique across a Project, but can be the same for Products in different locales. Matches the pattern <code>[a-zA-Z0-9_-]{2,256}</code>. For <a href="../..//api/predicates/query#performance-considerations">good performance</a>, indexes are provided for the first 15 <code>languages</code> set in the <a href="../../ctp:api:type:Project">Project</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#ab93a5608f725346174c003661945f3fa">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>
@@ -741,6 +743,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Additional Product Variants.</p>
+<p>Empty when the Project has the <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="../..//projects/variant-projections">Variant Projections API</a> instead.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantCollection </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d9/de2/class_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_projection_model.html#a1a54d16a46b1116a9687602ff8c284d8">Commercetools\Api\Models\Product\ProductProjectionModel</a>.</p>

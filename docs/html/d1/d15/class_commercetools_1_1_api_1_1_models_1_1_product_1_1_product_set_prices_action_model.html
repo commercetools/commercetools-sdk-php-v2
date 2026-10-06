@@ -259,13 +259,16 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Embedded Prices to set. Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+<p>The Embedded Prices to set.</p>
+<p>If any two Embedded Prices in this array have the same key, a <a href="../../ctp:api:type:DuplicatePriceKeyError">DuplicatePriceKey</a> error is returned.</p>
+<p>If any two Embedded Prices in this array have the same price scope, a <a href="../../ctp:api:type:DuplicatePriceScopeError">DuplicatePriceScope</a> error is returned.</p>
+<p>If any two Embedded Prices in this array have overlapping validity periods within the same price scope, an <a href="../../ctp:api:type:OverlappingPriceValidityError">OverlappingPriceValidity</a> error is returned. An Embedded Price without validity period does not conflict with an Embedded Price defined for a time period.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PriceDraftCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d3/d08/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action.html#a8dae3c42c77d0c8c67a95acacf3f7357">Commercetools\Api\Models\Product\ProductSetPricesAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00137">137</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00139">139</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -307,13 +310,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If <code>true</code>, only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
+<p>Whether only the staged ProductVariant is updated. If <code>false</code>, both the current and staged ProductVariant are updated.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../d3/d08/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action.html#adcf310fc7246b2e2040da76d219d51cf">Commercetools\Api\Models\Product\ProductSetPricesAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00157">157</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00159">159</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -365,7 +368,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d08/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action.html#a50bfea1665d6226f61d5ce0382bf9630">Commercetools\Api\Models\Product\ProductSetPricesAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00191">191</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00193">193</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -393,7 +396,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d08/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action.html#a7cdf1e6892735b7c4f4753f85af55020">Commercetools\Api\Models\Product\ProductSetPricesAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00183">183</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00185">185</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -421,7 +424,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d08/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action.html#a74d249b5792fecb721541fa913ccff60">Commercetools\Api\Models\Product\ProductSetPricesAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00199">199</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00201">201</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -449,7 +452,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/d08/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_set_prices_action.html#a8bbe22e606458bdeadef2bb0a6aa16e5">Commercetools\Api\Models\Product\ProductSetPricesAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00175">175</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html#l00177">177</a> of file <a class="el" href="../../d4/df2/_product_set_prices_action_model_8php_source.html">ProductSetPricesActionModel.php</a>.</p>
 
 </div>
 </div>

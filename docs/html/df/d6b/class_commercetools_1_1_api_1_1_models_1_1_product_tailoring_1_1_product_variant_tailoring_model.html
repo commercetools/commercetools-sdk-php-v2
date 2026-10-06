@@ -215,7 +215,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Media assets of the tailored Product Variant. If present, these assets will override the assets of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> in total.</p>
+<p>Media assets of the tailored Product Variant. If present, these assets will override the assets of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a> in total.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|AssetCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -239,19 +239,17 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attributes of the tailored Product Variant. If present, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>:</p>
+<p>Attributes of the tailored Product Variant. If present, these Attributes are selectively merged into the <code>attributes</code> of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a>:</p>
 <ul>
 <li>
-If the ProductVariant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten, </li>
-<li>
-otherwise the Attribute and its value are added to the ProductVariant. </li>
+If the ProductVariant or Variant contains an Attribute with the same <code>name</code>, its <code>value</code> is overwritten. Otherwise, the Attribute and its value are added to the ProductVariant or Variant. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductTailoringAttributeCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d5/de3/interface_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring.html#a70f0d5ee574f45b0d0cafde455fa6498">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoring</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00137">137</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00136">136</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
 
 </div>
 </div>
@@ -269,7 +267,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The <code>id</code> of the tailored <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>.</p>
+<p>The <code>id</code> of the tailored <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 <p>@psalm-var ?int $data</p>
 
@@ -293,7 +291,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Images of the tailored Product Variant. If present, these images will override the images of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> in total.</p>
+<p>Images of the tailored Product Variant. If present, these images will override the images of the corresponding <a href="../../ctp:api:type:ProductVariant">ProductVariant</a> or <a href="../../ctp:api:type:Variant">Variant</a> in total.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ImageCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -327,7 +325,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
 
 <p>Implements <a class="el" href="../../d5/de3/interface_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring.html#a6687dfe42e64d09844e87290895dcad2">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoring</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00171">171</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00170">170</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
 
 </div>
 </div>
@@ -355,7 +353,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
 
 <p>Implements <a class="el" href="../../d5/de3/interface_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring.html#a570ae34fe9dc1fdfcce250198218acae">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoring</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00179">179</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00178">178</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
 
 </div>
 </div>
@@ -383,7 +381,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
 
 <p>Implements <a class="el" href="../../d5/de3/interface_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring.html#a73d8a269a40e04d6cea2c2bae4a63264">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoring</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00155">155</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00154">154</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
 
 </div>
 </div>
@@ -411,7 +409,7 @@ otherwise the Attribute and its value are added to the ProductVariant. </li>
 
 <p>Implements <a class="el" href="../../d5/de3/interface_commercetools_1_1_api_1_1_models_1_1_product_tailoring_1_1_product_variant_tailoring.html#a6964703ee259995cd12aa72c28bf1bf7">Commercetools\Api\Models\ProductTailoring\ProductVariantTailoring</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00163">163</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html#l00162">162</a> of file <a class="el" href="../../db/df4/_product_variant_tailoring_model_8php_source.html">ProductVariantTailoringModel.php</a>.</p>
 
 </div>
 </div>

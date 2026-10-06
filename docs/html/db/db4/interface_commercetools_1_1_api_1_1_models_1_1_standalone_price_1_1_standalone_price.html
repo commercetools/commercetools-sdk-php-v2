@@ -248,7 +248,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If set to <code>true</code>, the StandalonePrice is considered during <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. If set to <code>false</code>, the StandalonePrice is not considered during <a href="../..//../api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
+<p>Whether the StandalonePrice is considered during <a href="../..//api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. If set to <code>false</code>, the StandalonePrice is not considered during <a href="../..//api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d2a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_model.html#a15316a1d74f0932cd7a4f04cf8e92207">Commercetools\Api\Models\StandalonePrice\StandalonePriceModel</a>.</p>
@@ -397,8 +397,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set if a matching <a href="../../ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>. When a <a href="../..//../api/projects/productDiscounts#productdiscountvaluerelative">relative discount</a> is applied and the fraction part of the <code>discounted</code> price is 0.5, the discounted price is rounded in favor of the customer with the <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">half down rounding</a>.</p>
-<p>If an <a href="../../ctp:api:type:ProductDiscountValueAbsolute">absolute discount</a> value exceeds the price of the Product Variant, the discounted price is a negative value.</p>
+<p>Set if a matching <a href="../../ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DiscountedPrice </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d2a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_model.html#ae2089565475d12cef33f681e33b955f0">Commercetools\Api\Models\StandalonePrice\StandalonePriceModel</a>.</p>
@@ -613,7 +612,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date until the Price is valid. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="../..//../api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
+<p>Date until the Price is valid. Standalone Prices that are no longer valid are not automatically deleted, but they can be <a href="../..//api/projects/standalone-prices#delete-standaloneprice">deleted</a> if necessary.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../da/d2a/class_commercetools_1_1_api_1_1_models_1_1_standalone_price_1_1_standalone_price_model.html#a5eca44067c4162b66c9d5b9f55d49f5e">Commercetools\Api\Models\StandalonePrice\StandalonePriceModel</a>.</p>

@@ -153,7 +153,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the <code>shippingMethod</code>.</p>
+<p>Object containing the <a href="../../ctp:api:type:CustomFields">Custom Fields</a> fields for the <code>shippingMethod</code>.</p>
+<p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="../../ctp:api:type:Type">Type</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FieldContainer </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/de6/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_shipping_custom_type_action_model.html#ad48f5e2844a37c8128498561af14cea0">Commercetools\Api\Models\Order\OrderSetShippingCustomTypeActionModel</a>.</p>
@@ -195,7 +196,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the specified ShippingMethod with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the ShippingMethod.</p>
+<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the specified ShippingMethod with <a href="../../ctp:api:type:CustomFields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the ShippingMethod.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypeResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d6/de6/class_commercetools_1_1_api_1_1_models_1_1_order_1_1_order_set_shipping_custom_type_action_model.html#ae464e894acd32e6c23b7baf257b24458">Commercetools\Api\Models\Order\OrderSetShippingCustomTypeActionModel</a>.</p>

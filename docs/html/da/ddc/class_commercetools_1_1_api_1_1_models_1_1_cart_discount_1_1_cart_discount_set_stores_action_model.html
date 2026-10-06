@@ -217,20 +217,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p><a href="../../ctp:api:type:Store">Stores</a> to set. Overrides the current list of Stores. If empty, any existing values will be removed.</p>
-<p>A failed update can return the following errors:</p>
-<ul>
-<li>
-If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned. </li>
-<li>
-If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned. </li>
-</ul>
+<p><a href="../../ctp:api:type:Store">Stores</a> to set. Overrides the current list of Stores. Set to an empty array to remove all existing values.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts-stores">limit</a>, a <a href="../../ctp:api:type:MaxStoreReferencesReachedError">MaxStoreReferencesReached</a> error is returned.</p>
+<p>If the referenced Stores exceed the <a href="../..//api/limits#cart-discounts">limit</a> for Cart Discounts that do not require a Discount Code, a <a href="../../ctp:api:type:StoreCartDiscountsLimitReachedError">StoreCartDiscountsLimitReached</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreResourceIdentifierCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../de/d9c/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_set_stores_action.html#aaeb57b88890cdbe679525fa62551e7b3">Commercetools\Api\Models\CartDiscount\CartDiscountSetStoresAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html#l00079">79</a> of file <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html">CartDiscountSetStoresActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html#l00076">76</a> of file <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html">CartDiscountSetStoresActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -258,7 +253,7 @@ If the referenced Stores exceed the <a href="../..//../api/limits#cart-discounts
 
 <p>Implements <a class="el" href="../../de/d9c/interface_commercetools_1_1_api_1_1_models_1_1_cart_discount_1_1_cart_discount_set_stores_action.html#ab6df4f5afde9a2f5b66e796d322f1725">Commercetools\Api\Models\CartDiscount\CartDiscountSetStoresAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html#l00097">97</a> of file <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html">CartDiscountSetStoresActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html#l00094">94</a> of file <a class="el" href="../../df/dcc/_cart_discount_set_stores_action_model_8php_source.html">CartDiscountSetStoresActionModel.php</a>.</p>
 
 </div>
 </div>

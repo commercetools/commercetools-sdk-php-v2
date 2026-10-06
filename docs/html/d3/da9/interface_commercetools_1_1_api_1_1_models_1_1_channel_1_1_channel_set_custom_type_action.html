@@ -147,7 +147,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Sets the <a href="../..//../api/projects/custom-fields">Custom Fields</a> fields for the Channel.</p>
+<p>Object containing the <a href="../../ctp:api:type:CustomFields">Custom Fields</a> fields for the Channel.</p>
+<p>Required if at least one Custom Field is defined as required in the <code>fieldDefinitions</code> of the referenced <a href="../../ctp:api:type:Type">Type</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|FieldContainer </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/da4/class_commercetools_1_1_api_1_1_models_1_1_channel_1_1_channel_set_custom_type_action_model.html#a647d2790e2c4a7b4ba9b51c5a51330c8">Commercetools\Api\Models\Channel\ChannelSetCustomTypeActionModel</a>.</p>
@@ -168,7 +169,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the Channel with <a href="../..//../api/projects/custom-fields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the Channel.</p>
+<p>Defines the <a href="../../ctp:api:type:Type">Type</a> that extends the Channel with <a href="../../ctp:api:type:CustomFields">Custom Fields</a>. If absent, any existing Type and Custom Fields are removed from the Channel.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|TypeResourceIdentifier </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/da4/class_commercetools_1_1_api_1_1_models_1_1_channel_1_1_channel_set_custom_type_action_model.html#aeca96fe2128337179ad9caeff32260bc">Commercetools\Api\Models\Channel\ChannelSetCustomTypeActionModel</a>.</p>

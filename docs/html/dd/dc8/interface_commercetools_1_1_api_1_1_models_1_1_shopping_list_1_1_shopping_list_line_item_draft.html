@@ -296,6 +296,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p><code>id</code> of the <a href="../../ctp:api:type:ProductVariant">ProductVariant</a>. If not set, the ShoppingListLineItem refers to the Master Variant.</p>
+<p>For a Project with <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> set to <code>Modular</code>, when <code>variantId</code> is not set, the ShoppingListLineItem refers to the Product's default <a href="../../ctp:api:type:Variant">Variant</a> (<code>defaultVariant</code>) instead of the Master Variant. If no default Variant is set, the ShoppingListLineItem refers to the Variant with the lowest <code>variantId</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|int </dd></dl>
 
 <p>Implemented in <a class="el" href="../../dc/d44/class_commercetools_1_1_api_1_1_models_1_1_shopping_list_1_1_shopping_list_line_item_draft_model.html#ab6334d7e8ff0bf08bef8bfad39474680">Commercetools\Api\Models\ShoppingList\ShoppingListLineItemDraftModel</a>.</p>

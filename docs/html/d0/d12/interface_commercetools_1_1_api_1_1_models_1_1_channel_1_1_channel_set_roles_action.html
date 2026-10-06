@@ -141,7 +141,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Value to set. If not specified, then <code>InventorySupply</code> is assigned by default.</p>
+<p>Value to set. If set to an empty array, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+<p>If the new value is the same as the current value, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|array </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d7/d0f/class_commercetools_1_1_api_1_1_models_1_1_channel_1_1_channel_set_roles_action_model.html#a8fbb2fad0a337e45ba2779361735bf3a">Commercetools\Api\Models\Channel\ChannelSetRolesActionModel</a>.</p>

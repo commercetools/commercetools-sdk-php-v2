@@ -786,7 +786,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Customer Groups that the Customer belongs to.</p>
-<p>Used for <a href="../..//../api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+<p>Used for <a href="../..//api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|CustomerGroupAssignmentCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
@@ -907,7 +907,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Email address of the Customer that is <a href="../..//../api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to. It is the mandatory unique identifier of a Customer.</p>
+<p>Email address of the Customer that is <a href="../..//api/customers-overview#customer-uniqueness">unique</a> for an entire Project or to a Store the Customer is assigned to. It is the mandatory unique identifier of a Customer.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -1246,9 +1246,9 @@ Additional Inherited Members</h2></td></tr>
 <p><a href="../../ctp:api:type:Store">Stores</a> to which the Customer is assigned to.</p>
 <ul>
 <li>
-If <code>stores</code> is empty, the Customer is a global customer, and can log in using the <a href="../..//../api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>. </li>
+If <code>stores</code> is empty, the Customer is a global customer, and can log in using the <a href="../..//api/authorization#password-flow-for-global-customers">Password Flow for global Customers</a>. </li>
 <li>
-If any Stores are specified, the Customer can only log in using the <a href="../..//../api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores. </li>
+If any Stores are specified, the Customer can only log in using the <a href="../..//api/authorization#password-flow-for-customers-in-a-store">Password Flow for Customers in a Store</a> for those specific Stores. </li>
 </ul>
 <dl class="section return"><dt>Returns</dt><dd>null|StoreKeyReferenceCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>

@@ -161,7 +161,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00314">314</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00315">315</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -182,7 +182,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Description of the ProductDiscount.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00108">108</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00109">109</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -200,10 +200,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
+<p>Whether to activate the ProductDiscount. To deactivate it even though the <code>predicate</code> matches, set to <code>false</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00153">153</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00154">154</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -222,9 +222,10 @@ Static Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the ProductDiscount.</p>
+<p>If the value is used by another Product Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00097">97</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00098">98</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -263,10 +264,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Valid <a href="../..//../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
+<p>Valid <a href="../..//api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00130">130</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00131">131</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -284,10 +285,11 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized. The value must be <b>unique</b> among all ProductDiscounts in the <a href="../../ctp:api:type:Project">Project</a>.</p>
+<p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.</p>
+<p>If the value is used by another Product Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00142">142</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00143">143</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -305,10 +307,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) from which the Discount is effective. Take <a href="../..//../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
+<p>Date and time (UTC) from which the Discount is effective. Take <a href="../..//api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00165">165</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00166">166</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -326,10 +328,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) until which the Discount is effective. Take <a href="../..//../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+<p>Date and time (UTC) until which the Discount is effective. Take <a href="../..//api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00177">177</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00178">178</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -350,7 +352,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Type of Discount and its corresponding value.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductDiscountValueDraft </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00119">119</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00120">120</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -377,7 +379,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00329">329</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00330">330</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -404,7 +406,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00208">208</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00209">209</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -423,10 +425,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003034">Deprecated:</a></b></dt><dd>use withDescription() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003264">Deprecated:</a></b></dt><dd>use withDescription() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00296">296</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00297">297</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -453,7 +455,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00252">252</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00253">253</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -480,7 +482,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00197">197</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00198">198</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -507,7 +509,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00186">186</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00187">187</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -526,10 +528,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003033">Deprecated:</a></b></dt><dd>use withName() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003263">Deprecated:</a></b></dt><dd>use withName() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00285">285</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00286">286</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -556,7 +558,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00230">230</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00231">231</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -583,7 +585,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00241">241</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00242">242</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -610,7 +612,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00263">263</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00264">264</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -637,7 +639,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00274">274</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00275">275</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -664,7 +666,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00219">219</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00220">220</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -683,10 +685,10 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003035">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003265">Deprecated:</a></b></dt><dd>use withValue() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00307">307</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html#l00308">308</a> of file <a class="el" href="../../d1/d59/_product_discount_draft_builder_8php_source.html">ProductDiscountDraftBuilder.php</a>.</p>
 
 </div>
 </div>

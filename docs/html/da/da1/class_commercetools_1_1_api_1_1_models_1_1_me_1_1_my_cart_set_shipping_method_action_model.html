@@ -237,7 +237,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d0e/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_shipping_method_action.html#afbb7cb4236f5a7da89074e35ee02dde4">Commercetools\Api\Models\Me\MyCartSetShippingMethodAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00106">106</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00112">112</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -255,14 +255,24 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Value to set. If empty, any existing value is removed.</p>
-<p>If the referenced Shipping Method has a predicate that does not match the Cart, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
+<p>Value to set. If omitted, any existing value is removed.</p>
+<p><a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned in one of the following cases:</p>
+<ol>
+<li>
+If the referenced Shipping Method has a predicate that does not match the Cart. </li>
+<li>
+If the referenced Shipping Method is not active. </li>
+<li>
+If the referenced Shipping Method is associated with a Store that is different from the Cart's Store. </li>
+<li>
+If the referenced Shipping Method is associated with a Store and the Cart is not associated with any Store. </li>
+</ol>
 <dl class="section return"><dt>Returns</dt><dd>null|ShippingMethodResourceIdentifier </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d9/d0e/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_shipping_method_action.html#ac19bdb3131aa4b907a67e7b29cae6087">Commercetools\Api\Models\Me\MyCartSetShippingMethodAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00085">85</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00091">91</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -290,7 +300,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d0e/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_shipping_method_action.html#a9992c303ac0a5d5026576fd344218829">Commercetools\Api\Models\Me\MyCartSetShippingMethodAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00133">133</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00139">139</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
 
 </div>
 </div>
@@ -318,7 +328,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d9/d0e/interface_commercetools_1_1_api_1_1_models_1_1_me_1_1_my_cart_set_shipping_method_action.html#a0bf63c2adfcbab45215fa2904fa342d5">Commercetools\Api\Models\Me\MyCartSetShippingMethodAction</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00125">125</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html#l00131">131</a> of file <a class="el" href="../../d0/d8a/_my_cart_set_shipping_method_action_model_8php_source.html">MyCartSetShippingMethodActionModel.php</a>.</p>
 
 </div>
 </div>

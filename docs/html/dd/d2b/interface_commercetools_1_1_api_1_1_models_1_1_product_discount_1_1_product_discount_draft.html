@@ -202,7 +202,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Set to <code>true</code> to activate the ProductDiscount, set to <code>false</code> to deactivate it (even though the <code>predicate</code> matches).</p>
+<p>Whether to activate the ProductDiscount. To deactivate it even though the <code>predicate</code> matches, set to <code>false</code>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#a0df164ccaf7125b67dce2c061cb9f5e5">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>.</p>
@@ -224,6 +224,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the ProductDiscount.</p>
+<p>If the value is used by another Product Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#a28a226586257f0bf6dcbc3e31d4582db">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>.</p>
@@ -265,7 +266,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Valid <a href="../..//../api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
+<p>Valid <a href="../..//api/projects/predicates#productdiscount-predicates">ProductDiscount predicate</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#ad190127d96d8791ae09c50c41695b4a3">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>.</p>
@@ -286,7 +287,8 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized. The value must be <b>unique</b> among all ProductDiscounts in the <a href="../../ctp:api:type:Project">Project</a>.</p>
+<p>Decimal value between 0 and 1 (passed as String literal) that defines the order of ProductDiscounts to apply in case more than one is applicable and active. A ProductDiscount with a higher <code>sortOrder</code> is prioritized.</p>
+<p>If the value is used by another Product Discount, a <a href="../../ctp:api:type:DuplicateFieldError">DuplicateField</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#a0f7d0707c884f409fad29a8fff78b947">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>.</p>
@@ -307,7 +309,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) from which the Discount is effective. Take <a href="../..//../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
+<p>Date and time (UTC) from which the Discount is effective. Take <a href="../..//api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated discount values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#a83179f61054249773870427af2060207">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>.</p>
@@ -328,7 +330,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Date and time (UTC) until which the Discount is effective. Take <a href="../..//../api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
+<p>Date and time (UTC) until which the Discount is effective. Take <a href="../..//api/general-concepts#eventual-consistency">Eventual Consistency</a> into account for calculated undiscounted values.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|DateTimeImmutable </dd></dl>
 
 <p>Implemented in <a class="el" href="../../d3/d48/class_commercetools_1_1_api_1_1_models_1_1_product_discount_1_1_product_discount_draft_model.html#af6008a81c4e97334e90d0634a1ce69b6">Commercetools\Api\Models\ProductDiscount\ProductDiscountDraftModel</a>.</p>

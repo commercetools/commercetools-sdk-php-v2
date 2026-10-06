@@ -193,7 +193,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/d98/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_discounted_price.html#a822bbf98bb31a8983e131249fba43078">Commercetools\Api\Models\Common\DiscountedPrice</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00075">75</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00084">84</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
 
 </div>
 </div>
@@ -212,12 +212,26 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Money value of the discounted price.</p>
+<ul>
+<li>
+<p class="startli"></p>
+<p class="interli">When a <a href="../../ctp:api:type:ProductDiscountValueRelative">relative Product Discount</a> applies and the fractional part of the resulting discounted price is 0.5, the discounted price is <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_half_down">rounded half down</a>.</p>
+<p class="interli"></p>
+<p class="interli">For example, a price of €1.01 (<code>centAmount: 101</code>) with a 50% discount (<code>permyriad: 5000</code>) calculates to €0.505. Since the fractional half-cent is exactly 0.5, it rounds down to €0.50 (<code>centAmount: 50</code>).</p>
+<p class="endli"></p>
+</li>
+<li>
+<p class="startli"></p>
+<p class="interli">When an <a href="../../ctp:api:type:ProductDiscountValueAbsolute">absolute Product Discount</a> exceeds the price of the Product Variant, the resulting discounted price is set to <code>0</code>.</p>
+<p class="endli"></p>
+</li>
+</ul>
 <dl class="section return"><dt>Returns</dt><dd>null|TypedMoney </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../da/d98/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_discounted_price.html#ad354695c170742ac9839b587b4dcb72c">Commercetools\Api\Models\Common\DiscountedPrice</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00054">54</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00063">63</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
 
 </div>
 </div>
@@ -245,7 +259,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/d98/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_discounted_price.html#a0e4d9f45399804847f8fd884a1615397">Commercetools\Api\Models\Common\DiscountedPrice</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00102">102</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00111">111</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
 
 </div>
 </div>
@@ -273,7 +287,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../da/d98/interface_commercetools_1_1_api_1_1_models_1_1_common_1_1_discounted_price.html#adff4d4ef090415aea19ed519e358a377">Commercetools\Api\Models\Common\DiscountedPrice</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00094">94</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html#l00103">103</a> of file <a class="el" href="../../d0/d7c/commercetools-api_2src_2_models_2_common_2_discounted_price_model_8php_source.html">DiscountedPriceModel.php</a>.</p>
 
 </div>
 </div>

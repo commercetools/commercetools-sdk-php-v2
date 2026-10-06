@@ -123,7 +123,7 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/dc2/interface_commercetools_1_1_base_1_1_builder.html#a0fc43cc734ab25e9a2e06b44f37b5ed7">Commercetools\Base\Builder</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00058">58</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00059">59</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -141,13 +141,14 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Value to set. If empty, any existing value will be removed.</p>
+<p>Value to set. If omitted, any existing value is removed.</p>
 <p>Possible transformations of the current State to other States of the same <code>type</code> (for example, <em>Initial</em> -&gt; <em>Shipped</em>). When performing a <code>transitionState</code> update action and <code>transitions</code> is set, the currently referenced State must have a transition to the new State.</p>
 <p>If <code>transitions</code> is an empty list, it means the current State is a final State and no further transitions are allowed. If <code>transitions</code> is not set, the validation is turned off.</p>
 <p>When performing a <code>transitionState</code> update action, any other State of the same <code>type</code> can be transitioned to.</p>
+<p>If the new value is the same as the current value, an <a href="../../ctp:api:type:InvalidOperationError">InvalidOperation</a> error is returned.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|StateResourceIdentifierCollection </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00041">41</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00042">42</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -174,7 +175,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00065">65</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00066">66</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
 
 </div>
 </div>
@@ -201,7 +202,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00050">50</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html#l00051">51</a> of file <a class="el" href="../../d1/da0/_state_set_transitions_action_builder_8php_source.html">StateSetTransitionsActionBuilder.php</a>.</p>
 
 </div>
 </div>

@@ -287,7 +287,7 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Custom Fields for the PaymentMethodInfo. If not provided, any existing Custom Fields will be removed, including the Custom Type.</p>
+<p>Custom Fields for the PaymentMethodInfo. If omitted, any existing Custom Fields are removed, including the Custom Type.</p>
 <p>Setting this field is equivalent to the <code>setMethodInfoCustomType</code> and <code>setMethodInfoCustomField</code> actions, and will generate the following Messages:</p>
 <ul>
 <li>
@@ -318,7 +318,7 @@ Adding a Custom Field to a Payment generates the <a href="../../ctp:api:type:Pay
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Account or instance of the payment interface when multiple accounts are used (per interface). If empty, any existing value will be removed.</p>
+<p>Account or instance of the payment interface when multiple accounts are used (per interface). If omitted, any existing value is removed.</p>
 <p>Setting this field is equivalent to the <code>setMethodInfoInterfaceAccount</code> action and will generate the <a href="../../ctp:api:type:PaymentMethodInfoInterfaceAccountSetMessage">PaymentMethodInfoInterfaceAccountSet</a> Message.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
@@ -343,7 +343,7 @@ Adding a Custom Field to a Payment generates the <a href="../../ctp:api:type:Pay
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Payment method to use—for example, a credit card or direct debit. If empty, any existing value will be removed.</p>
+<p>Payment method to use—for example, a credit card or direct debit. If omitted, any existing value is removed.</p>
 <p>Setting this field is equivalent to the <code>setMethodInfoMethod</code> action and will generate the <a href="../../ctp:api:type:PaymentMethodInfoMethodSetMessage">PaymentMethodInfoMethodSet</a> Message.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
@@ -368,7 +368,7 @@ Adding a Custom Field to a Payment generates the <a href="../../ctp:api:type:Pay
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Name of the Payment Method. If empty, any existing value will be removed.</p>
+<p>Name of the Payment Method. If omitted, any existing value is removed.</p>
 <p>Setting this field is equivalent to the <code>setMethodInfoName</code> action and will generate the <a href="../../ctp:api:type:PaymentMethodInfoNameSetMessage">PaymentMethodInfoNameSet</a> Message.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|LocalizedString </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
@@ -418,7 +418,7 @@ Adding a Custom Field to a Payment generates the <a href="../../ctp:api:type:Pay
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Tokenized payment method information of the Payment Method. If empty, any existing value will be removed.</p>
+<p>Tokenized payment method information of the Payment Method. If omitted, any existing value is removed.</p>
 <p>Setting this field is equivalent to the <code>setMethodInfoToken</code> action and will generate the <a href="../../ctp:api:type:PaymentMethodInfoTokenSetMessage">PaymentMethodInfoTokenSet</a> Message.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|PaymentMethodToken </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>

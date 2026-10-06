@@ -417,7 +417,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a194e1f0acde7e5d308083f412cd42715">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00547">547</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00549">549</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -508,7 +508,7 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>User-defined unique identifier for the Product.</p>
-<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="../..//../api/import-export/overview">Import API</a> and the <a href="../..//../merchant-center/import-data">Merchant Center</a>.</p>
+<p>This field is optional for backwards compatibility reasons, but we strongly recommend setting it. Keys are mandatory for importing Products with the <a href="../..//api/import-export/overview">Import API</a> and the <a href="../..//merchant-center/import-data">Merchant Center</a>.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 <p>@psalm-var ?string $data</p>
 
@@ -532,13 +532,14 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided also.</p>
+<p>The Product Variant to be the Master Variant for the Product. Required if <code>variants</code> are provided or if the referenced Product Type contains any Variant-level <a href="../../ctp:api:type:AttributeDefinition">AttributeDefinition</a> with <code>isRequired</code> set to <code>true</code>.</p>
+<p>Must not be provided when the Project has the <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="../..//projects/variants">Variants API</a> to create Variants instead.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantDraft </dd></dl>
 <p>@psalm-var stdClass|array&lt;string, mixed&gt;|null $data</p>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a62ca8ef22853e872f067abb41e43751f">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00400">400</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00401">401</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -658,7 +659,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#ae25c44fb6ddb78885ce695b473a337d8">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00526">526</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00528">528</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -700,13 +701,13 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>If <code>true</code>, the platform sets the <code>published</code> flag on the resulting <a href="../../ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>. This makes the current representation retrievable in <a href="../..//projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="../..//../api/projects/product-search">Product Search</a>. You can also set this flag later using the <a href="../..//projects/products#publish">Publish</a> update action.</p>
+<p>Whether the platform sets the <code>published</code> flag on the resulting <a href="../../ctp:api:type:ProductCatalogData">ProductCatalogData</a> to <code>true</code>. This makes the current representation retrievable in <a href="../..//projects/productProjections">Product Projection</a> endpoints and indexes it for <a href="../..//api/projects/product-search">Product Search</a>. You can also set this flag later using the <a href="../..//projects/products#publish">Publish</a> update action.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|bool </dd></dl>
 <p>@psalm-var ?bool $data</p>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a09bef8869d7472c215483bb0059d9290">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00506">506</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00508">508</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -730,7 +731,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#aab2d5a4d434163dc843a5e36ccc29780">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00462">462</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00464">464</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -778,7 +779,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a9a46d445adf3bfdafc034c9d7881cc29">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00483">483</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00485">485</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -802,7 +803,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a66a8782c718526b325b523fb0f42e2da">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00441">441</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00443">443</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -821,12 +822,13 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>The additional Product Variants for the Product.</p>
+<p>Must not be provided when the Project has the <a href="../../ctp:api:type:ProductCatalogModel">ProductCatalogModel</a> <code>Modular</code>. Use the <a href="../..//projects/variants">Variants API</a> to create Variants instead.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|ProductVariantDraftCollection </dd></dl>
 <p>@psalm-var ?list&lt;stdClass&gt; $data</p>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a404ca92a92f87bf34188d1199a27b4ce">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00421">421</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00423">423</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -854,7 +856,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#aac41cf344338c600d3926b397b45919f">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00701">701</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00703">703</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -882,7 +884,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a45073f09881c4af52f41a8e177fd269c">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00605">605</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00607">607</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -910,7 +912,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a339aedfcec316b74f9f79e636b9ebaa6">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00613">613</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00615">615</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -938,7 +940,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a4ef366fbbc281aa2def59392a42fd0b9">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00597">597</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00599">599</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -966,7 +968,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a5d866f93d93537ad511576b853dbbc8c">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00589">589</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00591">591</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -994,7 +996,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#ad5af8f1bab3f920964517fda0e977638">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00645">645</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00647">647</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1022,7 +1024,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a779ae2868fd747d6d43dfbf2375c5e3c">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00629">629</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00631">631</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1050,7 +1052,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a33c208393d52233813e3b72b863651ba">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00637">637</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00639">639</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1078,7 +1080,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a3ea11d7838123b750c7f398c4ba88fd1">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00621">621</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00623">623</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1106,7 +1108,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a66ecc7eae2c86f87d32c6fb2e1808cc6">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00573">573</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00575">575</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1134,7 +1136,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a23a319c435a20182d20264cf501e4d58">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00693">693</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00695">695</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1162,7 +1164,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#ae0cf4fb10c49c70c8e685f4bfd20f796">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00565">565</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00567">567</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1190,7 +1192,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a2c5885f991863a946558d70c0b6cc4a1">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00685">685</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00687">687</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1218,7 +1220,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a4eaa6addd2a2835ced7710e428aa5b58">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00669">669</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00671">671</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1246,7 +1248,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#aeff8cd34e14b24c45de4758e215b5081">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00581">581</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00583">583</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1274,7 +1276,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a992f4f03e922d4699ac98895a4087c33">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00677">677</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00679">679</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1302,7 +1304,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#aac8a89fef8078cb770d3b8c047f3400c">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00661">661</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00663">663</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
@@ -1330,7 +1332,7 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Implements <a class="el" href="../../d3/df9/interface_commercetools_1_1_api_1_1_models_1_1_product_1_1_product_draft.html#a3d2b3daec5cf719bf88f10ea4efae117">Commercetools\Api\Models\Product\ProductDraft</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00653">653</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
+<p class="definition">Definition at line <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html#l00655">655</a> of file <a class="el" href="../../d2/d06/_product_draft_model_8php_source.html">ProductDraftModel.php</a>.</p>
 
 </div>
 </div>
