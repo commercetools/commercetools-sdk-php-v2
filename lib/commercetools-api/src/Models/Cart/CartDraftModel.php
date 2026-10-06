@@ -184,6 +184,12 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
 
     /**
      *
+     * @var ?bool
+     */
+    protected $directDiscountsIgnoreCartDiscounts;
+
+    /**
+     *
      * @var ?string
      */
     protected $country;
@@ -248,6 +254,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         ?ShippingDraftCollection $shipping = null,
         ?BaseAddressCollection $itemShippingAddresses = null,
         ?array $discountCodes = null,
+        ?bool $directDiscountsIgnoreCartDiscounts = null,
         ?string $country = null,
         ?string $locale = null,
         ?string $origin = null,
@@ -280,6 +287,7 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
         $this->shipping = $shipping;
         $this->itemShippingAddresses = $itemShippingAddresses;
         $this->discountCodes = $discountCodes;
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
         $this->country = $country;
         $this->locale = $locale;
         $this->origin = $origin;
@@ -811,6 +819,29 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     }
 
     /**
+     * <ul>
+     * <li>If set to <code>true</code>, only <a href="ctp:api:type:DirectDiscount">Direct Discounts</a> apply to the Cart. Matching <a href="ctp:api:type:CartDiscount">Cart Discounts</a> are ignored, and Discount Codes cannot be added.</li>
+     * <li>If set to <code>false</code>, Cart Discounts, Discount Codes, and Direct Discounts apply to the Cart.</li>
+     * </ul>
+     *
+     *
+     * @return null|bool
+     */
+    public function getDirectDiscountsIgnoreCartDiscounts()
+    {
+        if (is_null($this->directDiscountsIgnoreCartDiscounts)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_DIRECT_DISCOUNTS_IGNORE_CART_DISCOUNTS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->directDiscountsIgnoreCartDiscounts = (bool) $data;
+        }
+
+        return $this->directDiscountsIgnoreCartDiscounts;
+    }
+
+    /**
      * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.
      * If used for <a href="ctp:api:endpoint:/{projectKey}/in-store/carts:POST">Create Cart in Store</a>, the provided country must be one of the <a href="ctp:api:type:Store">Store's</a> <code>countries</code>.</p>
      *
@@ -1134,6 +1165,14 @@ final class CartDraftModel extends JsonObjectModel implements CartDraft
     public function setDiscountCodes(?array $discountCodes): void
     {
         $this->discountCodes = $discountCodes;
+    }
+
+    /**
+     * @param ?bool $directDiscountsIgnoreCartDiscounts
+     */
+    public function setDirectDiscountsIgnoreCartDiscounts(?bool $directDiscountsIgnoreCartDiscounts): void
+    {
+        $this->directDiscountsIgnoreCartDiscounts = $directDiscountsIgnoreCartDiscounts;
     }
 
     /**

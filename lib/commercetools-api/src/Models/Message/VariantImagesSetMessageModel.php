@@ -15,6 +15,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -96,6 +98,12 @@ final class VariantImagesSetMessageModel extends JsonObjectModel implements Vari
 
     /**
      *
+     * @var ?ProductReference
+     */
+    protected $product;
+
+    /**
+     *
      * @var ?ImageCollection
      */
     protected $images;
@@ -127,6 +135,7 @@ final class VariantImagesSetMessageModel extends JsonObjectModel implements Vari
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?ProductReference $product = null,
         ?ImageCollection $images = null,
         ?ImageCollection $oldImages = null,
         ?bool $staged = null,
@@ -142,6 +151,7 @@ final class VariantImagesSetMessageModel extends JsonObjectModel implements Vari
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->product = $product;
         $this->images = $images;
         $this->oldImages = $oldImages;
         $this->staged = $staged;
@@ -382,6 +392,27 @@ final class VariantImagesSetMessageModel extends JsonObjectModel implements Vari
     }
 
     /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
+    /**
      * <p>The images that were set on the Variant.</p>
      *
      *
@@ -520,6 +551,14 @@ final class VariantImagesSetMessageModel extends JsonObjectModel implements Vari
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
     }
 
     /**

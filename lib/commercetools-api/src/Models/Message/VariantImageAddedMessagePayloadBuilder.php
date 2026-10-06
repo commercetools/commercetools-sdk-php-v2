@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Message;
 
 use Commercetools\Api\Models\Common\Image;
 use Commercetools\Api\Models\Common\ImageBuilder;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceBuilder;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -24,6 +26,12 @@ final class VariantImageAddedMessagePayloadBuilder implements Builder
 {
     /**
 
+     * @var null|ProductReference|ProductReferenceBuilder
+     */
+    private $product;
+
+    /**
+
      * @var null|Image|ImageBuilder
      */
     private $image;
@@ -33,6 +41,17 @@ final class VariantImageAddedMessagePayloadBuilder implements Builder
      * @var ?bool
      */
     private $staged;
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        return $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product;
+    }
 
     /**
      * <p><a href="ctp:api:type:Image">Image</a> that was added.</p>
@@ -54,6 +73,17 @@ final class VariantImageAddedMessagePayloadBuilder implements Builder
     public function getStaged()
     {
         return $this->staged;
+    }
+
+    /**
+     * @param ?ProductReference $product
+     * @return $this
+     */
+    public function withProduct(?ProductReference $product)
+    {
+        $this->product = $product;
+
+        return $this;
     }
 
     /**
@@ -79,6 +109,17 @@ final class VariantImageAddedMessagePayloadBuilder implements Builder
     }
 
     /**
+     * @deprecated use withProduct() instead
+     * @return $this
+     */
+    public function withProductBuilder(?ProductReferenceBuilder $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withImage() instead
      * @return $this
      */
@@ -92,6 +133,7 @@ final class VariantImageAddedMessagePayloadBuilder implements Builder
     public function build(): VariantImageAddedMessagePayload
     {
         return new VariantImageAddedMessagePayloadModel(
+            $this->product instanceof ProductReferenceBuilder ? $this->product->build() : $this->product,
             $this->image instanceof ImageBuilder ? $this->image->build() : $this->image,
             $this->staged
         );

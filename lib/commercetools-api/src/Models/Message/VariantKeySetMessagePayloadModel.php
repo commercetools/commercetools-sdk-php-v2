@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Message;
 
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -28,6 +30,12 @@ final class VariantKeySetMessagePayloadModel extends JsonObjectModel implements 
 
     /**
      *
+     * @var ?ProductReference
+     */
+    protected $product;
+
+    /**
+     *
      * @var ?string
      */
     protected $key;
@@ -43,10 +51,12 @@ final class VariantKeySetMessagePayloadModel extends JsonObjectModel implements 
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?ProductReference $product = null,
         ?string $key = null,
         ?string $oldKey = null,
         ?string $type = null
     ) {
+        $this->product = $product;
         $this->key = $key;
         $this->oldKey = $oldKey;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
@@ -68,6 +78,27 @@ final class VariantKeySetMessagePayloadModel extends JsonObjectModel implements 
         }
 
         return $this->type;
+    }
+
+    /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
     }
 
     /**
@@ -110,6 +141,14 @@ final class VariantKeySetMessagePayloadModel extends JsonObjectModel implements 
         return $this->oldKey;
     }
 
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
+    }
 
     /**
      * @param ?string $key

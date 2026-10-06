@@ -17,9 +17,10 @@ interface ProjectChangeProductSearchIndexingEnabledAction extends ProjectUpdateA
     public const FIELD_MODE = 'mode';
 
     /**
+     * <p>Whether to enable product indexing for the storefront search APIs selected by <code>mode</code>.</p>
      * <ul>
-     * <li>If <code>false</code>, the indexing of <a href="ctp:api:type:Product">Product</a> information will stop and the <a href="/api/projects/product-projection-search">Product Projection Search</a> as well as the <a href="/api/projects/search-term-suggestions">Search Term Suggestions</a> API will no longer be available for this Project. The Project's <a href="ctp:api:type:SearchIndexingConfiguration">SearchIndexingConfiguration</a> <code>status</code> for <code>products</code> will be changed to <code>&quot;Deactivated&quot;</code>.</li>
-     * <li>If <code>true</code>, the indexing of <a href="ctp:api:type:Product">Product</a> information will start and the <a href="/api/projects/product-projection-search">Product Projection Search</a> as well as the <a href="/api/projects/search-term-suggestions">Search Term Suggestions</a> API will become available soon after for this Project. Proportional to the amount of information being indexed, the Project's <a href="ctp:api:type:SearchIndexingConfiguration">SearchIndexingConfiguration</a> <code>status</code> for <code>products</code> will be shown as <code>&quot;Indexing&quot;</code> during this time. As soon as the indexing has finished, the configuration status will be changed to <code>&quot;Activated&quot;</code> making the aforementioned APIs fully available for this Project.</li>
+     * <li>If <code>true</code>, indexing starts for the selected API and the corresponding status changes to <code>&quot;Indexing&quot;</code>. After indexing finishes, the status changes to <code>&quot;Activated&quot;</code> and the selected API becomes available.</li>
+     * <li>If <code>false</code>, indexing stops and the selected API become unavailable. The corresponding <a href="ctp:api:type:SearchIndexingConfiguration">SearchIndexingConfiguration</a> <code>status</code> changes to <code>&quot;Deactivated&quot;</code>.</li>
      * </ul>
      *
 

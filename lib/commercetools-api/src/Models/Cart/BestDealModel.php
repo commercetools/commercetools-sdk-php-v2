@@ -64,6 +64,7 @@ final class BestDealModel extends JsonObjectModel implements BestDeal
 
     /**
      * <p>Discount type that offers the best deal; the value can be <code>ProductDiscount</code> or <code>CartDiscount</code>.</p>
+     * <p><a href="ctp:api:type:DirectDiscount">Direct Discounts</a> are indicated as <code>CartDiscount</code> when they offer the best deal.</p>
      *
      *
      * @return null|string

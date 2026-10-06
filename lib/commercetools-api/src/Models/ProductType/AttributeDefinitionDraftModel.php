@@ -75,6 +75,12 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
      */
     protected $isSearchable;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $savedToLineItem;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -88,7 +94,8 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         ?string $attributeConstraint = null,
         ?LocalizedString $inputTip = null,
         ?string $inputHint = null,
-        ?bool $isSearchable = null
+        ?bool $isSearchable = null,
+        ?bool $savedToLineItem = null
     ) {
         $this->type = $type;
         $this->name = $name;
@@ -99,6 +106,7 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         $this->inputTip = $inputTip;
         $this->inputHint = $inputHint;
         $this->isSearchable = $isSearchable;
+        $this->savedToLineItem = $savedToLineItem;
     }
 
     /**
@@ -295,6 +303,28 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
         return $this->isSearchable;
     }
 
+    /**
+     * <p>Whether the Attribute value is copied onto the <a href="ctp:api:type:LineItem">LineItem</a> when the Product is added to a Cart.
+     * When <code>false</code>, the Attribute value is excluded from the Line Item variant. Line Items already in a Cart are not immediately affected by a change to this value. Existing Line Items are updated the next time their Product data is refreshed, such as when a <a href="ctp:api:type:CartRecalculateAction">Recalculate</a> update action is performed with <code>updateProductData</code> set to <code>true</code>, or on a Cart update that triggers an API Extension. Replicating a Cart creates a new Cart that contains the current Product data; it does not update the original Cart.</p>
+     * <p>When <code>savedToLineItem</code> is <code>false</code>, <a href="/api/projects/predicates#lineitem-field-identifiers">LineItem predicates</a> that reference this Attribute, such as those in Cart Discounts and Shipping Methods, evaluate as if the Attribute is not set.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getSavedToLineItem()
+    {
+        if (is_null($this->savedToLineItem)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_SAVED_TO_LINE_ITEM);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->savedToLineItem = (bool) $data;
+        }
+
+        return $this->savedToLineItem;
+    }
+
 
     /**
      * @param ?AttributeType $type
@@ -366,5 +396,13 @@ final class AttributeDefinitionDraftModel extends JsonObjectModel implements Att
     public function setIsSearchable(?bool $isSearchable): void
     {
         $this->isSearchable = $isSearchable;
+    }
+
+    /**
+     * @param ?bool $savedToLineItem
+     */
+    public function setSavedToLineItem(?bool $savedToLineItem): void
+    {
+        $this->savedToLineItem = $savedToLineItem;
     }
 }

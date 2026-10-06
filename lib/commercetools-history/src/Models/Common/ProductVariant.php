@@ -72,7 +72,7 @@ interface ProductVariant extends JsonObject
 
     /**
      * <p>Only available when <a href="/api/pricing-and-discounts-overview#price-selection">price selection</a> is used.
-     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     * Cannot be used in a <a href="/api/predicates/query">Query Predicate</a>.</p>
      *
 
      * @return null|Price
@@ -135,7 +135,7 @@ interface ProductVariant extends JsonObject
 
     /**
      * <p>Only available when <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
-     * Cannot be used in a <a href="ctp:api:type:QueryPredicate">Query Predicate</a>.</p>
+     * Cannot be used in a <a href="/api/predicates/query">Query Predicate</a>.</p>
      *
 
      * @return null|PriceCollection

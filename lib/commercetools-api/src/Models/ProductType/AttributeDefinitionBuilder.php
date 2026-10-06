@@ -77,6 +77,12 @@ final class AttributeDefinitionBuilder implements Builder
     private $isSearchable;
 
     /**
+
+     * @var ?bool
+     */
+    private $savedToLineItem;
+
+    /**
      * <p>Describes the Type of the Attribute.</p>
      *
 
@@ -183,6 +189,19 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * <p>Whether the Attribute value is copied onto the <a href="ctp:api:type:LineItem">LineItem</a> when the Product is added to a Cart.
+     * When <code>false</code>, the Attribute value is excluded from the Line Item variant. Line Items already in a Cart are not immediately affected by a change to this value. Existing Line Items are updated the next time their Product data is refreshed, such as when a <a href="ctp:api:type:CartRecalculateAction">Recalculate</a> update action is performed with <code>updateProductData</code> set to <code>true</code>, or on a Cart update that triggers an API Extension. Replicating a Cart creates a new Cart that contains the current Product data; it does not update the original Cart.</p>
+     * <p>When <code>savedToLineItem</code> is <code>false</code>, <a href="/api/projects/predicates#lineitem-field-identifiers">LineItem predicates</a> that reference this Attribute, such as those in Cart Discounts and Shipping Methods, evaluate as if the Attribute is not set.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getSavedToLineItem()
+    {
+        return $this->savedToLineItem;
+    }
+
+    /**
      * @param ?AttributeType $type
      * @return $this
      */
@@ -282,6 +301,17 @@ final class AttributeDefinitionBuilder implements Builder
     }
 
     /**
+     * @param ?bool $savedToLineItem
+     * @return $this
+     */
+    public function withSavedToLineItem(?bool $savedToLineItem)
+    {
+        $this->savedToLineItem = $savedToLineItem;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withType() instead
      * @return $this
      */
@@ -325,7 +355,8 @@ final class AttributeDefinitionBuilder implements Builder
             $this->attributeConstraint,
             $this->inputTip instanceof LocalizedStringBuilder ? $this->inputTip->build() : $this->inputTip,
             $this->inputHint,
-            $this->isSearchable
+            $this->isSearchable,
+            $this->savedToLineItem
         );
     }
 

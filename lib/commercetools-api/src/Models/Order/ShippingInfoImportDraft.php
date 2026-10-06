@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Commercetools\Api\Models\Order;
 
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
 use Commercetools\Api\Models\Common\Money;
 use Commercetools\Api\Models\ShippingMethod\ShippingMethodResourceIdentifier;
 use Commercetools\Api\Models\ShippingMethod\ShippingRateDraft;
@@ -22,6 +23,7 @@ interface ShippingInfoImportDraft extends JsonObject
     public const FIELD_PRICE = 'price';
     public const FIELD_SHIPPING_RATE = 'shippingRate';
     public const FIELD_TAX_RATE = 'taxRate';
+    public const FIELD_TAXED_PRICE = 'taxedPrice';
     public const FIELD_TAX_CATEGORY = 'taxCategory';
     public const FIELD_SHIPPING_METHOD = 'shippingMethod';
     public const FIELD_DELIVERIES = 'deliveries';
@@ -59,6 +61,14 @@ interface ShippingInfoImportDraft extends JsonObject
      * @return null|TaxRate
      */
     public function getTaxRate();
+
+    /**
+     * <p>Taxed price of the Shipping Method. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:ShippingInfo">ShippingInfo</a> instead of being derived from <code>price</code> and <code>taxRate</code>.</p>
+     *
+
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice();
 
     /**
      * <p>Include a value to associate a Tax Category with the shipping information.</p>
@@ -119,6 +129,11 @@ interface ShippingInfoImportDraft extends JsonObject
      * @param ?TaxRate $taxRate
      */
     public function setTaxRate(?TaxRate $taxRate): void;
+
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void;
 
     /**
      * @param ?TaxCategoryResourceIdentifier $taxCategory

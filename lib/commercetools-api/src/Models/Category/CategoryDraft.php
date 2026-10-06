@@ -10,6 +10,7 @@ namespace Commercetools\Api\Models\Category;
 
 use Commercetools\Api\Models\Common\AssetDraftCollection;
 use Commercetools\Api\Models\Common\LocalizedString;
+use Commercetools\Api\Models\Store\StoreResourceIdentifierCollection;
 use Commercetools\Api\Models\Type\CustomFieldsDraft;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -28,6 +29,7 @@ interface CategoryDraft extends JsonObject
     public const FIELD_CUSTOM = 'custom';
     public const FIELD_ASSETS = 'assets';
     public const FIELD_KEY = 'key';
+    public const FIELD_STORES = 'stores';
 
     /**
      * <p>Name of the Category.</p>
@@ -131,6 +133,23 @@ interface CategoryDraft extends JsonObject
     public function getKey();
 
     /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to assign the Category to.</p>
+     * <ul>
+     * <li>
+     * <p>If not defined or set to an empty array, the Category is global.</p>
+     * </li>
+     * <li>
+     * <p>If defined, you must have access to each referenced Store; otherwise, an <a href="ctp:api:type:InvalidInputError">InvalidInput</a> error is returned.</p>
+     * <p>If the Category has a parent category, and the parent is assigned to Stores, this value must be a non-empty subset of the parent's Stores.</p>
+     * </li>
+     * </ul>
+     *
+
+     * @return null|StoreResourceIdentifierCollection
+     */
+    public function getStores();
+
+    /**
      * @param ?LocalizedString $name
      */
     public function setName(?LocalizedString $name): void;
@@ -189,4 +208,9 @@ interface CategoryDraft extends JsonObject
      * @param ?string $key
      */
     public function setKey(?string $key): void;
+
+    /**
+     * @param ?StoreResourceIdentifierCollection $stores
+     */
+    public function setStores(?StoreResourceIdentifierCollection $stores): void;
 }

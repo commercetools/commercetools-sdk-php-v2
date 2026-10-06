@@ -35,16 +35,24 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
      */
     protected $target;
 
+    /**
+     *
+     * @var ?bool
+     */
+    protected $participateInBestDealSelection;
+
 
     /**
      * @psalm-suppress MissingParamType
      */
     public function __construct(
         ?CartDiscountValueDraft $value = null,
-        ?CartDiscountTarget $target = null
+        ?CartDiscountTarget $target = null,
+        ?bool $participateInBestDealSelection = null
     ) {
         $this->value = $value;
         $this->target = $target;
+        $this->participateInBestDealSelection = $participateInBestDealSelection;
     }
 
     /**
@@ -90,6 +98,30 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
         return $this->target;
     }
 
+    /**
+     * <ul>
+     * <li>If set to <code>true</code>, Direct Discounts compete against Product Discounts to apply the <a href="/api/pricing-and-discounts-overview#best-deal">best deal</a>.</li>
+     * <li>If set to <code>false</code>, Direct Discounts are ignored when calculating the best deal comparison, and are applied on top of the discount type that offers the best deal.</li>
+     * </ul>
+     * <p>This applies only when the <a href="ctp:api:type:DiscountCombinationMode">DiscountCombinationMode</a> for the <a href="ctp:api:type:Project">Project</a> is <code>BestDeal</code>.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getParticipateInBestDealSelection()
+    {
+        if (is_null($this->participateInBestDealSelection)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_PARTICIPATE_IN_BEST_DEAL_SELECTION);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->participateInBestDealSelection = (bool) $data;
+        }
+
+        return $this->participateInBestDealSelection;
+    }
+
 
     /**
      * @param ?CartDiscountValueDraft $value
@@ -105,5 +137,13 @@ final class DirectDiscountDraftModel extends JsonObjectModel implements DirectDi
     public function setTarget(?CartDiscountTarget $target): void
     {
         $this->target = $target;
+    }
+
+    /**
+     * @param ?bool $participateInBestDealSelection
+     */
+    public function setParticipateInBestDealSelection(?bool $participateInBestDealSelection): void
+    {
+        $this->participateInBestDealSelection = $participateInBestDealSelection;
     }
 }

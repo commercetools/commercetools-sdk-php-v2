@@ -27,7 +27,7 @@ final class ExtensionChainTooDeepErrorBuilder implements Builder
     private $message;
 
     /**
-     * <p><code>&quot;The dependency chain depth 4 exceeds the maximum allowed depth of 3&quot;</code></p>
+     * <p><code>&quot;The dependency chain depth 4 exceeds the maximum allowed depth of 3.&quot;</code></p>
      *
 
      * @return null|string

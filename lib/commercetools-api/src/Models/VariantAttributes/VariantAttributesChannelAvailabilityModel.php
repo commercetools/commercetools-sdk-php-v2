@@ -29,6 +29,12 @@ final class VariantAttributesChannelAvailabilityModel extends JsonObjectModel im
      *
      * @var ?int
      */
+    protected $restockableInDays;
+
+    /**
+     *
+     * @var ?int
+     */
     protected $availableQuantity;
 
 
@@ -37,14 +43,16 @@ final class VariantAttributesChannelAvailabilityModel extends JsonObjectModel im
      */
     public function __construct(
         ?bool $isOnStock = null,
+        ?int $restockableInDays = null,
         ?int $availableQuantity = null
     ) {
         $this->isOnStock = $isOnStock;
+        $this->restockableInDays = $restockableInDays;
         $this->availableQuantity = $availableQuantity;
     }
 
     /**
-     * <p>Indicates whether the Variant is in stock in the specified <a href="ctp:api:type:Channel">Channel</a>.</p>
+     * <p>Whether the Variant is in stock in the specified <a href="ctp:api:type:Channel">Channel</a>.</p>
      *
      *
      * @return null|bool
@@ -61,6 +69,26 @@ final class VariantAttributesChannelAvailabilityModel extends JsonObjectModel im
         }
 
         return $this->isOnStock;
+    }
+
+    /**
+     * <p>Number of days to restock the Variant once it is out of stock in the specified <a href="ctp:api:type:Channel">Channel</a>.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getRestockableInDays()
+    {
+        if (is_null($this->restockableInDays)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_RESTOCKABLE_IN_DAYS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->restockableInDays = (int) $data;
+        }
+
+        return $this->restockableInDays;
     }
 
     /**
@@ -90,6 +118,14 @@ final class VariantAttributesChannelAvailabilityModel extends JsonObjectModel im
     public function setIsOnStock(?bool $isOnStock): void
     {
         $this->isOnStock = $isOnStock;
+    }
+
+    /**
+     * @param ?int $restockableInDays
+     */
+    public function setRestockableInDays(?int $restockableInDays): void
+    {
+        $this->restockableInDays = $restockableInDays;
     }
 
     /**

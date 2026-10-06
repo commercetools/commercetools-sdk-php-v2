@@ -16,6 +16,8 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\Reference;
 use Commercetools\Api\Models\Common\ReferenceModel;
+use Commercetools\Api\Models\Product\ProductReference;
+use Commercetools\Api\Models\Product\ProductReferenceModel;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -97,6 +99,12 @@ final class VariantImageAddedMessageModel extends JsonObjectModel implements Var
 
     /**
      *
+     * @var ?ProductReference
+     */
+    protected $product;
+
+    /**
+     *
      * @var ?Image
      */
     protected $image;
@@ -122,6 +130,7 @@ final class VariantImageAddedMessageModel extends JsonObjectModel implements Var
         ?Reference $resource = null,
         ?int $resourceVersion = null,
         ?UserProvidedIdentifiers $resourceUserProvidedIdentifiers = null,
+        ?ProductReference $product = null,
         ?Image $image = null,
         ?bool $staged = null,
         ?string $type = null
@@ -136,6 +145,7 @@ final class VariantImageAddedMessageModel extends JsonObjectModel implements Var
         $this->resource = $resource;
         $this->resourceVersion = $resourceVersion;
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+        $this->product = $product;
         $this->image = $image;
         $this->staged = $staged;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
@@ -375,6 +385,27 @@ final class VariantImageAddedMessageModel extends JsonObjectModel implements Var
     }
 
     /**
+     * <p>Reference to the Product containing the Variant.</p>
+     *
+     *
+     * @return null|ProductReference
+     */
+    public function getProduct()
+    {
+        if (is_null($this->product)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_PRODUCT);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->product = ProductReferenceModel::of($data);
+        }
+
+        return $this->product;
+    }
+
+    /**
      * <p><a href="ctp:api:type:Image">Image</a> that was added.</p>
      *
      *
@@ -494,6 +525,14 @@ final class VariantImageAddedMessageModel extends JsonObjectModel implements Var
     public function setResourceUserProvidedIdentifiers(?UserProvidedIdentifiers $resourceUserProvidedIdentifiers): void
     {
         $this->resourceUserProvidedIdentifiers = $resourceUserProvidedIdentifiers;
+    }
+
+    /**
+     * @param ?ProductReference $product
+     */
+    public function setProduct(?ProductReference $product): void
+    {
+        $this->product = $product;
     }
 
     /**

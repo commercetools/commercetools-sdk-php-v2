@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Order;
 
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraft;
 use Commercetools\Api\Models\Cart\ItemShippingDetailsDraftModel;
+use Commercetools\Api\Models\Cart\TaxedPriceDraft;
+use Commercetools\Api\Models\Cart\TaxedPriceDraftModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Common\Money;
@@ -69,6 +71,12 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
 
     /**
      *
+     * @var ?TaxedPriceDraft
+     */
+    protected $taxedPrice;
+
+    /**
+     *
      * @var ?TaxCategoryResourceIdentifier
      */
     protected $taxCategory;
@@ -108,6 +116,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         ?int $quantity = null,
         ?Money $money = null,
         ?TaxRate $taxRate = null,
+        ?TaxedPriceDraft $taxedPrice = null,
         ?TaxCategoryResourceIdentifier $taxCategory = null,
         ?string $priceMode = null,
         ?ItemShippingDetailsDraft $shippingDetails = null,
@@ -120,6 +129,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         $this->quantity = $quantity;
         $this->money = $money;
         $this->taxRate = $taxRate;
+        $this->taxedPrice = $taxedPrice;
         $this->taxCategory = $taxCategory;
         $this->priceMode = $priceMode;
         $this->shippingDetails = $shippingDetails;
@@ -231,7 +241,7 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     }
 
     /**
-     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Order.</p>
+     * <p>The tax rate used to calculate the <code>taxedPrice</code> of the Custom Line Item if <code>taxedPrice</code> is not provided.</p>
      *
      *
      * @return null|TaxRate
@@ -249,6 +259,28 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
         }
 
         return $this->taxRate;
+    }
+
+    /**
+     * <p>Taxed price of the Custom Line Item. If provided, the values are stored as-is on the resulting <a href="ctp:api:type:CustomLineItem">CustomLineItem</a> instead of being derived from <code>money</code>, <code>quantity</code>, and <code>taxRate</code>.</p>
+     * <p>Can only be set if <code>taxRate</code> is also set.</p>
+     *
+     *
+     * @return null|TaxedPriceDraft
+     */
+    public function getTaxedPrice()
+    {
+        if (is_null($this->taxedPrice)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_TAXED_PRICE);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->taxedPrice = TaxedPriceDraftModel::of($data);
+        }
+
+        return $this->taxedPrice;
     }
 
     /**
@@ -404,6 +436,14 @@ final class CustomLineItemImportDraftModel extends JsonObjectModel implements Cu
     public function setTaxRate(?TaxRate $taxRate): void
     {
         $this->taxRate = $taxRate;
+    }
+
+    /**
+     * @param ?TaxedPriceDraft $taxedPrice
+     */
+    public function setTaxedPrice(?TaxedPriceDraft $taxedPrice): void
+    {
+        $this->taxedPrice = $taxedPrice;
     }
 
     /**

@@ -17,6 +17,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LastModifiedByModel;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Common\LocalizedStringModel;
+use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -145,6 +146,12 @@ final class CategoryModel extends JsonObjectModel implements Category
      */
     protected $key;
 
+    /**
+     *
+     * @var ?StoreKeyReferenceCollection
+     */
+    protected $stores;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -168,7 +175,8 @@ final class CategoryModel extends JsonObjectModel implements Category
         ?LocalizedString $metaKeywords = null,
         ?CustomFields $custom = null,
         ?AssetCollection $assets = null,
-        ?string $key = null
+        ?string $key = null,
+        ?StoreKeyReferenceCollection $stores = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -189,6 +197,7 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->custom = $custom;
         $this->assets = $assets;
         $this->key = $key;
+        $this->stores = $stores;
     }
 
     /**
@@ -592,6 +601,28 @@ final class CategoryModel extends JsonObjectModel implements Category
         return $this->key;
     }
 
+    /**
+     * <p><a href="ctp:api:type:Store">Stores</a> to which the Category is assigned and that you have permission to access.</p>
+     * <p>If <code>stores</code> is empty, the Category is global and available in every <a href="ctp:api:type:Store">Store</a>.</p>
+     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
+     *
+     *
+     * @return null|StoreKeyReferenceCollection
+     */
+    public function getStores()
+    {
+        if (is_null($this->stores)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_STORES);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->stores = StoreKeyReferenceCollection::fromArray($data);
+        }
+
+        return $this->stores;
+    }
+
 
     /**
      * @param ?string $id
@@ -743,6 +774,14 @@ final class CategoryModel extends JsonObjectModel implements Category
     public function setKey(?string $key): void
     {
         $this->key = $key;
+    }
+
+    /**
+     * @param ?StoreKeyReferenceCollection $stores
+     */
+    public function setStores(?StoreKeyReferenceCollection $stores): void
+    {
+        $this->stores = $stores;
     }
 
 

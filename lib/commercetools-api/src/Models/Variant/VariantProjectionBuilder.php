@@ -318,7 +318,7 @@ final class VariantProjectionBuilder implements Builder
     }
 
     /**
-     * <p>The selected price based on the <a href="/../api/projects/productProjections#prices">price selection</a> query parameters.
+     * <p>The selected price based on the <a href="/api/projects/productProjections#prices">price selection</a> query parameters.
      * Only present when price selection parameters are provided.</p>
      *
 
