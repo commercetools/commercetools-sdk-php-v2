@@ -27,7 +27,7 @@ final class CategoryChangeOrderHintActionBuilder implements Builder
     private $orderHint;
 
     /**
-     * <p>New value to set. Must be a decimal value between 0 and 1.</p>
+     * <p>New value to set. Must be a decimal value between 0 and 1. When sorted in ascending order, Categories with a lower <code>orderHint</code> appear before those with a higher value (for example, <code>0.05</code> before <code>0.07</code>).</p>
      *
 
      * @return null|string
