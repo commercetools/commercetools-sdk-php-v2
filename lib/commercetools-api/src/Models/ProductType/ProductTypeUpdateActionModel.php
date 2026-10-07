@@ -47,11 +47,11 @@ final class ProductTypeUpdateActionModel extends JsonObjectModel implements Prod
        'changeName' => ProductTypeChangeNameActionModel::class,
        'changePlainEnumValueLabel' => ProductTypeChangePlainEnumValueLabelActionModel::class,
        'changePlainEnumValueOrder' => ProductTypeChangePlainEnumValueOrderActionModel::class,
-       'changeSavedToLineItem' => ProductTypeChangeSavedToLineItemActionModel::class,
        'removeAttributeDefinition' => ProductTypeRemoveAttributeDefinitionActionModel::class,
        'removeEnumValues' => ProductTypeRemoveEnumValuesActionModel::class,
        'setInputTip' => ProductTypeSetInputTipActionModel::class,
        'setKey' => ProductTypeSetKeyActionModel::class,
+       'setSavedToLineItem' => ProductTypeSetSavedToLineItemActionModel::class,
     ];
 
     /**

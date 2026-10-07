@@ -11,7 +11,7 @@ namespace Commercetools\Api\Models\ProductType;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 
-interface ProductTypeChangeSavedToLineItemAction extends ProductTypeUpdateAction
+interface ProductTypeSetSavedToLineItemAction extends ProductTypeUpdateAction
 {
     public const FIELD_ATTRIBUTE_NAME = 'attributeName';
     public const FIELD_SAVED_TO_LINE_ITEM = 'savedToLineItem';

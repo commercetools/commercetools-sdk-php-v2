@@ -17,9 +17,9 @@ use stdClass;
 /**
  * @internal
  */
-final class ProductTypeChangeSavedToLineItemActionModel extends JsonObjectModel implements ProductTypeChangeSavedToLineItemAction
+final class ProductTypeSetSavedToLineItemActionModel extends JsonObjectModel implements ProductTypeSetSavedToLineItemAction
 {
-    public const DISCRIMINATOR_VALUE = 'changeSavedToLineItem';
+    public const DISCRIMINATOR_VALUE = 'setSavedToLineItem';
     /**
      *
      * @var ?string
