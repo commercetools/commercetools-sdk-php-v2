@@ -2023,6 +2023,7 @@
 - added type `SetDiscountsConfigurationUpdateAction`
 - added type `SetPaymentReturnUrlUpdateAction`
 - added type `SetPaymentsConfigurationUpdateAction`
+- added type `PaymentMethodReference`
 - added type `CountryCode`
 - added type `CreatedBy`
 - added type `CurrencyCode`
@@ -2031,8 +2032,10 @@
 - added type `LocalizedString`
 - added type `LocalizedUrl`
 - added type `ConcurrentModificationError`
+- added type `ConnectorTimeoutError`
 - added type `DuplicateFieldWithConflictingResourceError`
 - added type `ErrorResponse`
+- added type `InternalConstraintViolatedError`
 - added type `InvalidFieldError`
 - added type `InvalidOperationError`
 - added type `MaxResourceLimitExceededError`
@@ -2069,6 +2072,24 @@
 - added type `PaymentIntentOutcome`
 - added type `PaymentIntentResponse`
 - added type `PaymentIntentReverseAction`
+- added type `PaginatedRecurringPaymentJob`
+- added type `RecurringPaymentJob`
+- added type `RecurringPaymentJobDraft`
+- added type `RecurringPaymentJobError`
+- added type `RecurringPaymentJobState`
+- added type `RecurringPaymentJobStatus`
+- added type `PaginatedRecurringPayment`
+- added type `PaymentMethodConfiguration`
+- added type `RecurringOrderReference`
+- added type `RecurringPayment`
+- added type `RecurringPaymentDraft`
+- added type `RecurringPaymentReference`
+- added type `RecurringPaymentAddPaymentMethodConfigurationUpdateAction`
+- added type `RecurringPaymentSetKeyUpdateAction`
+- added type `RecurringPaymentSetPaymentMethodConfigurationUpdateAction`
+- added type `RecurringPaymentSetRecurringOrderUpdateAction`
+- added type `RecurringPaymentUpdateAction`
+- added type `RecurringPaymentUpdateActions`
 - added type `ConnectorError`
 - added type `ErrorLoadingAllPaymentIntegrations`
 - added type `ExpressContainerNotFound`
@@ -2104,6 +2125,10 @@
 - added type `PaymentIntegrationsReceived`
 - added type `ShippingMethodSelected`
 - added type `ShippingMethodSelectionConfirmation`
+- added type `TransactionItemPaymentIntegration`
+- added type `TransactionItemPaymentIntegrationDraft`
+- added type `TransactionItemRecurring`
+- added type `TransactionItemRecurringDraft`
 </details>
 
 
@@ -2125,6 +2150,7 @@
 
 - changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
 - :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
+- :warning: changed property `cart` of type `Transaction` to be required
 </details>
 
 
@@ -2132,6 +2158,8 @@
 <summary>Removed Property(s)</summary>
 
 - :warning: removed property `payload` from type `ResponseMessage`
+- :warning: removed property `paymentIntegration` from type `TransactionItem`
+- :warning: removed property `paymentIntegration` from type `TransactionItemDraft`
 - :warning: removed property `amount` from type `PaymentIntentAction`
 </details>
 
@@ -2148,6 +2176,8 @@
 - added property `payload` to type `PaymentCancelled`
 - added property `payload` to type `PaymentFailed`
 - added property `payload` to type `PaymentValidationFailed`
+- added property `type` to type `TransactionItem`
+- added property `type` to type `TransactionItemDraft`
 </details>
 
 
@@ -2165,6 +2195,9 @@
 <summary>Added Enum(s)</summary>
 
 - added enum `deployment` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `recurring-payment` to type `ReferenceTypeId`
+- added enum `recurring-order` to type `ReferenceTypeId`
 - added enum `eu-central-1.aws` to type `Region`
 - added enum `us-east-2.aws` to type `Region`
 - added enum `reversePayment` to type `PaymentIntentOperation`
@@ -2174,8 +2207,14 @@
 <details>
 <summary>Added Resource(s)</summary>
 
+- added resource `/{projectKey}/recurring-payment-jobs`
+- added resource `/{projectKey}/recurring-payments`
 - added resource `/{projectKey}/payment-integrations`
 - added resource `/{projectKey}/applications`
+- added resource `/{projectKey}/recurring-payment-jobs/{id}`
+- added resource `/{projectKey}/recurring-payment-jobs/key={key}`
+- added resource `/{projectKey}/recurring-payments/{id}`
+- added resource `/{projectKey}/recurring-payments/key={key}`
 - added resource `/{projectKey}/payment-integrations/{id}`
 - added resource `/{projectKey}/payment-integrations/key={key}`
 - added resource `/{projectKey}/applications/{id}`
@@ -2197,10 +2236,24 @@
 <details>
 <summary>Added Method(s)</summary>
 
+- added method `$apiRoot->withProjectKey()->recurringPaymentJobs()->get()`
+- added method `$apiRoot->withProjectKey()->recurringPaymentJobs()->post()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->get()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->post()`
 - added method `$apiRoot->withProjectKey()->paymentIntegrations()->get()`
 - added method `$apiRoot->withProjectKey()->paymentIntegrations()->post()`
 - added method `$apiRoot->withProjectKey()->applications()->get()`
 - added method `$apiRoot->withProjectKey()->applications()->post()`
+- added method `$apiRoot->withProjectKey()->recurringPaymentJobs()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->recurringPaymentJobs()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->recurringPaymentJobs()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->recurringPaymentJobs()->withKey()->delete()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->withId()->get()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->withId()->post()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->withId()->delete()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->withKey()->get()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->withKey()->post()`
+- added method `$apiRoot->withProjectKey()->recurringPayments()->withKey()->delete()`
 - added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->get()`
 - added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->head()`
 - added method `$apiRoot->withProjectKey()->paymentIntegrations()->withId()->post()`
