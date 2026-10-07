@@ -1,25 +1,6 @@
 **Api changes**
 
 <details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
-</details>
-
-
-<details>
-<summary>Removed Type(s)</summary>
-
-- :warning: removed type `Expansion`
-- :warning: removed type `QueryPredicate`
-- :warning: removed type `Sort`
-- :warning: removed type `AssociateRoleNameChangedMessage`
-- :warning: removed type `AssociateRoleNameChangedMessagePayload`
-- :warning: removed type `ProductSearchFacetScope`
-</details>
-
-
-<details>
 <summary>MarkDeprecated Type(s)</summary>
 
 - marked type `ProductSearchProjectionParams` as deprecated
@@ -35,6 +16,18 @@
 - marked type `SuggestionResult` as deprecated
 - marked type `TermFacetResult` as deprecated
 - marked type `TermFacetResultType` as deprecated
+</details>
+
+
+<details>
+<summary>Removed Type(s)</summary>
+
+- :warning: removed type `Expansion`
+- :warning: removed type `QueryPredicate`
+- :warning: removed type `Sort`
+- :warning: removed type `AssociateRoleNameChangedMessage`
+- :warning: removed type `AssociateRoleNameChangedMessagePayload`
+- :warning: removed type `ProductSearchFacetScope`
 </details>
 
 
@@ -626,50 +619,52 @@
 
 
 <details>
-<summary>Removed QueryParameter(s)</summary>
+<summary>Changed Type(s)</summary>
 
-- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
+- :warning: changed type `DeliveryPayload` from type `object` to `SubscriptionNotification`
 </details>
 
 
 <details>
-<summary>Added QueryParameter(s)</summary>
+<summary>Required Property(s)</summary>
 
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections`
-- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/key={key}`
-- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/search`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/{ID}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
-- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
-- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
-- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- changed property `sortOrder` of type `CartDiscountDraft` to be optional
+- changed property `variantSelection` of type `ProductSelectionProductAddedMessage` to be optional
+- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessage` to be optional
+- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
+- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
+- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
+- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
+- changed property `variantSelection` of type `ProductSelectionProductAddedMessagePayload` to be optional
+- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessagePayload` to be optional
+- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
+- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
+- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
+- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
+- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
+- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
+- :warning: changed property `shippingAddressIds` of type `BusinessUnit` to be required
+- :warning: changed property `billingAddressIds` of type `BusinessUnit` to be required
+- :warning: changed property `shippingAddressIds` of type `Company` to be required
+- :warning: changed property `billingAddressIds` of type `Company` to be required
+- :warning: changed property `shippingAddressIds` of type `Division` to be required
+- :warning: changed property `billingAddressIds` of type `Division` to be required
+- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
+- :warning: changed property `shippingAddressIds` of type `Customer` to be required
+- :warning: changed property `billingAddressIds` of type `Customer` to be required
+- :warning: changed property `deleteDaysAfterLastModification` of type `CartsConfiguration` to be required
+- :warning: changed property `deleteDaysAfterLastModification` of type `ShoppingListsConfiguration` to be required
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
+- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
+- :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
+- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
 </details>
 
 
@@ -834,34 +829,14 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
+<summary>Changed Property(s)</summary>
 
-- changed property `sortOrder` of type `CartDiscountDraft` to be optional
-- changed property `variantSelection` of type `ProductSelectionProductAddedMessage` to be optional
-- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessage` to be optional
-- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
-- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessage` to be optional
-- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
-- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessage` to be optional
-- changed property `variantSelection` of type `ProductSelectionProductAddedMessagePayload` to be optional
-- changed property `variantExclusion` of type `ProductSelectionProductExcludedMessagePayload` to be optional
-- changed property `oldVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
-- changed property `newVariantExclusion` of type `ProductSelectionVariantExclusionChangedMessagePayload` to be optional
-- changed property `oldVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
-- changed property `newVariantSelection` of type `ProductSelectionVariantSelectionChangedMessagePayload` to be optional
-- changed property `images` of type `ProductTailoringSetExternalImagesAction` to be optional
-- changed property `facets` of type `ProductProjectionPagedSearchResponse` to be optional
-- :warning: changed property `shippingAddressIds` of type `BusinessUnit` to be required
-- :warning: changed property `billingAddressIds` of type `BusinessUnit` to be required
-- :warning: changed property `shippingAddressIds` of type `Company` to be required
-- :warning: changed property `billingAddressIds` of type `Company` to be required
-- :warning: changed property `shippingAddressIds` of type `Division` to be required
-- :warning: changed property `billingAddressIds` of type `Division` to be required
-- :warning: changed property `triggerPattern` of type `CartDiscountPatternTarget` to be required
-- :warning: changed property `shippingAddressIds` of type `Customer` to be required
-- :warning: changed property `billingAddressIds` of type `Customer` to be required
-- :warning: changed property `deleteDaysAfterLastModification` of type `CartsConfiguration` to be required
-- :warning: changed property `deleteDaysAfterLastModification` of type `ShoppingListsConfiguration` to be required
+- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
+- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
+- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
+- :warning: changed property `expand` of type `ProductSearchProjectionParams` from type `Expansion[]` to `string[]`
+- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
 </details>
 
 
@@ -883,25 +858,43 @@
 
 
 <details>
-<summary>Changed Property(s)</summary>
+<summary>Added Enum(s)</summary>
 
-- :warning: changed property `discount` of type `DiscountedTotalPricePortion` from type `CartDiscountReference` to `Reference`
-- :warning: changed property `actions` of type `MyBusinessUnitUpdate` from type `BusinessUnitUpdateAction[]` to `MyBusinessUnitUpdateAction[]`
-- :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
-- :warning: changed property `expand` of type `ProductSearchProjectionParams` from type `Expansion[]` to `string[]`
-- :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `payment` from type `OrderPaymentAddedMessage`
-- :warning: removed property `payment` from type `OrderPaymentAddedMessagePayload`
-- :warning: removed property `/[0-9].[0-9]*[1-9]/` from type `CategoryOrderHints`
-- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
-- :warning: removed property `tierMinimumQuantity` from type `StandalonePriceRemovePriceTierAction`
+- added enum `ViewMyShoppingLists` to type `Permission`
+- added enum `ViewOthersShoppingLists` to type `Permission`
+- added enum `UpdateMyShoppingLists` to type `Permission`
+- added enum `UpdateOthersShoppingLists` to type `Permission`
+- added enum `CreateMyShoppingLists` to type `Permission`
+- added enum `CreateOthersShoppingLists` to type `Permission`
+- added enum `DeleteMyShoppingLists` to type `Permission`
+- added enum `DeleteOthersShoppingLists` to type `Permission`
+- added enum `RecurringOrder` to type `CartOrigin`
+- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
+- added enum `ReserveOnCart` to type `InventoryMode`
+- added enum `IntakeAgent` to type `AttributionSource`
+- added enum `PromotionsAgent` to type `AttributionSource`
+- added enum `ManagedCommerceMCP` to type `AttributionSource`
+- added enum `discount-group` to type `ReferenceTypeId`
+- added enum `mcp-server` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ReferenceTypeId`
+- added enum `recurrence-policy` to type `ReferenceTypeId`
+- added enum `recurring-order` to type `ReferenceTypeId`
+- added enum `reservation` to type `ReferenceTypeId`
+- added enum `variant` to type `ReferenceTypeId`
+- added enum `payment-method` to type `ExtensionResourceTypeId`
+- added enum `product` to type `ExtensionResourceTypeId`
+- added enum `variant` to type `AttributeReferenceTypeId`
+- added enum `RecurringOrderState` to type `StateTypeEnum`
+- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
+- added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
+- added enum `variant` to type `ChangeSubscriptionResourceTypeId`
+- added enum `variant` to type `MessageSubscriptionResourceTypeId`
+- added enum `variant` to type `CustomFieldReferenceValue`
+- added enum `payment-method` to type `ResourceTypeId`
+- added enum `payment-method-info` to type `ResourceTypeId`
+- added enum `reservation` to type `ResourceTypeId`
+- added enum `recurring-order` to type `ResourceTypeId`
 </details>
 
 
@@ -966,52 +959,50 @@
 
 
 <details>
-<summary>Added Enum(s)</summary>
+<summary>Removed QueryParameter(s)</summary>
 
-- added enum `ViewMyShoppingLists` to type `Permission`
-- added enum `ViewOthersShoppingLists` to type `Permission`
-- added enum `UpdateMyShoppingLists` to type `Permission`
-- added enum `UpdateOthersShoppingLists` to type `Permission`
-- added enum `CreateMyShoppingLists` to type `Permission`
-- added enum `CreateOthersShoppingLists` to type `Permission`
-- added enum `DeleteMyShoppingLists` to type `Permission`
-- added enum `DeleteOthersShoppingLists` to type `Permission`
-- added enum `RecurringOrder` to type `CartOrigin`
-- added enum `ApplicationStoppedByGroupBestDeal` to type `DiscountCodeState`
-- added enum `ReserveOnCart` to type `InventoryMode`
-- added enum `IntakeAgent` to type `AttributionSource`
-- added enum `PromotionsAgent` to type `AttributionSource`
-- added enum `ManagedCommerceMCP` to type `AttributionSource`
-- added enum `discount-group` to type `ReferenceTypeId`
-- added enum `mcp-server` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ReferenceTypeId`
-- added enum `recurrence-policy` to type `ReferenceTypeId`
-- added enum `recurring-order` to type `ReferenceTypeId`
-- added enum `reservation` to type `ReferenceTypeId`
-- added enum `variant` to type `ReferenceTypeId`
-- added enum `payment-method` to type `ExtensionResourceTypeId`
-- added enum `product` to type `ExtensionResourceTypeId`
-- added enum `variant` to type `AttributeReferenceTypeId`
-- added enum `RecurringOrderState` to type `StateTypeEnum`
-- added enum `discount-group` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurrence-policy` to type `ChangeSubscriptionResourceTypeId`
-- added enum `recurring-order` to type `ChangeSubscriptionResourceTypeId`
-- added enum `variant` to type `ChangeSubscriptionResourceTypeId`
-- added enum `variant` to type `MessageSubscriptionResourceTypeId`
-- added enum `variant` to type `CustomFieldReferenceValue`
-- added enum `payment-method` to type `ResourceTypeId`
-- added enum `payment-method-info` to type `ResourceTypeId`
-- added enum `reservation` to type `ResourceTypeId`
-- added enum `recurring-order` to type `ResourceTypeId`
+- :warning: removed query parameter `withTotal` from method `get /{projectKey}/product-projections/search`
 </details>
 
 
 <details>
-<summary>MarkDeprecated Method(s)</summary>
+<summary>Added QueryParameter(s)</summary>
 
-- marked method `post /{projectKey}/product-projections/search` as deprecated
-- marked method `get /{projectKey}/product-projections/search` as deprecated
-- marked method `get /{projectKey}/product-projections/suggest` as deprecated
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections`
+- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/key={key}`
+- added query parameter `dataErasure` to method `delete /{projectKey}/business-units/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `post /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `delete /{projectKey}/products/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/search`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/product-projections/{ID}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/key={key}`
+- added query parameter `priceCustomerGroupAssignments` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- added query parameter `priceRecurrencePolicy` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
+- added query parameter `filter[attributes]` to method `get /{projectKey}/in-store/key={storeKey}/product-projections/{ID}`
 </details>
 
 
@@ -1149,82 +1140,16 @@
 - added method `$apiRoot->withProjectKey()->mcpServers()->types()->withMcpServerType()->get()`
 </details>
 
+
+<details>
+<summary>MarkDeprecated Method(s)</summary>
+
+- marked method `post /{projectKey}/product-projections/search` as deprecated
+- marked method `get /{projectKey}/product-projections/search` as deprecated
+- marked method `get /{projectKey}/product-projections/suggest` as deprecated
+</details>
+
 **Import changes**
-
-<details>
-<summary>Added Property(s)</summary>
-
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
-- added property `retentionPolicy` to type `ImportContainer`
-- added property `expiresAt` to type `ImportContainer`
-- added property `retentionPolicy` to type `ImportContainerDraft`
-- added property `partiallyImported` to type `OperationStates`
-- added property `reservationExpirationInMinutes` to type `InventoryImport`
-- added property `attributes` to type `ProductDraftImport`
-- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
-- added property `attributes` to type `ProductImport`
-- added property `level` to type `AttributeDefinition`
-- added property `active` to type `StandalonePriceImport`
-</details>
-
-
-<details>
-<summary>Changed Property(s)</summary>
-
-- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
-- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
-- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
-</details>
-
-
-<details>
-<summary>Added Resource(s)</summary>
-
-- added resource `/{projectKey}/business-units`
-- added resource `/{projectKey}/product-selections`
-- added resource `/{projectKey}/product-tailorings`
-- added resource `/{projectKey}/variants`
-- added resource `/{projectKey}/business-units/import-containers`
-- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/product-selections/import-containers`
-- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/product-tailorings/import-containers`
-- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
-- added resource `/{projectKey}/variants/import-containers`
-- added resource `/{projectKey}/variants/import-containers/{importContainerKey}`
-</details>
-
-
-<details>
-<summary>Added Enum(s)</summary>
-
-- added enum `business-unit` to type `ImportResourceType`
-- added enum `product-selection` to type `ImportResourceType`
-- added enum `product-tailoring` to type `ImportResourceType`
-- added enum `variant` to type `ImportResourceType`
-- added enum `associate-role` to type `ReferenceType`
-- added enum `business-unit` to type `ReferenceType`
-- added enum `variant` to type `ReferenceType`
-- added enum `partiallyImported` to type `ProcessingState`
-</details>
-
-
-<details>
-<summary>Added Method(s)</summary>
-
-- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
-- added method `$apiRoot->withProjectKeyValue()->variants()->importContainers()->withImportContainerKeyValue()->post()`
-</details>
-
 
 <details>
 <summary>Added Type(s)</summary>
@@ -1262,15 +1187,82 @@
 - added type `VariantImport`
 </details>
 
-**History changes**
 
 <details>
-<summary>Changed Type(s)</summary>
+<summary>Removed Property(s)</summary>
 
-- :warning: changed type `Address` from type `object` to `BaseAddress`
-- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `SearchKeywords`
+- :warning: removed property `/^[a-z]{2}(-[A-Z]{2})?$/` from type `LocalizedString`
 </details>
 
+
+<details>
+<summary>Added Property(s)</summary>
+
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `LocalizedString`
+- added property `retentionPolicy` to type `ImportContainer`
+- added property `expiresAt` to type `ImportContainer`
+- added property `retentionPolicy` to type `ImportContainerDraft`
+- added property `partiallyImported` to type `OperationStates`
+- added property `reservationExpirationInMinutes` to type `InventoryImport`
+- added property `attributes` to type `ProductDraftImport`
+- added property `/^[a-zA-Z]{2,3}(?:-[a-zA-Z]{4})?(?:-(?:[a-zA-Z]{2}|\d{3}))?$/` to type `SearchKeywords`
+- added property `attributes` to type `ProductImport`
+- added property `level` to type `AttributeDefinition`
+- added property `active` to type `StandalonePriceImport`
+</details>
+
+
+<details>
+<summary>Changed Property(s)</summary>
+
+- :warning: changed property `value` of type `MoneySetField` from type `Money[]` to `TypedMoney[]`
+- :warning: changed property `country` of type `ExternalTaxRateDraft` from type `string` to `CountryCode`
+</details>
+
+
+<details>
+<summary>Added Enum(s)</summary>
+
+- added enum `business-unit` to type `ImportResourceType`
+- added enum `product-selection` to type `ImportResourceType`
+- added enum `product-tailoring` to type `ImportResourceType`
+- added enum `variant` to type `ImportResourceType`
+- added enum `associate-role` to type `ReferenceType`
+- added enum `business-unit` to type `ReferenceType`
+- added enum `variant` to type `ReferenceType`
+- added enum `partiallyImported` to type `ProcessingState`
+</details>
+
+
+<details>
+<summary>Added Resource(s)</summary>
+
+- added resource `/{projectKey}/business-units`
+- added resource `/{projectKey}/product-selections`
+- added resource `/{projectKey}/product-tailorings`
+- added resource `/{projectKey}/variants`
+- added resource `/{projectKey}/business-units/import-containers`
+- added resource `/{projectKey}/business-units/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-selections/import-containers`
+- added resource `/{projectKey}/product-selections/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/product-tailorings/import-containers`
+- added resource `/{projectKey}/product-tailorings/import-containers/{importContainerKey}`
+- added resource `/{projectKey}/variants/import-containers`
+- added resource `/{projectKey}/variants/import-containers/{importContainerKey}`
+</details>
+
+
+<details>
+<summary>Added Method(s)</summary>
+
+- added method `$apiRoot->withProjectKeyValue()->businessUnits()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productSelections()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->productTailorings()->importContainers()->withImportContainerKeyValue()->post()`
+- added method `$apiRoot->withProjectKeyValue()->variants()->importContainers()->withImportContainerKeyValue()->post()`
+</details>
+
+**History changes**
 
 <details>
 <summary>MarkDeprecated Type(s)</summary>
@@ -1452,6 +1444,107 @@
 
 
 <details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `Address` from type `object` to `BaseAddress`
+- :warning: changed type `GeoLocation` from type `object` to `GeoJson`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `total` of type `RecordPagedQueryResponse` to be optional
+- changed property `id` of type `Address` to be optional
+- changed property `key` of type `Address` to be optional
+- changed property `title` of type `Address` to be optional
+- changed property `salutation` of type `Address` to be optional
+- changed property `firstName` of type `Address` to be optional
+- changed property `lastName` of type `Address` to be optional
+- changed property `streetName` of type `Address` to be optional
+- changed property `streetNumber` of type `Address` to be optional
+- changed property `additionalStreetInfo` of type `Address` to be optional
+- changed property `postalCode` of type `Address` to be optional
+- changed property `city` of type `Address` to be optional
+- changed property `region` of type `Address` to be optional
+- changed property `state` of type `Address` to be optional
+- changed property `company` of type `Address` to be optional
+- changed property `department` of type `Address` to be optional
+- changed property `building` of type `Address` to be optional
+- changed property `apartment` of type `Address` to be optional
+- changed property `pOBox` of type `Address` to be optional
+- changed property `phone` of type `Address` to be optional
+- changed property `mobile` of type `Address` to be optional
+- changed property `email` of type `Address` to be optional
+- changed property `fax` of type `Address` to be optional
+- changed property `additionalAddressInfo` of type `Address` to be optional
+- changed property `externalId` of type `Address` to be optional
+- changed property `description` of type `Asset` to be optional
+- changed property `custom` of type `Asset` to be optional
+- changed property `key` of type `Asset` to be optional
+- changed property `key` of type `AssetSource` to be optional
+- changed property `dimensions` of type `AssetSource` to be optional
+- changed property `contentType` of type `AssetSource` to be optional
+- changed property `inputTip` of type `AttributeDefinition` to be optional
+- changed property `taxedPrice` of type `CustomLineItem` to be optional
+- changed property `inputHint` of type `FieldDefinition` to be optional
+- changed property `label` of type `Image` to be optional
+- changed property `productSlug` of type `LineItem` to be optional
+- changed property `custom` of type `LineItem` to be optional
+- changed property `addedAt` of type `LineItem` to be optional
+- changed property `state` of type `Location` to be optional
+- changed property `measurements` of type `Parcel` to be optional
+- changed property `trackingData` of type `Parcel` to be optional
+- changed property `items` of type `Parcel` to be optional
+- changed property `heightInMillimeter` of type `ParcelMeasurements` to be optional
+- changed property `lengthInMillimeter` of type `ParcelMeasurements` to be optional
+- changed property `widthInMillimeter` of type `ParcelMeasurements` to be optional
+- changed property `weightInGram` of type `ParcelMeasurements` to be optional
+- changed property `channels` of type `ProductVariantAvailability` to be optional
+- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
+- changed property `restockableInDays` of type `ProductVariantAvailability` to be optional
+- changed property `availableQuantity` of type `ProductVariantAvailability` to be optional
+- changed property `isOnStock` of type `ProductVariantChannelAvailability` to be optional
+- changed property `restockableInDays` of type `ProductVariantChannelAvailability` to be optional
+- changed property `availableQuantity` of type `ProductVariantChannelAvailability` to be optional
+- changed property `id` of type `ResourceIdentifier` to be optional
+- changed property `key` of type `ResourceIdentifier` to be optional
+- changed property `returnTrackingId` of type `ReturnInfo` to be optional
+- changed property `returnDate` of type `ReturnInfo` to be optional
+- changed property `comment` of type `ReturnItem` to be optional
+- changed property `suggestTokenizer` of type `SearchKeyword` to be optional
+- changed property `freeAbove` of type `ShippingRate` to be optional
+- changed property `isMatching` of type `ShippingRate` to be optional
+- changed property `externalId` of type `SyncInfo` to be optional
+- changed property `id` of type `TaxRate` to be optional
+- changed property `state` of type `TaxRate` to be optional
+- changed property `subRates` of type `TaxRate` to be optional
+- changed property `custom` of type `TextLineItem` to be optional
+- changed property `description` of type `TextLineItem` to be optional
+- changed property `trackingId` of type `TrackingData` to be optional
+- changed property `carrier` of type `TrackingData` to be optional
+- changed property `provider` of type `TrackingData` to be optional
+- changed property `providerTransaction` of type `TrackingData` to be optional
+- changed property `isReturn` of type `TrackingData` to be optional
+- changed property `timestamp` of type `Transaction` to be optional
+- changed property `interactionId` of type `Transaction` to be optional
+- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/` from type `CategoryOrderHints`
+- :warning: removed property `variantId` from type `LineItem`
+- :warning: removed property `fractionDigits` from type `Money`
+- :warning: removed property `type` from type `Money`
+- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
+- :warning: removed property `skus` from type `ProductVariantSelection`
+</details>
+
+
+<details>
 <summary>Added Property(s)</summary>
 
 - added property `catalogData` to type `AddAssetChange`
@@ -1614,87 +1707,6 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
-
-- changed property `total` of type `RecordPagedQueryResponse` to be optional
-- changed property `id` of type `Address` to be optional
-- changed property `key` of type `Address` to be optional
-- changed property `title` of type `Address` to be optional
-- changed property `salutation` of type `Address` to be optional
-- changed property `firstName` of type `Address` to be optional
-- changed property `lastName` of type `Address` to be optional
-- changed property `streetName` of type `Address` to be optional
-- changed property `streetNumber` of type `Address` to be optional
-- changed property `additionalStreetInfo` of type `Address` to be optional
-- changed property `postalCode` of type `Address` to be optional
-- changed property `city` of type `Address` to be optional
-- changed property `region` of type `Address` to be optional
-- changed property `state` of type `Address` to be optional
-- changed property `company` of type `Address` to be optional
-- changed property `department` of type `Address` to be optional
-- changed property `building` of type `Address` to be optional
-- changed property `apartment` of type `Address` to be optional
-- changed property `pOBox` of type `Address` to be optional
-- changed property `phone` of type `Address` to be optional
-- changed property `mobile` of type `Address` to be optional
-- changed property `email` of type `Address` to be optional
-- changed property `fax` of type `Address` to be optional
-- changed property `additionalAddressInfo` of type `Address` to be optional
-- changed property `externalId` of type `Address` to be optional
-- changed property `description` of type `Asset` to be optional
-- changed property `custom` of type `Asset` to be optional
-- changed property `key` of type `Asset` to be optional
-- changed property `key` of type `AssetSource` to be optional
-- changed property `dimensions` of type `AssetSource` to be optional
-- changed property `contentType` of type `AssetSource` to be optional
-- changed property `inputTip` of type `AttributeDefinition` to be optional
-- changed property `taxedPrice` of type `CustomLineItem` to be optional
-- changed property `inputHint` of type `FieldDefinition` to be optional
-- changed property `label` of type `Image` to be optional
-- changed property `productSlug` of type `LineItem` to be optional
-- changed property `custom` of type `LineItem` to be optional
-- changed property `addedAt` of type `LineItem` to be optional
-- changed property `state` of type `Location` to be optional
-- changed property `measurements` of type `Parcel` to be optional
-- changed property `trackingData` of type `Parcel` to be optional
-- changed property `items` of type `Parcel` to be optional
-- changed property `heightInMillimeter` of type `ParcelMeasurements` to be optional
-- changed property `lengthInMillimeter` of type `ParcelMeasurements` to be optional
-- changed property `widthInMillimeter` of type `ParcelMeasurements` to be optional
-- changed property `weightInGram` of type `ParcelMeasurements` to be optional
-- changed property `channels` of type `ProductVariantAvailability` to be optional
-- changed property `isOnStock` of type `ProductVariantAvailability` to be optional
-- changed property `restockableInDays` of type `ProductVariantAvailability` to be optional
-- changed property `availableQuantity` of type `ProductVariantAvailability` to be optional
-- changed property `isOnStock` of type `ProductVariantChannelAvailability` to be optional
-- changed property `restockableInDays` of type `ProductVariantChannelAvailability` to be optional
-- changed property `availableQuantity` of type `ProductVariantChannelAvailability` to be optional
-- changed property `id` of type `ResourceIdentifier` to be optional
-- changed property `key` of type `ResourceIdentifier` to be optional
-- changed property `returnTrackingId` of type `ReturnInfo` to be optional
-- changed property `returnDate` of type `ReturnInfo` to be optional
-- changed property `comment` of type `ReturnItem` to be optional
-- changed property `suggestTokenizer` of type `SearchKeyword` to be optional
-- changed property `freeAbove` of type `ShippingRate` to be optional
-- changed property `isMatching` of type `ShippingRate` to be optional
-- changed property `externalId` of type `SyncInfo` to be optional
-- changed property `id` of type `TaxRate` to be optional
-- changed property `state` of type `TaxRate` to be optional
-- changed property `subRates` of type `TaxRate` to be optional
-- changed property `custom` of type `TextLineItem` to be optional
-- changed property `description` of type `TextLineItem` to be optional
-- changed property `trackingId` of type `TrackingData` to be optional
-- changed property `carrier` of type `TrackingData` to be optional
-- changed property `provider` of type `TrackingData` to be optional
-- changed property `providerTransaction` of type `TrackingData` to be optional
-- changed property `isReturn` of type `TrackingData` to be optional
-- changed property `timestamp` of type `Transaction` to be optional
-- changed property `interactionId` of type `Transaction` to be optional
-- :warning: changed property `triggerPattern` of type `ChangeTargetPatternChangeValue` to be required
-</details>
-
-
-<details>
 <summary>Changed Property(s)</summary>
 
 - :warning: changed property `nextValue` of type `AddEnumValueChange` from type `EnumValue` to `CustomFieldEnumValue`
@@ -1791,27 +1803,6 @@
 - :warning: changed property `quantity` of type `TextLineItem` from type `integer` to `number`
 - :warning: changed property `timestamp` of type `Transaction` from type `string` to `datetime`
 - :warning: changed property `amount` of type `Transaction` from type `Money` to `CentPrecisionMoney`
-</details>
-
-
-<details>
-<summary>Removed Property(s)</summary>
-
-- :warning: removed property `/^[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}$/` from type `CategoryOrderHints`
-- :warning: removed property `variantId` from type `LineItem`
-- :warning: removed property `fractionDigits` from type `Money`
-- :warning: removed property `type` from type `Money`
-- :warning: removed property `//` from type `ProductVariantChannelAvailabilityMap`
-- :warning: removed property `skus` from type `ProductVariantSelection`
-</details>
-
-
-<details>
-<summary>Removed Enum(s)</summary>
-
-- :warning: removed enum `changeAmountAuthorized` from type `UpdateType`
-- :warning: removed enum `setAsssetKey` from type `UpdateType`
-- :warning: removed enum `Failed` from type `QuoteState`
 </details>
 
 
@@ -1935,6 +1926,15 @@
 
 
 <details>
+<summary>Removed Enum(s)</summary>
+
+- :warning: removed enum `changeAmountAuthorized` from type `UpdateType`
+- :warning: removed enum `setAsssetKey` from type `UpdateType`
+- :warning: removed enum `Failed` from type `QuoteState`
+</details>
+
+
+<details>
 <summary>Added QueryParameter(s)</summary>
 
 - added query parameter `userIds` to method `get /{projectKey}`
@@ -1948,19 +1948,6 @@
 </details>
 
 **Checkout changes**
-
-<details>
-<summary>Changed Type(s)</summary>
-
-- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
-- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
-- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
-- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
-- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
-</details>
-
 
 <details>
 <summary>Removed Type(s)</summary>
@@ -2105,6 +2092,35 @@
 
 
 <details>
+<summary>Changed Type(s)</summary>
+
+- :warning: changed type `PaymentIntentCancelAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentCaptureAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentIntentRefundAction` from type `object` to `PaymentIntentAction`
+- :warning: changed type `PaymentCancelled` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `PaymentValidationFailed` from type `Message` to `ResponseMessage`
+- :warning: changed type `TransactionItem` from type `TransactionItemDraft` to `object`
+</details>
+
+
+<details>
+<summary>Required Property(s)</summary>
+
+- changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
+- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
+</details>
+
+
+<details>
+<summary>Removed Property(s)</summary>
+
+- :warning: removed property `payload` from type `ResponseMessage`
+- :warning: removed property `amount` from type `PaymentIntentAction`
+</details>
+
+
+<details>
 <summary>Added Property(s)</summary>
 
 - added property `resourceIdentifier` to type `ResourceNotFoundError`
@@ -2120,14 +2136,6 @@
 
 
 <details>
-<summary>Required Property(s)</summary>
-
-- changed property `detailedErrorMessage` of type `InvalidJsonInputError` to be optional
-- :warning: changed property `amount` of type `PaymentIntentRefundAction` to be required
-</details>
-
-
-<details>
 <summary>Changed Property(s)</summary>
 
 - :warning: changed property `action` of type `PaymentIntentCancelAction` from type `string` to `PaymentIntentOperation`
@@ -2138,10 +2146,12 @@
 
 
 <details>
-<summary>Removed Property(s)</summary>
+<summary>Added Enum(s)</summary>
 
-- :warning: removed property `payload` from type `ResponseMessage`
-- :warning: removed property `amount` from type `PaymentIntentAction`
+- added enum `deployment` to type `ReferenceTypeId`
+- added enum `eu-central-1.aws` to type `Region`
+- added enum `us-east-2.aws` to type `Region`
+- added enum `reversePayment` to type `PaymentIntentOperation`
 </details>
 
 
@@ -2165,16 +2175,6 @@
 - :warning: changed response body for `400: application/json` of method `post /{projectKey}/payment-intents/{paymentId}` from type `null` to `ErrorResponse`
 - :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/{id}` from type `null` to `ErrorResponse`
 - :warning: changed response body for `400: application/json` of method `get /{projectKey}/transactions/key={key}` from type `null` to `ErrorResponse`
-</details>
-
-
-<details>
-<summary>Added Enum(s)</summary>
-
-- added enum `deployment` to type `ReferenceTypeId`
-- added enum `eu-central-1.aws` to type `Region`
-- added enum `us-east-2.aws` to type `Region`
-- added enum `reversePayment` to type `PaymentIntentOperation`
 </details>
 
 
