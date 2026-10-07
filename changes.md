@@ -96,6 +96,10 @@
 - added type `BusinessUnitSetUnitTypeAction`
 - added type `CartDiscountSetDiscountGroupAction`
 - added type `CartDiscountSetRecurringOrderScopeAction`
+- added type `AbsoluteAllocation`
+- added type `AbsoluteAllocationDraft`
+- added type `Allocation`
+- added type `AllocationDraft`
 - added type `BestDeal`
 - added type `CartLock`
 - added type `CartMergeMode`
@@ -103,15 +107,26 @@
 - added type `EstimatedDelivery`
 - added type `FreezeStrategy`
 - added type `MergeCartDraft`
+- added type `PaymentAllocationDraft`
+- added type `PaymentStrategy`
+- added type `RecurringPaymentAllocation`
+- added type `RecurringPaymentConfiguration`
+- added type `RecurringPaymentConfigurationDraft`
+- added type `RelativeAllocation`
+- added type `RelativeAllocationDraft`
 - added type `ReservationReference`
 - added type `Stacking`
+- added type `CartAddRecurringPaymentAllocationAction`
 - added type `CartChangePriceRoundingModeAction`
 - added type `CartLockCartAction`
+- added type `CartRemoveRecurringPaymentAllocationAction`
 - added type `CartSetCustomLineItemRecurrenceInfoAction`
 - added type `CartSetDirectDiscountsIgnoreCartDiscountsAction`
 - added type `CartSetEstimatedDeliveryAction`
 - added type `CartSetLineItemRecurrenceInfoAction`
 - added type `CartSetPurchaseOrderNumberAction`
+- added type `CartSetRecurringPaymentConfigurationAction`
+- added type `CartSetRecurringPaymentStrategyAction`
 - added type `CartSetReservationExpirationInMinutesAction`
 - added type `CartUnlockCartAction`
 - added type `CategoryAddStoreAction`
@@ -690,6 +705,7 @@
 - added property `priceRoundingMode` to type `Cart`
 - added property `freezeStrategy` to type `Cart`
 - added property `directDiscountsIgnoreCartDiscounts` to type `Cart`
+- added property `recurringPaymentConfiguration` to type `Cart`
 - added property `discountTypeCombination` to type `Cart`
 - added property `lock` to type `Cart`
 - added property `purchaseOrderNumber` to type `Cart`
