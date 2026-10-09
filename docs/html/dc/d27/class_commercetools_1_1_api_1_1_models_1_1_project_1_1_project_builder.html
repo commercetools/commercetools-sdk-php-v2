@@ -479,7 +479,8 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Determines how Product Variants are managed in the Project. If not set, defaults to <code>Classic</code> behavior.</p>
+<p>Determines how Product Variants are managed in the Project.</p>
+<p>The <code>x-catalog-model</code> request header can override the effective Catalog model for a single request to resources that resolve Variant data, such as Carts, Orders, and Shopping Lists, independent of the Project's configured Catalog model. Use it during <a href="../..//guides/migration-guides/modular-catalog-migration">migration</a> to test Modular Catalog behavior on selected requests before changing the Project's configured Catalog model. It is intended as a migration aid, not as a permanent substitute for the Project configuration. It has no effect on Product update actions.</p>
 <dl class="section return"><dt>Returns</dt><dd>null|string </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00328">328</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -660,7 +661,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003391">Deprecated:</a></b></dt><dd>use withBusinessUnits() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003401">Deprecated:</a></b></dt><dd>use withBusinessUnits() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00601">601</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -709,7 +710,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003386">Deprecated:</a></b></dt><dd>use withCarts() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003396">Deprecated:</a></b></dt><dd>use withCarts() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00546">546</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -839,7 +840,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003393">Deprecated:</a></b></dt><dd>use withDiscounts() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003403">Deprecated:</a></b></dt><dd>use withDiscounts() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00623">623</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -888,7 +889,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003389">Deprecated:</a></b></dt><dd>use withExternalOAuth() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003399">Deprecated:</a></b></dt><dd>use withExternalOAuth() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00579">579</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -937,7 +938,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003392">Deprecated:</a></b></dt><dd>use withInventory() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003402">Deprecated:</a></b></dt><dd>use withInventory() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00612">612</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -1040,7 +1041,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003385">Deprecated:</a></b></dt><dd>use withMessages() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003395">Deprecated:</a></b></dt><dd>use withMessages() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00535">535</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -1143,7 +1144,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003390">Deprecated:</a></b></dt><dd>use withSearchIndexing() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003400">Deprecated:</a></b></dt><dd>use withSearchIndexing() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00590">590</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -1192,7 +1193,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003388">Deprecated:</a></b></dt><dd>use withShippingRateInputType() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003398">Deprecated:</a></b></dt><dd>use withShippingRateInputType() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00568">568</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
@@ -1241,7 +1242,7 @@ Static Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003387">Deprecated:</a></b></dt><dd>use withShoppingLists() instead </dd></dl>
+<dl class="deprecated"><dt><b><a class="el" href="../../da/d58/deprecated.html#_deprecated003397">Deprecated:</a></b></dt><dd>use withShoppingLists() instead </dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>$this </dd></dl>
 
 <p class="definition">Definition at line <a class="el" href="../../d8/d57/_project_builder_8php_source.html#l00557">557</a> of file <a class="el" href="../../d8/d57/_project_builder_8php_source.html">ProjectBuilder.php</a>.</p>
