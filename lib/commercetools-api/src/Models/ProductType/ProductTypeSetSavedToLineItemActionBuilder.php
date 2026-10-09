@@ -16,9 +16,9 @@ use Commercetools\Base\MapperFactory;
 use stdClass;
 
 /**
- * @implements Builder<ProductTypeChangeSavedToLineItemAction>
+ * @implements Builder<ProductTypeSetSavedToLineItemAction>
  */
-final class ProductTypeChangeSavedToLineItemActionBuilder implements Builder
+final class ProductTypeSetSavedToLineItemActionBuilder implements Builder
 {
     /**
 
@@ -79,15 +79,15 @@ final class ProductTypeChangeSavedToLineItemActionBuilder implements Builder
     }
 
 
-    public function build(): ProductTypeChangeSavedToLineItemAction
+    public function build(): ProductTypeSetSavedToLineItemAction
     {
-        return new ProductTypeChangeSavedToLineItemActionModel(
+        return new ProductTypeSetSavedToLineItemActionModel(
             $this->attributeName,
             $this->savedToLineItem
         );
     }
 
-    public static function of(): ProductTypeChangeSavedToLineItemActionBuilder
+    public static function of(): ProductTypeSetSavedToLineItemActionBuilder
     {
         return new self();
     }

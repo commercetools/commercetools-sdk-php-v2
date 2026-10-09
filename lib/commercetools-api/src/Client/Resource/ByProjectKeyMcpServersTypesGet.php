@@ -39,7 +39,7 @@ class ByProjectKeyMcpServersTypesGet extends ApiRequest implements Errorable, De
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/mcp-servers/types');
+        $uri = str_replace(['{projectKey}'], [self::encodePathParam($projectKey)], '{projectKey}/mcp-servers/types');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

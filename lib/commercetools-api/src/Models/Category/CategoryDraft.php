@@ -67,8 +67,8 @@ interface CategoryDraft extends JsonObject
     public function getParent();
 
     /**
-     * <p>Decimal value between 0 and 1. Frontend applications can use this value for ordering Categories within the same level in the category tree.
-     * If not set, a random value will be assigned.</p>
+     * <p>A decimal value between 0 and 1 used to order Categories within the same level of the category tree. When sorted in ascending order, Categories with a lower <code>orderHint</code> appear before those with a higher value (for example, <code>0.05</code> before <code>0.07</code>).
+     * If not set, a random value is assigned.</p>
      *
 
      * @return null|string

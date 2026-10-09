@@ -41,7 +41,7 @@ class ByProjectKeyMcpServersTypesByMcpServerTypeGet extends ApiRequest implement
      */
     public function __construct(string $projectKey, string $mcpServerType, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{mcpServerType}'], [urlencode($projectKey), urlencode($mcpServerType)], '{projectKey}/mcp-servers/types/{mcpServerType}');
+        $uri = str_replace(['{projectKey}', '{mcpServerType}'], [self::encodePathParam($projectKey), self::encodePathParam($mcpServerType)], '{projectKey}/mcp-servers/types/{mcpServerType}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

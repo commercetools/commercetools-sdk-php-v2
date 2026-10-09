@@ -38,7 +38,7 @@ class ByProjectKeyVariantsByIDImagesPost extends ApiRequest
      */
     public function __construct(string $projectKey, string $ID, ?UploadedFileInterface $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/variants/{ID}/images');
+        $uri = str_replace(['{projectKey}', '{ID}'], [self::encodePathParam($projectKey), self::encodePathParam($ID)], '{projectKey}/variants/{ID}/images');
         if (!is_null($body)) {
             $mediaType = $body->getClientMediaType();
             if (!is_null($mediaType)) {

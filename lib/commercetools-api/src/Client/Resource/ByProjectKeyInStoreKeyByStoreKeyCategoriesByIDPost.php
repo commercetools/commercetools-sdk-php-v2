@@ -43,7 +43,7 @@ class ByProjectKeyInStoreKeyByStoreKeyCategoriesByIDPost extends ApiRequest impl
      */
     public function __construct(string $projectKey, string $storeKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{storeKey}', '{ID}'], [urlencode($projectKey), urlencode($storeKey), urlencode($ID)], '{projectKey}/in-store/key={storeKey}/categories/{ID}');
+        $uri = str_replace(['{projectKey}', '{storeKey}', '{ID}'], [self::encodePathParam($projectKey), self::encodePathParam($storeKey), self::encodePathParam($ID)], '{projectKey}/in-store/key={storeKey}/categories/{ID}');
         parent::__construct($client, 'POST', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
