@@ -42,7 +42,7 @@ class ByProjectKeyAsAssociateByAssociateIdBusinessUnitsKeyByKeyGet extends ApiRe
      */
     public function __construct(string $projectKey, string $associateId, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{associateId}', '{key}'], [urlencode($projectKey), urlencode($associateId), urlencode($key)], '{projectKey}/as-associate/{associateId}/business-units/key={key}');
+        $uri = str_replace(['{projectKey}', '{associateId}', '{key}'], [self::encodePathParam($projectKey), self::encodePathParam($associateId), self::encodePathParam($key)], '{projectKey}/as-associate/{associateId}/business-units/key={key}');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

@@ -39,7 +39,7 @@ class ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyShop
      */
     public function __construct(string $projectKey, string $associateId, string $businessUnitKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{associateId}', '{businessUnitKey}'], [urlencode($projectKey), urlencode($associateId), urlencode($businessUnitKey)], '{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists');
+        $uri = str_replace(['{projectKey}', '{associateId}', '{businessUnitKey}'], [self::encodePathParam($projectKey), self::encodePathParam($associateId), self::encodePathParam($businessUnitKey)], '{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

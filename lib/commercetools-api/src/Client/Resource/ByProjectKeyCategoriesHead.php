@@ -39,7 +39,7 @@ class ByProjectKeyCategoriesHead extends ApiRequest implements Errorable, Deprec
      */
     public function __construct(string $projectKey, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}'], [urlencode($projectKey)], '{projectKey}/categories');
+        $uri = str_replace(['{projectKey}'], [self::encodePathParam($projectKey)], '{projectKey}/categories');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

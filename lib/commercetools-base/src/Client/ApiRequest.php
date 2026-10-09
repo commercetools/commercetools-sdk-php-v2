@@ -45,6 +45,21 @@ class ApiRequest extends Request implements ApiRequestInterface
     }
 
     /**
+     * URL-encodes a path parameter and rejects the dot segments "." and "..",
+     * which urlencode() leaves untouched and which would alter the request path.
+     *
+     * @throws InvalidArgumentException
+     */
+    protected static function encodePathParam(string $value): string
+    {
+        if ($value === '.' || $value === '..') {
+            throw new InvalidArgumentException('Path parameter must not be a dot segment');
+        }
+
+        return urlencode($value);
+    }
+
+    /**
      * @psalm-param array<string, scalar|scalar[]> $headers
      * @psalm-param string|string[] $defaultValue
      * @psalm-return array<string, scalar|scalar[]>

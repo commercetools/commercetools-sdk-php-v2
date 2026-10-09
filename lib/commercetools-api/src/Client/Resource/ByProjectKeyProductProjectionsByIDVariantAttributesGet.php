@@ -45,7 +45,7 @@ class ByProjectKeyProductProjectionsByIDVariantAttributesGet extends ApiRequest 
      */
     public function __construct(string $projectKey, string $ID, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{ID}'], [urlencode($projectKey), urlencode($ID)], '{projectKey}/product-projections/{ID}/variant-attributes');
+        $uri = str_replace(['{projectKey}', '{ID}'], [self::encodePathParam($projectKey), self::encodePathParam($ID)], '{projectKey}/product-projections/{ID}/variant-attributes');
         parent::__construct($client, 'GET', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

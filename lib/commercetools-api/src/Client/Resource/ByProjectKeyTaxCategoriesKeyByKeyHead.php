@@ -39,7 +39,7 @@ class ByProjectKeyTaxCategoriesKeyByKeyHead extends ApiRequest implements Errora
      */
     public function __construct(string $projectKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{key}'], [urlencode($projectKey), urlencode($key)], '{projectKey}/tax-categories/key={key}');
+        $uri = str_replace(['{projectKey}', '{key}'], [self::encodePathParam($projectKey), self::encodePathParam($key)], '{projectKey}/tax-categories/key={key}');
         parent::__construct($client, 'HEAD', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 

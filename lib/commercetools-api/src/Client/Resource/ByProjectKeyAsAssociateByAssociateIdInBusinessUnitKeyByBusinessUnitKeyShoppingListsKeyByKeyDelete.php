@@ -45,7 +45,7 @@ class ByProjectKeyAsAssociateByAssociateIdInBusinessUnitKeyByBusinessUnitKeyShop
      */
     public function __construct(string $projectKey, string $associateId, string $businessUnitKey, string $key, $body = null, array $headers = [], ?ClientInterface $client = null)
     {
-        $uri = str_replace(['{projectKey}', '{associateId}', '{businessUnitKey}', '{key}'], [urlencode($projectKey), urlencode($associateId), urlencode($businessUnitKey), urlencode($key)], '{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}');
+        $uri = str_replace(['{projectKey}', '{associateId}', '{businessUnitKey}', '{key}'], [self::encodePathParam($projectKey), self::encodePathParam($associateId), self::encodePathParam($businessUnitKey), self::encodePathParam($key)], '{projectKey}/as-associate/{associateId}/in-business-unit/key={businessUnitKey}/shopping-lists/key={key}');
         parent::__construct($client, 'DELETE', $uri, $headers, is_object($body) || is_array($body) ? json_encode($body) : $body);
     }
 
