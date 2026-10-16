@@ -88,7 +88,7 @@ final class AgentResponsesPayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. If omitted, the Intake Agent resolves it from the input.</p>
+     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. If omitted, Intake resolves it from the input.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier
@@ -99,7 +99,7 @@ final class AgentResponsesPayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. If omitted, the Intake Agent resolves it from the input.</p>
+     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. If omitted, Intake resolves it from the input.</p>
      *
 
      * @return null|StoreResourceIdentifier
