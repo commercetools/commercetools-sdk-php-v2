@@ -179,6 +179,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'StoreDistributionChannelsUnsupported' => AgentStoreDistributionChannelsUnsupportedErrorModel::class,
        'StoreUnresolved' => AgentStoreUnresolvedErrorModel::class,
        'SyntaxError' => SyntaxErrorErrorModel::class,
+       'TooManyRequests' => TooManyRequestsErrorModel::class,
        'Unauthorized' => UnauthorizedErrorModel::class,
        'ValidityLockConflict' => ValidityLockConflictErrorModel::class,
        'insufficient_scope' => InsufficientScopeErrorModel::class,
