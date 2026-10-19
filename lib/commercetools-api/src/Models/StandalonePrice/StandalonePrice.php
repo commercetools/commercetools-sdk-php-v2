@@ -163,7 +163,7 @@ interface StandalonePrice extends BaseResource
     public function getTiers();
 
     /**
-     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Set if a matching <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> exists. If set, the API uses the <code>discounted</code> value for the <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|DiscountedPrice
@@ -187,8 +187,8 @@ interface StandalonePrice extends BaseResource
     public function getStaged();
 
     /**
-     * <p>Whether the StandalonePrice is considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
-     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
+     * <p>Whether the StandalonePrice is considered during <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>.
+     * If set to <code>false</code>, the StandalonePrice is not considered during <a href="/api/projects/productProjections#product-price-selection">Product price selection</a> and any associated Line Items in a Cart cannot be ordered.</p>
      *
 
      * @return null|bool

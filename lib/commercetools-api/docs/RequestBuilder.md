@@ -11042,7 +11042,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11071,7 +11071,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->post(null)`
 
 To create a new Product, send a representation that is going to become the initial _staged_ and _current_ representation of the new Product in the catalog.
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, selected Prices will be added to the response.
 Produces the [ProductCreated](/projects/messages/product-catalog-messages#product-created) Message.
 
 A failed response can return an [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError) error.
@@ -11089,7 +11089,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11119,7 +11119,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
@@ -11136,7 +11136,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
@@ -11194,7 +11194,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11239,7 +11239,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
