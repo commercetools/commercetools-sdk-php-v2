@@ -312,6 +312,7 @@ final class MessagePayloadModel extends JsonObjectModel implements MessagePayloa
        'RecurringOrderExpiresAtSet' => RecurringOrderExpiresAtSetMessagePayloadModel::class,
        'RecurringOrderFailed' => RecurringOrderFailedMessagePayloadModel::class,
        'RecurringOrderKeySet' => RecurringOrderKeySetMessagePayloadModel::class,
+       'RecurringOrderNowRequested' => RecurringOrderNowRequestedMessagePayloadModel::class,
        'RecurringOrderScheduleSet' => RecurringOrderScheduleSetMessagePayloadModel::class,
        'RecurringOrderStartsAtSet' => RecurringOrderStartsAtSetMessagePayloadModel::class,
        'RecurringOrderStateChanged' => RecurringOrderStateChangedMessagePayloadModel::class,
