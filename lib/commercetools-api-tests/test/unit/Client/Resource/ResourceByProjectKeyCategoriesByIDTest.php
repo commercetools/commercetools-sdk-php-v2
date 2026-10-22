@@ -429,6 +429,16 @@ class ResourceByProjectKeyCategoriesByIDTest extends TestCase
                 },
                 200
             ],
+            'ByProjectKeyCategoriesByIDPost_202' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withId("ID")
+                        ->post(null);
+                },
+                202
+            ],
             'ByProjectKeyCategoriesByIDPost_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

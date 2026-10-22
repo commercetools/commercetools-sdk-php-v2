@@ -15,6 +15,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -37,6 +38,7 @@ interface Category extends BaseResource
     public const FIELD_ASSETS = 'assets';
     public const FIELD_KEY = 'key';
     public const FIELD_STORES = 'stores';
+    public const FIELD_WARNINGS = 'warnings';
 
     /**
      * <p>Unique identifier of the Category.</p>
@@ -204,6 +206,15 @@ interface Category extends BaseResource
     public function getStores();
 
     /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings();
+
+    /**
      * @param ?string $id
      */
     public function setId(?string $id): void;
@@ -302,4 +313,9 @@ interface Category extends BaseResource
      * @param ?StoreKeyReferenceCollection $stores
      */
     public function setStores(?StoreKeyReferenceCollection $stores): void;
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void;
 }

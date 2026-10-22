@@ -130,8 +130,11 @@
 - added type `CartSetReservationExpirationInMinutesAction`
 - added type `CartUnlockCartAction`
 - added type `CategoryAddStoreAction`
+- added type `CategoryAddStoreWithDescendantsAction`
 - added type `CategoryRemoveStoreAction`
+- added type `CategoryRemoveStoreWithDescendantsAction`
 - added type `CategorySetStoresAction`
+- added type `CategorySetStoresWithDescendantsAction`
 - added type `AddressRole`
 - added type `NonStandardCurrency`
 - added type `CustomerGroupAssignment`
@@ -636,6 +639,7 @@
 - added type `CannotChangeReservationExpiryWarning`
 - added type `CannotCreateReservationWarning`
 - added type `CannotUpdateReservationWarning`
+- added type `StoreSettingOngoingWarning`
 </details>
 
 
@@ -735,6 +739,7 @@
 - added property `estimatedDelivery` to type `CartSetCustomShippingMethodAction`
 - added property `estimatedDelivery` to type `CartSetShippingMethodAction`
 - added property `stores` to type `Category`
+- added property `warnings` to type `Category`
 - added property `stores` to type `CategoryDraft`
 - added property `recurrencePolicy` to type `Price`
 - added property `recurrencePolicy` to type `PriceDraft`

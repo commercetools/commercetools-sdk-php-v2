@@ -20,6 +20,7 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -152,6 +153,12 @@ final class CategoryModel extends JsonObjectModel implements Category
      */
     protected $stores;
 
+    /**
+     *
+     * @var ?WarningObjectCollection
+     */
+    protected $warnings;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -176,7 +183,8 @@ final class CategoryModel extends JsonObjectModel implements Category
         ?CustomFields $custom = null,
         ?AssetCollection $assets = null,
         ?string $key = null,
-        ?StoreKeyReferenceCollection $stores = null
+        ?StoreKeyReferenceCollection $stores = null,
+        ?WarningObjectCollection $warnings = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -198,6 +206,7 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->assets = $assets;
         $this->key = $key;
         $this->stores = $stores;
+        $this->warnings = $warnings;
     }
 
     /**
@@ -623,6 +632,27 @@ final class CategoryModel extends JsonObjectModel implements Category
         return $this->stores;
     }
 
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+     *
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        if (is_null($this->warnings)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_WARNINGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->warnings = WarningObjectCollection::fromArray($data);
+        }
+
+        return $this->warnings;
+    }
+
 
     /**
      * @param ?string $id
@@ -782,6 +812,14 @@ final class CategoryModel extends JsonObjectModel implements Category
     public function setStores(?StoreKeyReferenceCollection $stores): void
     {
         $this->stores = $stores;
+    }
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void
+    {
+        $this->warnings = $warnings;
     }
 
 
