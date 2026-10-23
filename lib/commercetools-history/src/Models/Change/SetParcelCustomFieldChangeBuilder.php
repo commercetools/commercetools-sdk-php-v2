@@ -60,6 +60,12 @@ final class SetParcelCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -120,6 +126,18 @@ final class SetParcelCustomFieldChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -189,6 +207,17 @@ final class SetParcelCustomFieldChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withParcel() instead
      * @return $this
      */
@@ -207,7 +236,8 @@ final class SetParcelCustomFieldChangeBuilder implements Builder
             $this->customTypeId,
             $this->name,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->shippingKey
         );
     }
 

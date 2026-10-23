@@ -1311,10 +1311,15 @@
 
 - added type `TooManyRequestsError`
 - added type `GraphQLTooManyRequestsError`
+- added type `ChangeSavedToLineItemChange`
 - added type `DirectDiscount`
 - added type `DiscountTypeCombination`
 - added type `BestDeal`
 - added type `Stacking`
+- added type `SetMethodInfoCustomFieldChange`
+- added type `SetMethodInfoCustomTypeChange`
+- added type `SetMethodInfoInterfaceAccountChange`
+- added type `SetMethodInfoTokenChange`
 - added type `ShippingMethodLabel`
 - added type `AddShippingChange`
 - added type `ChangeApprovalRuleModeChange`
@@ -1576,8 +1581,10 @@
 
 - added property `catalogData` to type `AddAssetChange`
 - added property `variant` to type `AddAssetChange`
+- added property `shippingKey` to type `AddDeliveryChange`
 - added property `attributeName` to type `AddEnumValueChange`
 - added property `variant` to type `AddExternalImageChange`
+- added property `shippingKey` to type `AddParcelToDeliveryChange`
 - added property `variant` to type `AddPriceChange`
 - added property `catalogData` to type `AddToCategoryChange`
 - added property `custom` to type `Address`
@@ -1651,8 +1658,10 @@
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `ProductVariantChannelAvailabilityMap`
 - added property `catalogData` to type `RemoveAssetChange`
 - added property `variant` to type `RemoveAssetChange`
+- added property `shippingKey` to type `RemoveDeliveryItemsChange`
 - added property `catalogData` to type `RemoveFromCategoryChange`
 - added property `variant` to type `RemoveImageChange`
+- added property `shippingKey` to type `RemoveParcelFromDeliveryChange`
 - added property `variant` to type `RemovePriceChange`
 - added property `key` to type `ReturnItem`
 - added property `custom` to type `ReturnItem`
@@ -1675,6 +1684,8 @@
 - added property `removedItems` to type `SetCountriesChange`
 - added property `customTypeId` to type `SetCustomLineItemCustomFieldChange`
 - added property `customLineItem` to type `SetCustomLineItemShippingDetailsChange`
+- added property `shippingKey` to type `SetDeliveryAddressChange`
+- added property `shippingKey` to type `SetDeliveryItemsChange`
 - added property `price` to type `SetDiscountedPriceChange`
 - added property `addedItems` to type `SetDistributionChannelsChange`
 - added property `removedItems` to type `SetDistributionChannelsChange`
@@ -1698,6 +1709,9 @@
 - added property `catalogData` to type `SetMetaTitleChange`
 - added property `lineItemId` to type `SetOrderLineItemCustomFieldChange`
 - added property `lineItemId` to type `SetOrderLineItemCustomTypeChange`
+- added property `shippingKey` to type `SetParcelItemsChange`
+- added property `shippingKey` to type `SetParcelMeasurementsChange`
+- added property `shippingKey` to type `SetParcelTrackingDataChange`
 - added property `addedItems` to type `SetPermissionsChange`
 - added property `removedItems` to type `SetPermissionsChange`
 - added property `addedItems` to type `SetPricesChange`
