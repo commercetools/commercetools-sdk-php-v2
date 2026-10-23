@@ -63,6 +63,10 @@ class ByProjectKeyCategoriesByIDPost extends ApiRequest implements Conflicting, 
                     $resultType = CategoryModel::class;
 
                     break;
+                case '202':
+                    $resultType = CategoryModel::class;
+
+                    break;
                 case '409':
                     $resultType = ErrorResponseModel::class;
 

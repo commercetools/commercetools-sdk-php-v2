@@ -257,6 +257,7 @@ use Commercetools\Api\Models\Message\RecurringOrderDeletedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderExpiresAtSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderFailedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessage;
+use Commercetools\Api\Models\Message\RecurringOrderNowRequestedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderScheduleSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderStartsAtSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderStateChangedMessage;

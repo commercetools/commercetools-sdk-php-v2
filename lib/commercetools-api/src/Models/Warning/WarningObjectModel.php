@@ -47,6 +47,7 @@ final class WarningObjectModel extends JsonObjectModel implements WarningObject
        'FileNotProcessed' => AgentFileNotProcessedWarningModel::class,
        'ImageProcessingOngoing' => ImageProcessingOngoingWarningModel::class,
        'ProductsNotFound' => AgentProductsNotFoundWarningModel::class,
+       'StoreSettingOngoing' => StoreSettingOngoingWarningModel::class,
     ];
 
     /**

@@ -173,6 +173,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'StoreDistributionChannelsUnsupported' => GraphQLAgentStoreDistributionChannelsUnsupportedErrorModel::class,
        'StoreUnresolved' => GraphQLAgentStoreUnresolvedErrorModel::class,
        'SyntaxError' => GraphQLSyntaxErrorErrorModel::class,
+       'TooManyRequests' => GraphQLTooManyRequestsErrorModel::class,
        'Unauthorized' => GraphQLUnauthorizedErrorModel::class,
        'ValidityLockConflict' => GraphQLValidityLockConflictErrorModel::class,
        'insufficient_scope' => GraphQLInsufficientScopeErrorModel::class,

@@ -569,7 +569,7 @@ final class CompanyModel extends JsonObjectModel implements Company
 
     /**
      * <p>Customer Groups assigned to the Business Unit.</p>
-     * <p>They are considered during <a href="/api/pricing-and-discounts-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
+     * <p>They are considered during <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">line Item price selection</a>, if provided (non-null).</p>
      *
      *
      * @return null|CustomerGroupAssignmentCollection

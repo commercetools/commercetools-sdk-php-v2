@@ -42,6 +42,12 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -69,6 +75,18 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     public function getDeliveryId()
     {
         return $this->deliveryId;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -105,6 +123,17 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withNextValue() instead
      * @return $this
      */
@@ -120,7 +149,8 @@ final class AddParcelToDeliveryChangeBuilder implements Builder
         return new AddParcelToDeliveryChangeModel(
             $this->change,
             $this->nextValue instanceof ParcelBuilder ? $this->nextValue->build() : $this->nextValue,
-            $this->deliveryId
+            $this->deliveryId,
+            $this->shippingKey
         );
     }
 

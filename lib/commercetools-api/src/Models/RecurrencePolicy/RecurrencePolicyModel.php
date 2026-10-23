@@ -78,6 +78,12 @@ final class RecurrencePolicyModel extends JsonObjectModel implements RecurrenceP
 
     /**
      *
+     * @var ?int
+     */
+    protected $minDaysBetweenOrders;
+
+    /**
+     *
      * @var ?CreatedBy
      */
     protected $createdBy;
@@ -101,6 +107,7 @@ final class RecurrencePolicyModel extends JsonObjectModel implements RecurrenceP
         ?LocalizedString $name = null,
         ?LocalizedString $description = null,
         ?RecurrencePolicySchedule $schedule = null,
+        ?int $minDaysBetweenOrders = null,
         ?CreatedBy $createdBy = null,
         ?LastModifiedBy $lastModifiedBy = null
     ) {
@@ -112,6 +119,7 @@ final class RecurrencePolicyModel extends JsonObjectModel implements RecurrenceP
         $this->name = $name;
         $this->description = $description;
         $this->schedule = $schedule;
+        $this->minDaysBetweenOrders = $minDaysBetweenOrders;
         $this->createdBy = $createdBy;
         $this->lastModifiedBy = $lastModifiedBy;
     }
@@ -288,6 +296,29 @@ final class RecurrencePolicyModel extends JsonObjectModel implements RecurrenceP
     }
 
     /**
+     * <p>Minimum number of days that must pass since the last Order of a <a href="ctp:api:type:RecurringOrder">Recurring Order</a> before the <a href="ctp:api:type:RecurringOrderRequestOrderNowAction">Request Order Now</a> update action is allowed. If not set, there is no limit.</p>
+     * <p>This value does not affect the recurrence schedule. For example, a weekly RecurrencePolicy with a value of <code>30</code> still creates Orders weekly.
+     * The time is measured in multiples of 24 hours from <code>lastOrderAt</code> of the Recurring Order, regardless of whether the last Order was created on schedule or early.</p>
+     * <p>The limit applies to all Recurring Orders that use this RecurrencePolicy, and changes take effect immediately. It is ignored when the RecurrencePolicy is attached to a Price.</p>
+     *
+     *
+     * @return null|int
+     */
+    public function getMinDaysBetweenOrders()
+    {
+        if (is_null($this->minDaysBetweenOrders)) {
+            /** @psalm-var ?int $data */
+            $data = $this->raw(self::FIELD_MIN_DAYS_BETWEEN_ORDERS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->minDaysBetweenOrders = (int) $data;
+        }
+
+        return $this->minDaysBetweenOrders;
+    }
+
+    /**
      * <p>IDs and references that created the RecurrencePolicy.</p>
      *
      *
@@ -392,6 +423,14 @@ final class RecurrencePolicyModel extends JsonObjectModel implements RecurrenceP
     public function setSchedule(?RecurrencePolicySchedule $schedule): void
     {
         $this->schedule = $schedule;
+    }
+
+    /**
+     * @param ?int $minDaysBetweenOrders
+     */
+    public function setMinDaysBetweenOrders(?int $minDaysBetweenOrders): void
+    {
+        $this->minDaysBetweenOrders = $minDaysBetweenOrders;
     }
 
     /**

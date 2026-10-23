@@ -75,7 +75,7 @@ interface ProductVariant extends JsonObject
     public function getAttributes();
 
     /**
-     * <p>Only present when <a href="/api/pricing-and-discounts-overview#price-selection">price selection</a> is applied.
+     * <p>Only present when <a href="/api/pricing-and-discounts-apis-overview#price-selection-in-api-responses">price selection</a> is applied.
      * Cannot be used in a <a href="/api/predicates/query">Query Predicate</a>.</p>
      *
 
@@ -120,7 +120,7 @@ interface ProductVariant extends JsonObject
 
     /**
      * <p>Only available in response to a <a href="/api/projects/product-projection-search">Product Projection Search</a> request
-     * with <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.
+     * with <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>.
      * Can be used to sort, <a href="ctp:api:type:ProductProjectionSearchFilterScopedPrice">filter</a>, and facet.</p>
      *
 
@@ -130,7 +130,7 @@ interface ProductVariant extends JsonObject
 
     /**
      * <p>Only available in response to a <a href="/api/projects/product-projection-search">Product Projection Search</a> request
-     * with <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
+     * with <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>.</p>
      *
 
      * @return null|bool
@@ -138,7 +138,7 @@ interface ProductVariant extends JsonObject
     public function getScopedPriceDiscounted();
 
     /**
-     * <p>Only available when <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a> is used.
+     * <p>Only available when <a href="/api/projects/productProjections#product-price-selection">Product price selection</a> is used.
      * Cannot be used in a <a href="/api/predicates/query">Query Predicate</a>.</p>
      *
 

@@ -51,15 +51,15 @@ $request = $builder
 
 Turns a natural-language prompt, optionally with supporting files, into a created [Cart](ctp:api:type:Cart), [QuoteRequest](ctp:api:type:QuoteRequest), or [ShoppingList](ctp:api:type:ShoppingList), returned in commercetools REST representation. The entity to create is set by `outputType` and is never inferred from the input.
 
-A [ShoppingList](ctp:api:type:ShoppingList) additionally requires a name for the list in the input. The Intake Agent never invents one. Unlike a Cart or Quote Request, a Shopping List does not require a country.
+A [ShoppingList](ctp:api:type:ShoppingList) additionally requires a name for the list in the input. Intake never invents one. Unlike a Cart or Quote Request, a Shopping List does not require a country.
 
 Non-fatal issues, such as requested Products that could not be matched to the catalog or a file that failed to parse, are reported as `warnings` alongside a successful `201` response rather than failing the request.
 
-Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/agents/intake-agent#multipart-form-data) for the file upload format.
+Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/projects/intake#multipart-form-data) for the file upload format.
 
-If the Intake Agent is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
+If Intake is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
 
-For a list of possible errors returned by the Intake Agent, see [Intake Agent Errors](/api/errors#intake-agent) type.
+For a list of possible errors returned by Intake, see [Intake Errors](/api/errors#intake) type.
 
 
 ### Example
@@ -2543,6 +2543,8 @@ $request = $builder
 
 Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
+The response status code is `200 OK`, unless the request contains a [Set Stores with Descendants](ctp:api:type:CategorySetStoresWithDescendantsAction), [Add Store with Descendants](ctp:api:type:CategoryAddStoreWithDescendantsAction), or [Remove Store with Descendants](ctp:api:type:CategoryRemoveStoreWithDescendantsAction) update action. In that case, the API responds with `202 Accepted`, and the returned Category contains a `warnings` field with a [StoreSettingOngoing](ctp:api:type:StoreSettingOngoingWarning) Warning.
+
 
 ### Example
 ```php
@@ -2605,6 +2607,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
 Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
+The response status code is `200 OK`, unless the request contains a [Set Stores with Descendants](ctp:api:type:CategorySetStoresWithDescendantsAction), [Add Store with Descendants](ctp:api:type:CategoryAddStoreWithDescendantsAction), or [Remove Store with Descendants](ctp:api:type:CategoryRemoveStoreWithDescendantsAction) update action. In that case, the API responds with `202 Accepted`, and the returned Category contains a `warnings` field with a [StoreSettingOngoing](ctp:api:type:StoreSettingOngoingWarning) Warning.
 
 
 ### Example
@@ -6348,7 +6352,7 @@ Retrieves the [projected](/api/projects/productProjections#projection-dimensions
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
-If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
+If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-apis-overview#products-available-in-store) in the specified Store.
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
@@ -6424,7 +6428,7 @@ Retrieves the [projected](/api/projects/productProjections#projection-dimensions
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
-If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
+If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-apis-overview#products-available-in-store) in the specified Store.
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
@@ -11042,7 +11046,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11071,7 +11075,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->post(null)`
 
 To create a new Product, send a representation that is going to become the initial _staged_ and _current_ representation of the new Product in the catalog.
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, selected Prices will be added to the response.
 Produces the [ProductCreated](/projects/messages/product-catalog-messages#product-created) Message.
 
 A failed response can return an [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError) error.
@@ -11089,7 +11093,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11119,7 +11123,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
@@ -11136,7 +11140,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
@@ -11194,7 +11198,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11239,7 +11243,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example

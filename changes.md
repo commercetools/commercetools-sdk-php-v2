@@ -130,8 +130,11 @@
 - added type `CartSetReservationExpirationInMinutesAction`
 - added type `CartUnlockCartAction`
 - added type `CategoryAddStoreAction`
+- added type `CategoryAddStoreWithDescendantsAction`
 - added type `CategoryRemoveStoreAction`
+- added type `CategoryRemoveStoreWithDescendantsAction`
 - added type `CategorySetStoresAction`
+- added type `CategorySetStoresWithDescendantsAction`
 - added type `AddressRole`
 - added type `NonStandardCurrency`
 - added type `CustomerGroupAssignment`
@@ -164,6 +167,7 @@
 - added type `MaxDiscountGroupsReachedError`
 - added type `OverlappingPriceValidityError`
 - added type `RecurringOrderFailureError`
+- added type `TooManyRequestsError`
 - added type `UnauthorizedError`
 - added type `ValidityLockConflictError`
 - added type `GraphQLBulkOperationMaxItemsExceededError`
@@ -179,6 +183,7 @@
 - added type `GraphQLMaxDiscountGroupsReachedError`
 - added type `GraphQLOverlappingPriceValidityError`
 - added type `GraphQLRecurringOrderFailureError`
+- added type `GraphQLTooManyRequestsError`
 - added type `GraphQLUnauthorizedError`
 - added type `GraphQLValidityLockConflictError`
 - added type `BaseEvent`
@@ -326,6 +331,7 @@
 - added type `RecurringOrderExpiresAtSetMessage`
 - added type `RecurringOrderFailedMessage`
 - added type `RecurringOrderKeySetMessage`
+- added type `RecurringOrderNowRequestedMessage`
 - added type `RecurringOrderScheduleSetMessage`
 - added type `RecurringOrderStartsAtSetMessage`
 - added type `RecurringOrderStateChangedMessage`
@@ -422,6 +428,7 @@
 - added type `RecurringOrderExpiresAtSetMessagePayload`
 - added type `RecurringOrderFailedMessagePayload`
 - added type `RecurringOrderKeySetMessagePayload`
+- added type `RecurringOrderNowRequestedMessagePayload`
 - added type `RecurringOrderScheduleSetMessagePayload`
 - added type `RecurringOrderStartsAtSetMessagePayload`
 - added type `RecurringOrderStateChangedMessagePayload`
@@ -509,6 +516,7 @@
 - added type `StandardScheduleDraft`
 - added type `RecurrencePolicySetDescriptionAction`
 - added type `RecurrencePolicySetKeyAction`
+- added type `RecurrencePolicySetMinDaysBetweenOrdersAction`
 - added type `RecurrencePolicySetNameAction`
 - added type `RecurrencePolicySetScheduleAction`
 - added type `Counter`
@@ -543,6 +551,7 @@
 - added type `RecurringOrderScopeDraft`
 - added type `RecurringOrdersOnly`
 - added type `RecurringOrdersOnlyDraft`
+- added type `RecurringOrderRequestOrderNowAction`
 - added type `RecurringOrderSetCustomFieldAction`
 - added type `RecurringOrderSetCustomTypeAction`
 - added type `RecurringOrderSetExpiresAtAction`
@@ -630,6 +639,7 @@
 - added type `CannotChangeReservationExpiryWarning`
 - added type `CannotCreateReservationWarning`
 - added type `CannotUpdateReservationWarning`
+- added type `StoreSettingOngoingWarning`
 </details>
 
 
@@ -729,6 +739,7 @@
 - added property `estimatedDelivery` to type `CartSetCustomShippingMethodAction`
 - added property `estimatedDelivery` to type `CartSetShippingMethodAction`
 - added property `stores` to type `Category`
+- added property `warnings` to type `Category`
 - added property `stores` to type `CategoryDraft`
 - added property `recurrencePolicy` to type `Price`
 - added property `recurrencePolicy` to type `PriceDraft`
@@ -1300,10 +1311,15 @@
 
 - added type `TooManyRequestsError`
 - added type `GraphQLTooManyRequestsError`
+- added type `ChangeSavedToLineItemChange`
 - added type `DirectDiscount`
 - added type `DiscountTypeCombination`
 - added type `BestDeal`
 - added type `Stacking`
+- added type `SetMethodInfoCustomFieldChange`
+- added type `SetMethodInfoCustomTypeChange`
+- added type `SetMethodInfoInterfaceAccountChange`
+- added type `SetMethodInfoTokenChange`
 - added type `ShippingMethodLabel`
 - added type `AddShippingChange`
 - added type `ChangeApprovalRuleModeChange`
@@ -1565,8 +1581,10 @@
 
 - added property `catalogData` to type `AddAssetChange`
 - added property `variant` to type `AddAssetChange`
+- added property `shippingKey` to type `AddDeliveryChange`
 - added property `attributeName` to type `AddEnumValueChange`
 - added property `variant` to type `AddExternalImageChange`
+- added property `shippingKey` to type `AddParcelToDeliveryChange`
 - added property `variant` to type `AddPriceChange`
 - added property `catalogData` to type `AddToCategoryChange`
 - added property `custom` to type `Address`
@@ -1640,8 +1658,10 @@
 - added property `/^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/` to type `ProductVariantChannelAvailabilityMap`
 - added property `catalogData` to type `RemoveAssetChange`
 - added property `variant` to type `RemoveAssetChange`
+- added property `shippingKey` to type `RemoveDeliveryItemsChange`
 - added property `catalogData` to type `RemoveFromCategoryChange`
 - added property `variant` to type `RemoveImageChange`
+- added property `shippingKey` to type `RemoveParcelFromDeliveryChange`
 - added property `variant` to type `RemovePriceChange`
 - added property `key` to type `ReturnItem`
 - added property `custom` to type `ReturnItem`
@@ -1664,6 +1684,8 @@
 - added property `removedItems` to type `SetCountriesChange`
 - added property `customTypeId` to type `SetCustomLineItemCustomFieldChange`
 - added property `customLineItem` to type `SetCustomLineItemShippingDetailsChange`
+- added property `shippingKey` to type `SetDeliveryAddressChange`
+- added property `shippingKey` to type `SetDeliveryItemsChange`
 - added property `price` to type `SetDiscountedPriceChange`
 - added property `addedItems` to type `SetDistributionChannelsChange`
 - added property `removedItems` to type `SetDistributionChannelsChange`
@@ -1687,6 +1709,9 @@
 - added property `catalogData` to type `SetMetaTitleChange`
 - added property `lineItemId` to type `SetOrderLineItemCustomFieldChange`
 - added property `lineItemId` to type `SetOrderLineItemCustomTypeChange`
+- added property `shippingKey` to type `SetParcelItemsChange`
+- added property `shippingKey` to type `SetParcelMeasurementsChange`
+- added property `shippingKey` to type `SetParcelTrackingDataChange`
 - added property `addedItems` to type `SetPermissionsChange`
 - added property `removedItems` to type `SetPermissionsChange`
 - added property `addedItems` to type `SetPricesChange`

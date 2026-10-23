@@ -487,7 +487,7 @@ final class OrderBuilder implements Builder
 
     /**
      * <p><a href="ctp:api:type:Reference">Reference</a> to the Customer Group of the Customer that the Order belongs to.
-     * Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * Used for <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupReference
@@ -828,7 +828,7 @@ final class OrderBuilder implements Builder
     }
 
     /**
-     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|string
