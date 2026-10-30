@@ -20,7 +20,7 @@ use stdClass;
 final class BusinessUnitResourceIdentifierModel extends JsonObjectModel implements BusinessUnitResourceIdentifier
 {
 
-    public const DISCRIMINATOR_VALUE = 'business-unit';
+
     /**
      *
      * @var ?string
