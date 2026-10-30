@@ -741,6 +741,9 @@
 - added property `stores` to type `Category`
 - added property `warnings` to type `Category`
 - added property `stores` to type `CategoryDraft`
+- added property `isPlatformClient` to type `ClientLogging`
+- added property `isPlatformClient` to type `CreatedBy`
+- added property `isPlatformClient` to type `LastModifiedBy`
 - added property `recurrencePolicy` to type `Price`
 - added property `recurrencePolicy` to type `PriceDraft`
 - added property `customerGroupAssignments` to type `Customer`

@@ -14,11 +14,20 @@ use Commercetools\Base\JsonObject;
 
 interface ClientLogging extends JsonObject
 {
+    public const FIELD_IS_PLATFORM_CLIENT = 'isPlatformClient';
     public const FIELD_CLIENT_ID = 'clientId';
     public const FIELD_EXTERNAL_USER_ID = 'externalUserId';
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_ASSOCIATE = 'associate';
+
+    /**
+     * <p>If <code>true</code>, the resource was created or modified by an internal process or the <a href="/merchant-center">Merchant Center</a>. Otherwise, it was created or modified by an <a href="ctp:api:type:ApiClient">API Client</a> of your Project.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsPlatformClient();
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which created the resource.</p>
@@ -59,6 +68,11 @@ interface ClientLogging extends JsonObject
      * @return null|CustomerReference
      */
     public function getAssociate();
+
+    /**
+     * @param ?bool $isPlatformClient
+     */
+    public function setIsPlatformClient(?bool $isPlatformClient): void;
 
     /**
      * @param ?string $clientId

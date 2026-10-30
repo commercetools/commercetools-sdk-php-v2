@@ -23,6 +23,12 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
 {
     /**
      *
+     * @var ?bool
+     */
+    protected $isPlatformClient;
+
+    /**
+     *
      * @var ?string
      */
     protected $clientId;
@@ -62,6 +68,7 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
      * @psalm-suppress MissingParamType
      */
     public function __construct(
+        ?bool $isPlatformClient = null,
         ?string $clientId = null,
         ?string $externalUserId = null,
         ?CustomerReference $customer = null,
@@ -69,12 +76,33 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         ?CustomerReference $associate = null,
         ?Attribution $attributedTo = null
     ) {
+        $this->isPlatformClient = $isPlatformClient;
         $this->clientId = $clientId;
         $this->externalUserId = $externalUserId;
         $this->customer = $customer;
         $this->anonymousId = $anonymousId;
         $this->associate = $associate;
         $this->attributedTo = $attributedTo;
+    }
+
+    /**
+     * <p>If <code>true</code>, the resource was created or modified by an internal process or the <a href="/merchant-center">Merchant Center</a>. Otherwise, it was created or modified by an <a href="ctp:api:type:ApiClient">API Client</a> of your Project.</p>
+     *
+     *
+     * @return null|bool
+     */
+    public function getIsPlatformClient()
+    {
+        if (is_null($this->isPlatformClient)) {
+            /** @psalm-var ?bool $data */
+            $data = $this->raw(self::FIELD_IS_PLATFORM_CLIENT);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->isPlatformClient = (bool) $data;
+        }
+
+        return $this->isPlatformClient;
     }
 
     /**
@@ -200,6 +228,14 @@ final class LastModifiedByModel extends JsonObjectModel implements LastModifiedB
         return $this->attributedTo;
     }
 
+
+    /**
+     * @param ?bool $isPlatformClient
+     */
+    public function setIsPlatformClient(?bool $isPlatformClient): void
+    {
+        $this->isPlatformClient = $isPlatformClient;
+    }
 
     /**
      * @param ?string $clientId

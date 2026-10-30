@@ -24,6 +24,12 @@ final class CreatedByBuilder implements Builder
 {
     /**
 
+     * @var ?bool
+     */
+    private $isPlatformClient;
+
+    /**
+
      * @var ?string
      */
     private $clientId;
@@ -57,6 +63,17 @@ final class CreatedByBuilder implements Builder
      * @var null|Attribution|AttributionBuilder
      */
     private $attributedTo;
+
+    /**
+     * <p>If <code>true</code>, the resource was created or modified by an internal process or the <a href="/merchant-center">Merchant Center</a>. Otherwise, it was created or modified by an <a href="ctp:api:type:ApiClient">API Client</a> of your Project.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsPlatformClient()
+    {
+        return $this->isPlatformClient;
+    }
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which created the resource.</p>
@@ -122,6 +139,17 @@ final class CreatedByBuilder implements Builder
     public function getAttributedTo()
     {
         return $this->attributedTo instanceof AttributionBuilder ? $this->attributedTo->build() : $this->attributedTo;
+    }
+
+    /**
+     * @param ?bool $isPlatformClient
+     * @return $this
+     */
+    public function withIsPlatformClient(?bool $isPlatformClient)
+    {
+        $this->isPlatformClient = $isPlatformClient;
+
+        return $this;
     }
 
     /**
@@ -226,6 +254,7 @@ final class CreatedByBuilder implements Builder
     public function build(): CreatedBy
     {
         return new CreatedByModel(
+            $this->isPlatformClient,
             $this->clientId,
             $this->externalUserId,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,
