@@ -20,6 +20,7 @@ use Commercetools\Api\Models\Common\LocalizedStringModel;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsModel;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use Commercetools\Base\JsonObjectModel;
@@ -152,6 +153,12 @@ final class CategoryModel extends JsonObjectModel implements Category
      */
     protected $stores;
 
+    /**
+     *
+     * @var ?WarningObjectCollection
+     */
+    protected $warnings;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -176,7 +183,8 @@ final class CategoryModel extends JsonObjectModel implements Category
         ?CustomFields $custom = null,
         ?AssetCollection $assets = null,
         ?string $key = null,
-        ?StoreKeyReferenceCollection $stores = null
+        ?StoreKeyReferenceCollection $stores = null,
+        ?WarningObjectCollection $warnings = null
     ) {
         $this->id = $id;
         $this->version = $version;
@@ -198,6 +206,7 @@ final class CategoryModel extends JsonObjectModel implements Category
         $this->assets = $assets;
         $this->key = $key;
         $this->stores = $stores;
+        $this->warnings = $warnings;
     }
 
     /**
@@ -604,7 +613,7 @@ final class CategoryModel extends JsonObjectModel implements Category
     /**
      * <p><a href="ctp:api:type:Store">Stores</a> to which the Category is assigned and that you have permission to access.</p>
      * <p>If <code>stores</code> is empty, the Category is global and available in every <a href="ctp:api:type:Store">Store</a>.</p>
-     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
+     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories:POST">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
      *
      *
      * @return null|StoreKeyReferenceCollection
@@ -621,6 +630,27 @@ final class CategoryModel extends JsonObjectModel implements Category
         }
 
         return $this->stores;
+    }
+
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+     *
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        if (is_null($this->warnings)) {
+            /** @psalm-var ?list<stdClass> $data */
+            $data = $this->raw(self::FIELD_WARNINGS);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->warnings = WarningObjectCollection::fromArray($data);
+        }
+
+        return $this->warnings;
     }
 
 
@@ -782,6 +812,14 @@ final class CategoryModel extends JsonObjectModel implements Category
     public function setStores(?StoreKeyReferenceCollection $stores): void
     {
         $this->stores = $stores;
+    }
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void
+    {
+        $this->warnings = $warnings;
     }
 
 

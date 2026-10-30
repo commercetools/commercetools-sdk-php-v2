@@ -15,6 +15,7 @@ use Commercetools\Api\Models\Common\LastModifiedBy;
 use Commercetools\Api\Models\Common\LocalizedString;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
 use DateTimeImmutable;
@@ -37,6 +38,7 @@ interface Category extends BaseResource
     public const FIELD_ASSETS = 'assets';
     public const FIELD_KEY = 'key';
     public const FIELD_STORES = 'stores';
+    public const FIELD_WARNINGS = 'warnings';
 
     /**
      * <p>Unique identifier of the Category.</p>
@@ -196,12 +198,21 @@ interface Category extends BaseResource
     /**
      * <p><a href="ctp:api:type:Store">Stores</a> to which the Category is assigned and that you have permission to access.</p>
      * <p>If <code>stores</code> is empty, the Category is global and available in every <a href="ctp:api:type:Store">Store</a>.</p>
-     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
+     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories:POST">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
      *
 
      * @return null|StoreKeyReferenceCollection
      */
     public function getStores();
+
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings();
 
     /**
      * @param ?string $id
@@ -302,4 +313,9 @@ interface Category extends BaseResource
      * @param ?StoreKeyReferenceCollection $stores
      */
     public function setStores(?StoreKeyReferenceCollection $stores): void;
+
+    /**
+     * @param ?WarningObjectCollection $warnings
+     */
+    public function setWarnings(?WarningObjectCollection $warnings): void;
 }

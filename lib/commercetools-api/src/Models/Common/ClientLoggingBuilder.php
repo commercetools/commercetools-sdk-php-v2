@@ -24,6 +24,12 @@ final class ClientLoggingBuilder implements Builder
 {
     /**
 
+     * @var ?bool
+     */
+    private $isPlatformClient;
+
+    /**
+
      * @var ?string
      */
     private $clientId;
@@ -51,6 +57,17 @@ final class ClientLoggingBuilder implements Builder
      * @var null|CustomerReference|CustomerReferenceBuilder
      */
     private $associate;
+
+    /**
+     * <p>If <code>true</code>, the resource was created or modified by an internal process or the <a href="/merchant-center">Merchant Center</a>. Otherwise, it was created or modified by an <a href="ctp:api:type:ApiClient">API Client</a> of your Project.</p>
+     *
+
+     * @return null|bool
+     */
+    public function getIsPlatformClient()
+    {
+        return $this->isPlatformClient;
+    }
 
     /**
      * <p><code>id</code> of the <a href="ctp:api:type:ApiClient">API Client</a> which created the resource.</p>
@@ -105,6 +122,17 @@ final class ClientLoggingBuilder implements Builder
     public function getAssociate()
     {
         return $this->associate instanceof CustomerReferenceBuilder ? $this->associate->build() : $this->associate;
+    }
+
+    /**
+     * @param ?bool $isPlatformClient
+     * @return $this
+     */
+    public function withIsPlatformClient(?bool $isPlatformClient)
+    {
+        $this->isPlatformClient = $isPlatformClient;
+
+        return $this;
     }
 
     /**
@@ -187,6 +215,7 @@ final class ClientLoggingBuilder implements Builder
     public function build(): ClientLogging
     {
         return new ClientLoggingModel(
+            $this->isPlatformClient,
             $this->clientId,
             $this->externalUserId,
             $this->customer instanceof CustomerReferenceBuilder ? $this->customer->build() : $this->customer,

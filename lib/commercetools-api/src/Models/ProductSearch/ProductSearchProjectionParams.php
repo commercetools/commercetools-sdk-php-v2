@@ -41,7 +41,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getStaged();
 
     /**
-     * <p>The currency used for <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>.</p>
+     * <p>The currency used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>.</p>
      *
 
      * @return null|string
@@ -49,7 +49,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCurrency();
 
     /**
-     * <p>The country used for <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     * <p>The country used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -57,7 +57,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCountry();
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:CustomerGroup">CustomerGroup</a> used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -65,7 +65,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCustomerGroup();
 
     /**
-     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>, when using <a href="/api/customers-overview#customer-groups">multiple Customer Groups</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>, when using <a href="/api/customers-overview#customer-groups">multiple Customer Groups</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|array
@@ -73,7 +73,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCustomerGroupAssignments();
 
     /**
-     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/api/pricing-and-discounts-overview#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     * <p><code>id</code> of an existing <a href="ctp:api:type:Channel">Channel</a> used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|string
@@ -93,7 +93,7 @@ interface ProductSearchProjectionParams extends JsonObject
      * If the Store has defined <code>languages</code>, <code>countries</code>, <code>distributionChannels</code>, or <code>supplyChannels</code>,
      * they are used for projections based on <a href="/api/projects/productProjections#locales">locale</a>, <a href="/api/projects/productProjections#prices">price</a>,
      * and <a href="/api/projects/productProjections#inventory-entries">inventory</a>.</p>
-     * <p>For Projects with active <a href="/api/projects/product-selections">Product Selections</a>, the API does not take the <a href="/api/project-configuration-overview#products-available-in-store">availability of the Product in the specified Store</a> into account.</p>
+     * <p>For Projects with active <a href="/api/projects/product-selections">Product Selections</a>, the API does not take the <a href="/api/project-configuration-apis-overview#products-available-in-store">availability of the Product in the specified Store</a> into account.</p>
      * <p><a href="/api/projects/product-tailoring">Product Tailoring</a> modifies the product information returned in API responses. However, you can only specify <a href="/api/search-query-language#simple-expressions">query expressions</a> for the original Product data, not for tailored data.</p>
      *
 

@@ -67,7 +67,7 @@ final class ProjectSetProductCatalogModelActionModel extends JsonObjectModel imp
      * <ul>
      * <li><a href="/guides/migration-guides/modular-catalog-migration#change-product-catalog-model-to-inmigration">Change Product Catalog Model to InMigration</a></li>
      * <li><a href="/guides/migration-guides/modular-catalog-migration#change-product-catalog-model-to-modular">Change Product Catalog Model to Modular</a></li>
-     * <li><a href="/guides/migration-guides/modular-catalog-migration#rollback-to-classic">Rollback to Classic</a></li>
+     * <li><a href="/guides/migration-guides/modular-catalog-migration#roll-back-to-classic">Rollback to Classic</a></li>
      * </ul>
      *
      *
