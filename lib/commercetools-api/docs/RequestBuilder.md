@@ -899,7 +899,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->orderQuote()->post(null)`
 
-
 Creates an Order from a [Quote](ctp:api:type:Quote) in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
 The Quote must reference the same Business Unit as the `businessUnitKey` path parameter, must have the `Pending` [state](ctp:api:type:QuoteState), and must be valid (not past the `validTo` date). If these criteria are not met, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
@@ -2218,7 +2217,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
-
 
 Creates a Cart in the Project.
 
@@ -4541,7 +4539,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
-
 Retrieves a Cart with the provided `key` in a [Store](ctp:api:type:Store).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
@@ -5482,7 +5479,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
-
 Creates a Cart in a Store for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
@@ -5623,7 +5619,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->login()->post(null)`
 
-
 Retrieves the authenticated Customer (that matches the given email/password pair) if they are part of a specific [Store](ctp:api:type:Store).
 
 If used with an optional [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
@@ -5692,7 +5687,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
-
 
 Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
@@ -5873,7 +5867,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
-
 
 Creates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
@@ -6319,7 +6312,6 @@ $request = $builder
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->orderQuote()->post(null)`
-
 
 Creates an Order from a [Quote](ctp:api:type:Quote) in a [Store](ctp:api:type:Store). The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -8242,7 +8234,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
-
 Creates a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 Specific Error Codes:
@@ -8473,7 +8464,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
-
 Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The Cart must have a shipping address set.
@@ -8555,7 +8545,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
-
 
 Creates an Order from a [Quote](ctp:api:type:Quote) for the authenticated Customer. To create [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
 
@@ -9746,7 +9735,6 @@ $request = $builder
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->orders()->orderQuote()->post(null)`
-
 
 Creates an Order from a Quote. The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
