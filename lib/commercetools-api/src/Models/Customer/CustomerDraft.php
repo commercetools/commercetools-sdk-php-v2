@@ -239,7 +239,7 @@ interface CustomerDraft extends JsonObject
 
     /**
      * <p>Customer Groups to assign the Customer to.</p>
-     * <p>Used for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Used for <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|CustomerGroupAssignmentDraftCollection

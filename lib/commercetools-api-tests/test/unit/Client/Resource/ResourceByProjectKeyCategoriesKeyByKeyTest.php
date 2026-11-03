@@ -429,6 +429,16 @@ class ResourceByProjectKeyCategoriesKeyByKeyTest extends TestCase
                 },
                 200
             ],
+            'ByProjectKeyCategoriesKeyByKeyPost_202' => [
+                function (ApiRequestBuilder $builder): RequestInterface {
+                    return $builder
+                        ->withProjectKey("projectKey")
+                        ->categories()
+                        ->withKey("key")
+                        ->post(null);
+                },
+                202
+            ],
             'ByProjectKeyCategoriesKeyByKeyPost_409' => [
                 function (ApiRequestBuilder $builder): RequestInterface {
                     return $builder

@@ -321,7 +321,7 @@ final class LineItemImportDraftModel extends JsonObjectModel implements LineItem
     }
 
     /**
-     * <p>The Channel used to <a href="/api/pricing-and-discounts-overview#line-item-price-selection">select a Price</a>.
+     * <p>The Channel used to <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">select a Price</a>.
      * This Channel must have the <code>ProductDistribution</code> role.</p>
      *
      *

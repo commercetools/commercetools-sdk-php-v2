@@ -20,6 +20,7 @@ use Commercetools\Api\Models\Common\LocalizedStringBuilder;
 use Commercetools\Api\Models\Store\StoreKeyReferenceCollection;
 use Commercetools\Api\Models\Type\CustomFields;
 use Commercetools\Api\Models\Type\CustomFieldsBuilder;
+use Commercetools\Api\Models\Warning\WarningObjectCollection;
 use Commercetools\Base\Builder;
 use Commercetools\Base\DateTimeImmutableCollection;
 use Commercetools\Base\JsonObject;
@@ -152,6 +153,12 @@ final class CategoryBuilder implements Builder
      * @var ?StoreKeyReferenceCollection
      */
     private $stores;
+
+    /**
+
+     * @var ?WarningObjectCollection
+     */
+    private $warnings;
 
     /**
      * <p>Unique identifier of the Category.</p>
@@ -368,7 +375,7 @@ final class CategoryBuilder implements Builder
     /**
      * <p><a href="ctp:api:type:Store">Stores</a> to which the Category is assigned and that you have permission to access.</p>
      * <p>If <code>stores</code> is empty, the Category is global and available in every <a href="ctp:api:type:Store">Store</a>.</p>
-     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
+     * <p>If the Category is created via the <a href="ctp:api:endpoint:/{projectKey}/in-store/key={storeKey}/categories:POST">Store-specific endpoint</a>, the Store specified in the request path is automatically added to the field value.</p>
      *
 
      * @return null|StoreKeyReferenceCollection
@@ -376,6 +383,18 @@ final class CategoryBuilder implements Builder
     public function getStores()
     {
         return $this->stores;
+    }
+
+    /**
+     * <p>Warnings about processing of a request.
+     * Appears in response to requests with response status code <code>202 Accepted</code>.</p>
+     *
+
+     * @return null|WarningObjectCollection
+     */
+    public function getWarnings()
+    {
+        return $this->warnings;
     }
 
     /**
@@ -599,6 +618,17 @@ final class CategoryBuilder implements Builder
     }
 
     /**
+     * @param ?WarningObjectCollection $warnings
+     * @return $this
+     */
+    public function withWarnings(?WarningObjectCollection $warnings)
+    {
+        $this->warnings = $warnings;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withLastModifiedBy() instead
      * @return $this
      */
@@ -730,7 +760,8 @@ final class CategoryBuilder implements Builder
             $this->custom instanceof CustomFieldsBuilder ? $this->custom->build() : $this->custom,
             $this->assets,
             $this->key,
-            $this->stores
+            $this->stores,
+            $this->warnings
         );
     }
 

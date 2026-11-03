@@ -33,6 +33,7 @@ final class RecurrencePolicyUpdateActionModel extends JsonObjectModel implements
     private static $discriminatorClasses = [
        'setDescription' => RecurrencePolicySetDescriptionActionModel::class,
        'setKey' => RecurrencePolicySetKeyActionModel::class,
+       'setMinDaysBetweenOrders' => RecurrencePolicySetMinDaysBetweenOrdersActionModel::class,
        'setName' => RecurrencePolicySetNameActionModel::class,
        'setSchedule' => RecurrencePolicySetScheduleActionModel::class,
     ];

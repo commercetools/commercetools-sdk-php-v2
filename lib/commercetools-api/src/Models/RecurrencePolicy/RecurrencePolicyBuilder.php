@@ -79,6 +79,12 @@ final class RecurrencePolicyBuilder implements Builder
 
     /**
 
+     * @var ?int
+     */
+    private $minDaysBetweenOrders;
+
+    /**
+
      * @var null|CreatedBy|CreatedByBuilder
      */
     private $createdBy;
@@ -175,6 +181,20 @@ final class RecurrencePolicyBuilder implements Builder
     public function getSchedule()
     {
         return $this->schedule instanceof RecurrencePolicyScheduleBuilder ? $this->schedule->build() : $this->schedule;
+    }
+
+    /**
+     * <p>Minimum number of days that must pass since the last Order of a <a href="ctp:api:type:RecurringOrder">Recurring Order</a> before the <a href="ctp:api:type:RecurringOrderRequestOrderNowAction">Request Order Now</a> update action is allowed. If not set, there is no limit.</p>
+     * <p>This value does not affect the recurrence schedule. For example, a weekly RecurrencePolicy with a value of <code>30</code> still creates Orders weekly.
+     * The time is measured in multiples of 24 hours from <code>lastOrderAt</code> of the Recurring Order, regardless of whether the last Order was created on schedule or early.</p>
+     * <p>The limit applies to all Recurring Orders that use this RecurrencePolicy, and changes take effect immediately. It is ignored when the RecurrencePolicy is attached to a Price.</p>
+     *
+
+     * @return null|int
+     */
+    public function getMinDaysBetweenOrders()
+    {
+        return $this->minDaysBetweenOrders;
     }
 
     /**
@@ -288,6 +308,17 @@ final class RecurrencePolicyBuilder implements Builder
     }
 
     /**
+     * @param ?int $minDaysBetweenOrders
+     * @return $this
+     */
+    public function withMinDaysBetweenOrders(?int $minDaysBetweenOrders)
+    {
+        $this->minDaysBetweenOrders = $minDaysBetweenOrders;
+
+        return $this;
+    }
+
+    /**
      * @param ?CreatedBy $createdBy
      * @return $this
      */
@@ -375,6 +406,7 @@ final class RecurrencePolicyBuilder implements Builder
             $this->name instanceof LocalizedStringBuilder ? $this->name->build() : $this->name,
             $this->description instanceof LocalizedStringBuilder ? $this->description->build() : $this->description,
             $this->schedule instanceof RecurrencePolicyScheduleBuilder ? $this->schedule->build() : $this->schedule,
+            $this->minDaysBetweenOrders,
             $this->createdBy instanceof CreatedByBuilder ? $this->createdBy->build() : $this->createdBy,
             $this->lastModifiedBy instanceof LastModifiedByBuilder ? $this->lastModifiedBy->build() : $this->lastModifiedBy
         );

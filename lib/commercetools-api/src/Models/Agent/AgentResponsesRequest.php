@@ -46,7 +46,7 @@ interface AgentResponsesRequest extends JsonObject
     public function getPrompt();
 
     /**
-     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. If omitted, the Intake Agent resolves it from <code>prompt</code>.</p>
+     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. If omitted, Intake resolves it from <code>prompt</code>.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier
@@ -54,7 +54,7 @@ interface AgentResponsesRequest extends JsonObject
     public function getBusinessUnit();
 
     /**
-     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. If omitted, the Intake Agent resolves it from <code>prompt</code>.</p>
+     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. If omitted, Intake resolves it from <code>prompt</code>.</p>
      *
 
      * @return null|StoreResourceIdentifier

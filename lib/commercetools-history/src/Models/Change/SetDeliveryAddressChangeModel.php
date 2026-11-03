@@ -53,6 +53,12 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
      */
     protected $deliveryId;
 
+    /**
+     *
+     * @var ?string
+     */
+    protected $shippingKey;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,12 +68,14 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
         ?Address $previousValue = null,
         ?Address $nextValue = null,
         ?string $deliveryId = null,
+        ?string $shippingKey = null,
         ?string $type = null
     ) {
         $this->change = $change;
         $this->previousValue = $previousValue;
         $this->nextValue = $nextValue;
         $this->deliveryId = $deliveryId;
+        $this->shippingKey = $shippingKey;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -169,6 +177,27 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
         return $this->deliveryId;
     }
 
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        if (is_null($this->shippingKey)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_SHIPPING_KEY);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->shippingKey = (string) $data;
+        }
+
+        return $this->shippingKey;
+    }
+
 
     /**
      * @param ?string $change
@@ -200,6 +229,14 @@ final class SetDeliveryAddressChangeModel extends JsonObjectModel implements Set
     public function setDeliveryId(?string $deliveryId): void
     {
         $this->deliveryId = $deliveryId;
+    }
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void
+    {
+        $this->shippingKey = $shippingKey;
     }
 
 

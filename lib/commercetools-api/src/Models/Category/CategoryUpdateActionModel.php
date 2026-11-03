@@ -33,6 +33,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
     private static $discriminatorClasses = [
        'addAsset' => CategoryAddAssetActionModel::class,
        'addStore' => CategoryAddStoreActionModel::class,
+       'addStoreWithDescendants' => CategoryAddStoreWithDescendantsActionModel::class,
        'changeAssetName' => CategoryChangeAssetNameActionModel::class,
        'changeAssetOrder' => CategoryChangeAssetOrderActionModel::class,
        'changeName' => CategoryChangeNameActionModel::class,
@@ -41,6 +42,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
        'changeSlug' => CategoryChangeSlugActionModel::class,
        'removeAsset' => CategoryRemoveAssetActionModel::class,
        'removeStore' => CategoryRemoveStoreActionModel::class,
+       'removeStoreWithDescendants' => CategoryRemoveStoreWithDescendantsActionModel::class,
        'setAssetCustomField' => CategorySetAssetCustomFieldActionModel::class,
        'setAssetCustomType' => CategorySetAssetCustomTypeActionModel::class,
        'setAssetDescription' => CategorySetAssetDescriptionActionModel::class,
@@ -56,6 +58,7 @@ final class CategoryUpdateActionModel extends JsonObjectModel implements Categor
        'setMetaKeywords' => CategorySetMetaKeywordsActionModel::class,
        'setMetaTitle' => CategorySetMetaTitleActionModel::class,
        'setStores' => CategorySetStoresActionModel::class,
+       'setStoresWithDescendants' => CategorySetStoresWithDescendantsActionModel::class,
     ];
 
     /**

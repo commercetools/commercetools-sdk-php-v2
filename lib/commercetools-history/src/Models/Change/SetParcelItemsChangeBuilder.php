@@ -49,6 +49,12 @@ final class SetParcelItemsChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -87,6 +93,18 @@ final class SetParcelItemsChangeBuilder implements Builder
     public function getParcel()
     {
         return $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -134,6 +152,17 @@ final class SetParcelItemsChangeBuilder implements Builder
     }
 
     /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withParcel() instead
      * @return $this
      */
@@ -150,7 +179,8 @@ final class SetParcelItemsChangeBuilder implements Builder
             $this->change,
             $this->previousValue,
             $this->nextValue,
-            $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel
+            $this->parcel instanceof ParcelChangeValueBuilder ? $this->parcel->build() : $this->parcel,
+            $this->shippingKey
         );
     }
 

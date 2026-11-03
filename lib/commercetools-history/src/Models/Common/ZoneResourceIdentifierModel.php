@@ -20,7 +20,7 @@ use stdClass;
 final class ZoneResourceIdentifierModel extends JsonObjectModel implements ZoneResourceIdentifier
 {
 
-    public const DISCRIMINATOR_VALUE = 'zone';
+
     /**
      *
      * @var ?string

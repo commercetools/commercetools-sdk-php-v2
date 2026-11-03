@@ -64,6 +64,12 @@ final class SetDeliveryAddressCustomFieldChangeBuilder implements Builder
 
     /**
 
+     * @var ?string
+     */
+    private $shippingKey;
+
+    /**
+
      * @return null|string
      */
     public function getChange()
@@ -135,6 +141,18 @@ final class SetDeliveryAddressCustomFieldChangeBuilder implements Builder
     public function getNextValue()
     {
         return $this->nextValue;
+    }
+
+    /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey()
+    {
+        return $this->shippingKey;
     }
 
     /**
@@ -214,6 +232,17 @@ final class SetDeliveryAddressCustomFieldChangeBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @param ?string $shippingKey
+     * @return $this
+     */
+    public function withShippingKey(?string $shippingKey)
+    {
+        $this->shippingKey = $shippingKey;
+
+        return $this;
+    }
+
 
     public function build(): SetDeliveryAddressCustomFieldChange
     {
@@ -224,7 +253,8 @@ final class SetDeliveryAddressCustomFieldChangeBuilder implements Builder
             $this->name,
             $this->customTypeId,
             $this->previousValue,
-            $this->nextValue
+            $this->nextValue,
+            $this->shippingKey
         );
     }
 

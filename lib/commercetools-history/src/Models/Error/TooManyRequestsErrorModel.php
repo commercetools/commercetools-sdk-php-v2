@@ -22,7 +22,7 @@ use Commercetools\History\Models\ChangeHistory\ErrorObjectModel;
 final class TooManyRequestsErrorModel extends JsonObjectModel implements TooManyRequestsError
 {
 
-    public const DISCRIMINATOR_VALUE = 'TooManyRequests';
+
     /**
      *
      * @var ?string

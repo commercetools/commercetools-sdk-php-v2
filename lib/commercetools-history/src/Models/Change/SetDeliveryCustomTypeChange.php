@@ -18,6 +18,7 @@ interface SetDeliveryCustomTypeChange extends Change
     public const FIELD_DELIVERY_ID = 'deliveryId';
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
 
@@ -56,6 +57,15 @@ interface SetDeliveryCustomTypeChange extends Change
     public function getNextValue();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -74,4 +84,9 @@ interface SetDeliveryCustomTypeChange extends Change
      * @param ?CustomFields $nextValue
      */
     public function setNextValue(?CustomFields $nextValue): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

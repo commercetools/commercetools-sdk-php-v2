@@ -51,15 +51,15 @@ $request = $builder
 
 Turns a natural-language prompt, optionally with supporting files, into a created [Cart](ctp:api:type:Cart), [QuoteRequest](ctp:api:type:QuoteRequest), or [ShoppingList](ctp:api:type:ShoppingList), returned in commercetools REST representation. The entity to create is set by `outputType` and is never inferred from the input.
 
-A [ShoppingList](ctp:api:type:ShoppingList) additionally requires a name for the list in the input. The Intake Agent never invents one. Unlike a Cart or Quote Request, a Shopping List does not require a country.
+A [ShoppingList](ctp:api:type:ShoppingList) additionally requires a name for the list in the input. Intake never invents one. Unlike a Cart or Quote Request, a Shopping List does not require a country.
 
 Non-fatal issues, such as requested Products that could not be matched to the catalog or a file that failed to parse, are reported as `warnings` alongside a successful `201` response rather than failing the request.
 
-Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/agents/intake-agent#multipart-form-data) for the file upload format.
+Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/projects/intake#multipart-form-data) for the file upload format.
 
-If the Intake Agent is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
+If Intake is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
 
-For a list of possible errors returned by the Intake Agent, see [Intake Agent Errors](/api/errors#intake-agent) type.
+For a list of possible errors returned by Intake, see [Intake Errors](/api/errors#intake) type.
 
 
 ### Example
@@ -898,7 +898,6 @@ $request = $builder
                 ->post(null);
 ```
 ## `withProjectKey("projectKey")->asAssociate()->withAssociateIdValue("associateId")->inBusinessUnitKeyWithBusinessUnitKeyValue("businessUnitKey")->orders()->orderQuote()->post(null)`
-
 
 Creates an Order from a [Quote](ctp:api:type:Quote) in a [BusinessUnit](ctp:api:type:BusinessUnit).
 
@@ -2219,7 +2218,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->carts()->post(null)`
 
-
 Creates a Cart in the Project.
 
 When using [InventoryMode](ctp:api:type:InventoryMode) `ReserveOnCart`:
@@ -2543,6 +2541,8 @@ $request = $builder
 
 Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
+The response status code is `200 OK`, unless the request contains a [Set Stores with Descendants](ctp:api:type:CategorySetStoresWithDescendantsAction), [Add Store with Descendants](ctp:api:type:CategoryAddStoreWithDescendantsAction), or [Remove Store with Descendants](ctp:api:type:CategoryRemoveStoreWithDescendantsAction) update action. In that case, the API responds with `202 Accepted`, and the returned Category contains a `warnings` field with a [StoreSettingOngoing](ctp:api:type:StoreSettingOngoingWarning) Warning.
+
 
 ### Example
 ```php
@@ -2605,6 +2605,8 @@ $request = $builder
 ## `withProjectKey("projectKey")->categories()->withKey("key")->post(null)`
 
 Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
+
+The response status code is `200 OK`, unless the request contains a [Set Stores with Descendants](ctp:api:type:CategorySetStoresWithDescendantsAction), [Add Store with Descendants](ctp:api:type:CategoryAddStoreWithDescendantsAction), or [Remove Store with Descendants](ctp:api:type:CategoryRemoveStoreWithDescendantsAction) update action. In that case, the API responds with `202 Accepted`, and the returned Category contains a `warnings` field with a [StoreSettingOngoing](ctp:api:type:StoreSettingOngoingWarning) Warning.
 
 
 ### Example
@@ -4537,7 +4539,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->carts()->withKey("key")->get()`
 
-
 Retrieves a Cart with the provided `key` in a [Store](ctp:api:type:Store).
 
 If the Cart exists in the Project but does not have a `store` specified, or the `store` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
@@ -5478,7 +5479,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->carts()->post(null)`
 
-
 Creates a Cart in a Store for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The `store` field in the created [Cart](ctp:api:type:Cart) is set to the Store specified by the `storeKey` path parameter.
@@ -5619,7 +5619,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->login()->post(null)`
 
-
 Retrieves the authenticated Customer (that matches the given email/password pair) if they are part of a specific [Store](ctp:api:type:Store).
 
 If used with an optional [access token for an anonymous session](ctp:api:type:AnonymousSession), all Orders and Carts that belong to the `anonymousId` are assigned to the newly logged-in Customer.
@@ -5688,7 +5687,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->orders()->post(null)`
-
 
 Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
@@ -5869,7 +5867,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->me()->shoppingLists()->post(null)`
-
 
 Creates a ShoppingList for the authenticated Customer or anonymous user in a [Store](ctp:api:type:Store). The `customer` or `anonymousId` field on the ShoppingList is automatically set based on the given [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
@@ -6316,7 +6313,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->orders()->orderQuote()->post(null)`
 
-
 Creates an Order from a [Quote](ctp:api:type:Quote) in a [Store](ctp:api:type:Store). The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
 Produces the [OrderCreated](ctp:api:type:OrderCreatedMessage) Message.
@@ -6348,7 +6344,7 @@ Retrieves the [projected](/api/projects/productProjections#projection-dimensions
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
-If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
+If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-apis-overview#products-available-in-store) in the specified Store.
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
@@ -6424,7 +6420,7 @@ Retrieves the [projected](/api/projects/productProjections#projection-dimensions
 If the Store has defined some languages, countries, distribution, supply Channels, and/or Product Selection,
 they are used for projections based on [locale](ctp:api:type:ProductProjectionLocales), [price](ctp:api:type:ProductProjectionPrices),
 and [inventory](ctp:api:type:ProductProjectionInventoryEntries).
-If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-overview#products-available-in-store) in the specified Store.
+If [ProductSelection](ctp:api:type:ProductSelection) is used, it affects the [availability of the Product](/api/project-configuration-apis-overview#products-available-in-store) in the specified Store.
 If a [ProductTailoring](ctp:api:type:ProductTailoring) exists for the Product with the given `key` and the given Store, this endpoint returns the ProductProjection with tailored data.
 
 By default, this endpoint returns the `current` representation of Products where the `published` flag is `true`.
@@ -8238,7 +8234,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->carts()->post(null)`
 
-
 Creates a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Cart is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 Specific Error Codes:
@@ -8469,7 +8464,6 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->post(null)`
 
-
 Creates an Order from a Cart for the Customer or anonymous user. The `customerId` or `anonymousId` field on the Order is automatically set based on the [customer:{id}](/scopes#internal-oauth) or [anonymous_id:{id}](/scopes#internal-oauth) scope.
 
 The Cart must have a shipping address set.
@@ -8551,7 +8545,6 @@ $request = $builder
                 ->head();
 ```
 ## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
-
 
 Creates an Order from a [Quote](ctp:api:type:Quote) for the authenticated Customer. To create [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
 
@@ -9742,7 +9735,6 @@ $request = $builder
                 ->delete();
 ```
 ## `withProjectKey("projectKey")->orders()->orderQuote()->post(null)`
-
 
 Creates an Order from a Quote. The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
@@ -11042,7 +11034,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11071,7 +11063,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->post(null)`
 
 To create a new Product, send a representation that is going to become the initial _staged_ and _current_ representation of the new Product in the catalog.
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, selected Prices will be added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, selected Prices will be added to the response.
 Produces the [ProductCreated](/projects/messages/product-catalog-messages#product-created) Message.
 
 A failed response can return an [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError) error.
@@ -11089,7 +11081,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11119,7 +11111,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->post(null)`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 A failed response can return a [DuplicatePriceScope](ctp:api:type:DuplicatePriceScopeError), [OverlappingPriceValidity](ctp:api:type:OverlappingPriceValidityError), [DuplicateVariantValues](ctp:api:type:DuplicateVariantValuesError), [DuplicateAttributeValue](ctp:api:type:DuplicateAttributeValueError), or [DuplicateAttributeValues](ctp:api:type:DuplicateAttributeValuesError) error.
 
@@ -11136,7 +11128,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withId("ID")->delete()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example
@@ -11194,7 +11186,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->get()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 
 ### Example
 ```php
@@ -11239,7 +11231,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->products()->withKey("key")->delete()`
 
-If [Product price selection query parameters](/api/pricing-and-discounts-overview#product-price-selection) are provided, the selected Prices are added to the response.
+If [Product price selection query parameters](/api/projects/productProjections#product-price-selection) are provided, the selected Prices are added to the response.
 Produces the [ProductDeleted](/projects/messages/product-catalog-messages#product-deleted) Message.
 
 ### Example

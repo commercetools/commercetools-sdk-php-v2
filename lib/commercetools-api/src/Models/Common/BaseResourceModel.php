@@ -506,6 +506,8 @@ use Commercetools\Api\Models\Message\RecurringOrderFailedMessage;
 use Commercetools\Api\Models\Message\RecurringOrderFailedMessageModel;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderKeySetMessageModel;
+use Commercetools\Api\Models\Message\RecurringOrderNowRequestedMessage;
+use Commercetools\Api\Models\Message\RecurringOrderNowRequestedMessageModel;
 use Commercetools\Api\Models\Message\RecurringOrderScheduleSetMessage;
 use Commercetools\Api\Models\Message\RecurringOrderScheduleSetMessageModel;
 use Commercetools\Api\Models\Message\RecurringOrderStartsAtSetMessage;

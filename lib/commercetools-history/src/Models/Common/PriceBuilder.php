@@ -182,7 +182,7 @@ final class PriceBuilder implements Builder
     }
 
     /**
-     * <p>Set if a <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies. When present, the API uses the DiscountedPrice value for <a href="/api/pricing-and-discounts-overview#line-item-price-selection">Line Item price selection</a>.</p>
+     * <p>Set if a <a href="ctp:api:type:ProductDiscount">ProductDiscount</a> applies. When present, the API uses the DiscountedPrice value for <a href="/api/pricing-and-discounts-apis-overview#line-item-price-selection">Line Item price selection</a>.</p>
      *
 
      * @return null|DiscountedPrice

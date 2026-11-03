@@ -19,6 +19,7 @@ interface SetParcelMeasurementsChange extends Change
     public const FIELD_PREVIOUS_VALUE = 'previousValue';
     public const FIELD_NEXT_VALUE = 'nextValue';
     public const FIELD_PARCEL = 'parcel';
+    public const FIELD_SHIPPING_KEY = 'shippingKey';
 
     /**
 
@@ -57,6 +58,15 @@ interface SetParcelMeasurementsChange extends Change
     public function getParcel();
 
     /**
+     * <p><code>key</code> of the <a href="ctp:api:type:ShippingMethod">ShippingMethod</a> associated with the Delivery.
+     * Only present when the Order uses the <code>Multiple</code> <a href="ctp:api:type:ShippingMode">ShippingMode</a>.</p>
+     *
+
+     * @return null|string
+     */
+    public function getShippingKey();
+
+    /**
      * @param ?string $change
      */
     public function setChange(?string $change): void;
@@ -75,4 +85,9 @@ interface SetParcelMeasurementsChange extends Change
      * @param ?ParcelChangeValue $parcel
      */
     public function setParcel(?ParcelChangeValue $parcel): void;
+
+    /**
+     * @param ?string $shippingKey
+     */
+    public function setShippingKey(?string $shippingKey): void;
 }

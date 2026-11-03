@@ -22,6 +22,7 @@ interface RecurrencePolicy extends BaseResource
     public const FIELD_NAME = 'name';
     public const FIELD_DESCRIPTION = 'description';
     public const FIELD_SCHEDULE = 'schedule';
+    public const FIELD_MIN_DAYS_BETWEEN_ORDERS = 'minDaysBetweenOrders';
     public const FIELD_CREATED_BY = 'createdBy';
     public const FIELD_LAST_MODIFIED_BY = 'lastModifiedBy';
 
@@ -72,6 +73,17 @@ interface RecurrencePolicy extends BaseResource
      * @return null|RecurrencePolicySchedule
      */
     public function getSchedule();
+
+    /**
+     * <p>Minimum number of days that must pass since the last Order of a <a href="ctp:api:type:RecurringOrder">Recurring Order</a> before the <a href="ctp:api:type:RecurringOrderRequestOrderNowAction">Request Order Now</a> update action is allowed. If not set, there is no limit.</p>
+     * <p>This value does not affect the recurrence schedule. For example, a weekly RecurrencePolicy with a value of <code>30</code> still creates Orders weekly.
+     * The time is measured in multiples of 24 hours from <code>lastOrderAt</code> of the Recurring Order, regardless of whether the last Order was created on schedule or early.</p>
+     * <p>The limit applies to all Recurring Orders that use this RecurrencePolicy, and changes take effect immediately. It is ignored when the RecurrencePolicy is attached to a Price.</p>
+     *
+
+     * @return null|int
+     */
+    public function getMinDaysBetweenOrders();
 
     /**
      * <p>Date and time (UTC) the RecurrencePolicy was initially created.</p>
@@ -134,6 +146,11 @@ interface RecurrencePolicy extends BaseResource
      * @param ?RecurrencePolicySchedule $schedule
      */
     public function setSchedule(?RecurrencePolicySchedule $schedule): void;
+
+    /**
+     * @param ?int $minDaysBetweenOrders
+     */
+    public function setMinDaysBetweenOrders(?int $minDaysBetweenOrders): void;
 
     /**
      * @param ?DateTimeImmutable $createdAt
