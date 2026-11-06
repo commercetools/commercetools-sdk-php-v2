@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Agent\AgentFeatureDisabledError;
 use Commercetools\Api\Models\Agent\AgentFeatureDisabledErrorModel;
 use Commercetools\Api\Models\Agent\AgentMissingCountryError;
 use Commercetools\Api\Models\Agent\AgentMissingCountryErrorModel;
+use Commercetools\Api\Models\Agent\AgentMissingCurrencyError;
+use Commercetools\Api\Models\Agent\AgentMissingCurrencyErrorModel;
 use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailError;
 use Commercetools\Api\Models\Agent\AgentMissingCustomerEmailErrorModel;
 use Commercetools\Api\Models\Agent\AgentMissingEntityTypeError;
@@ -38,6 +40,8 @@ use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedError;
 use Commercetools\Api\Models\Agent\AgentQuoteRequestCreationFailedErrorModel;
 use Commercetools\Api\Models\Agent\AgentShoppingListCreationFailedError;
 use Commercetools\Api\Models\Agent\AgentShoppingListCreationFailedErrorModel;
+use Commercetools\Api\Models\Agent\AgentShoppingListUnresolvedError;
+use Commercetools\Api\Models\Agent\AgentShoppingListUnresolvedErrorModel;
 use Commercetools\Api\Models\Agent\AgentStoreAmbiguousError;
 use Commercetools\Api\Models\Agent\AgentStoreAmbiguousErrorModel;
 use Commercetools\Api\Models\Agent\AgentStoreDistributionChannelsUnsupportedError;
@@ -136,6 +140,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'MaxResourceLimitExceeded' => MaxResourceLimitExceededErrorModel::class,
        'MaxStoreReferencesReached' => MaxStoreReferencesReachedErrorModel::class,
        'MissingCountry' => AgentMissingCountryErrorModel::class,
+       'MissingCurrency' => AgentMissingCurrencyErrorModel::class,
        'MissingCustomerEmail' => AgentMissingCustomerEmailErrorModel::class,
        'MissingEntityType' => AgentMissingEntityTypeErrorModel::class,
        'MissingRoleOnChannel' => MissingRoleOnChannelErrorModel::class,
@@ -174,6 +179,7 @@ final class ErrorObjectModel extends JsonObjectModel implements ErrorObject
        'SemanticError' => SemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => ShippingMethodDoesNotMatchCartErrorModel::class,
        'ShoppingListCreationFailed' => AgentShoppingListCreationFailedErrorModel::class,
+       'ShoppingListUnresolved' => AgentShoppingListUnresolvedErrorModel::class,
        'StoreAmbiguous' => AgentStoreAmbiguousErrorModel::class,
        'StoreCartDiscountsLimitReached' => StoreCartDiscountsLimitReachedErrorModel::class,
        'StoreDistributionChannelsUnsupported' => AgentStoreDistributionChannelsUnsupportedErrorModel::class,

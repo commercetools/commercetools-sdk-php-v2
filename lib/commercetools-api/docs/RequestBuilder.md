@@ -49,13 +49,13 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->agents()->intake()->v1()->responses()->post(null)`
 
-Turns a natural-language prompt, optionally with supporting files, into a created [Cart](ctp:api:type:Cart), [QuoteRequest](ctp:api:type:QuoteRequest), or [ShoppingList](ctp:api:type:ShoppingList), returned in commercetools REST representation. The entity to create is set by `outputType` and is never inferred from the input.
+Turns a natural-language prompt, optionally with supporting files, into a created [Cart](ctp:api:type:Cart), [QuoteRequest](ctp:api:type:QuoteRequest), or [ShoppingList](ctp:api:type:ShoppingList), returned in commercetools REST representation. A Cart or QuoteRequest can also be created from an existing Shopping List referenced in `shoppingList`. The entity to create is set by `outputType` and is never inferred from the input.
 
 A [ShoppingList](ctp:api:type:ShoppingList) additionally requires a name for the list in the input. Intake never invents one. Unlike a Cart or Quote Request, a Shopping List does not require a country.
 
 Non-fatal issues, such as requested Products that could not be matched to the catalog or a file that failed to parse, are reported as `warnings` alongside a successful `201` response rather than failing the request.
 
-Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt`. A `multipart/form-data` request requires `prompt`, an uploaded file, or both. See [Multipart form data](/api/projects/intake#multipart-form-data) for the file upload format.
+Accepts either an `application/json` body or a `multipart/form-data` request. An `application/json` body requires `prompt` unless it sets `shoppingList`. A `multipart/form-data` request requires `prompt`, an uploaded file, or `shoppingList`. A request that sets `shoppingList` doesn't need `prompt` and can't include files. See [Multipart form data](/api/projects/intake#multipart-form-data) for the file upload format.
 
 If Intake is not enabled for the Project, a [FeatureDisabled](ctp:api:type:AgentFeatureDisabledError) error is returned.
 
@@ -2491,7 +2491,7 @@ $request = $builder
 
 Either the [scope](/api/scopes) `manage_products:{projectKey}` or `manage_categories:{projectKey}` is required.
 
-Creating a Category with a `parent` locks that parent Category. For details, see [Category tree locking](/api/projects/categories#category-tree-locking).
+Creating a Category with a `parent` locks that parent Category. For details, see [Category tree locking](/api/product-catalog-apis-overview#category-tree-locking).
 
 Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
 
@@ -4685,7 +4685,7 @@ Creates a [Category](ctp:api:type:Category) in the specified [Store](ctp:api:typ
 
 For global Categories, use the [Create Category](ctp:api:endpoint:/{projectKey}/categories:POST) endpoint.
 
-Creating a Category with a `parent` locks that parent Category. For details, see [Category tree locking](/api/projects/categories#category-tree-locking).
+Creating a Category with a `parent` locks that parent Category. For details, see [Category tree locking](/api/product-catalog-apis-overview#category-tree-locking).
 
 Creating a Category produces the [CategoryCreated](ctp:api:type:CategoryCreatedMessage) Message.
 
@@ -7640,7 +7640,7 @@ $request = $builder
 
 Creates an InventoryEntry in the Project. Only one InventoryEntry can be created for a combination of a SKU and a supply channel.
 
-If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/api/inventory-overview#quantity-limits).
+If quantity limits are provided, existing Line Items that reference a Product Variant with an SKU that matches the Inventory Entry can be affected. For more information, see [Quantity limits](/api/inventory-apis-overview#quantity-limits).
 
 Produces the [InventoryEntryCreated](ctp:api:type:InventoryEntryCreatedMessage) Message.
 
@@ -11264,7 +11264,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->products()->search()->post(null)`
 
 If indexing is in progress or if Product Search is inactive, an [ObjectNotFound](ctp:api:type:ObjectNotFoundError) error is returned.
-If inactive, you can [reactivate](/api/projects/product-search#activate-the-product-search-api) it.
+If inactive, you can [reactivate](/api/storefront-search-apis-overview#activate-the-product-search-api) it.
 
 
 ### Example
