@@ -225,7 +225,7 @@ interface ProductProjection extends BaseResource
 
     /**
      * <p>Indicates whether the Prices of the Product Projection are <a href="ctp:api:type:Price">embedded</a> or <a href="ctp:api:type:StandalonePrice">standalone</a>.</p>
-     * <p>When <a href="/api/projects/productProjections#projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
+     * <p>When <a href="/api/product-catalog-apis-overview#price-projection-by-store">projecting Prices by Store</a>, the API supports only Embedded Prices (<code>Embedded</code>).</p>
      *
 
      * @return null|string

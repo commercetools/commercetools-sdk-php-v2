@@ -126,7 +126,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Overall amount of stock. See <a href="/api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for consistency information.</p>
+     * <p>Overall amount of stock. See <a href="/api/inventory-apis-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for consistency information.</p>
      *
 
      * @return null|int
@@ -137,7 +137,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Minimum quantity that can be added to a Cart. See <a href="/api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/api/inventory-apis-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -148,7 +148,7 @@ final class InventoryEntryDraftBuilder implements Builder
     }
 
     /**
-     * <p>Maximum quantity that can be added to a Cart. See <a href="/api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/api/inventory-apis-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
