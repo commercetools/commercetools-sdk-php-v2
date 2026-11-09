@@ -213,6 +213,7 @@ final class CategoryImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>Category.assets</code>.</p>
+     * <p>When updating an existing Category, Assets omitted from this array are removed.</p>
      *
 
      * @return null|AssetCollection
@@ -224,6 +225,7 @@ final class CategoryImportBuilder implements Builder
 
     /**
      * <p>Maps to <code>Category.custom</code>.</p>
+     * <p>When updating an existing Category, omitting this field removes the Custom Fields.</p>
      *
 
      * @return null|Custom
