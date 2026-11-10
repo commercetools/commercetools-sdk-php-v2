@@ -3086,7 +3086,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->post(null)`
 
-Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/api/customers-overview#cart-merge-during-sign-in-and-sign-up).
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/api/customers-apis-overview#cart-merge-during-sign-in-and-sign-up).
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
 
@@ -3164,7 +3164,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailConfirm()->post(null)`
 
-Use this method to verify a global Customer's email during their [email verification process](/api/customers-overview#customer-email-verification).
+Use this method to verify a global Customer's email during their [email verification process](/api/customers-apis-overview#customer-email-verification).
 
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
@@ -3184,7 +3184,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->emailToken()->post(null)`
 
-Use this method to create an email token for a global Customer during their [email verification process](/api/customers-overview#customer-email-verification).
+Use this method to create an email token for a global Customer during their [email verification process](/api/customers-apis-overview#customer-email-verification).
 
 Creating an email token for the Customer produces the [CustomerEmailTokenCreated](ctp:api:type:CustomerEmailTokenCreatedMessage) Message.
 The Message will include the token's value, if the token's validity is 60 minutes or less.
@@ -3203,7 +3203,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withEmailToken("emailToken")->get()`
 
-Use this method to retrieve a global Customer's details by using the email token during their [email verification process](/api/customers-overview#customer-email-verification).
+Use this method to retrieve a global Customer's details by using the email token during their [email verification process](/api/customers-apis-overview#customer-email-verification).
 
 
 ### Example
@@ -3296,7 +3296,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordReset()->post(null)`
 
-Use this method to reset a global Customer's password during their [password reset process](/api/customers-overview#customer-password-reset).
+Use this method to reset a global Customer's password during their [password reset process](/api/customers-apis-overview#customer-password-reset).
 
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
@@ -3316,7 +3316,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->passwordToken()->post(null)`
 
-Use this method to create a password reset token for a global Customer during their [password reset process](/api/customers-overview#customer-password-reset).
+Use this method to create a password reset token for a global Customer during their [password reset process](/api/customers-apis-overview#customer-password-reset).
 
 Creating a password reset token for the Customer produces the [CustomerPasswordTokenCreated](ctp:api:type:CustomerPasswordTokenCreatedMessage) Message.
 The Message will include the token's value, if the token's validity is 60 minutes or less.
@@ -3335,7 +3335,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-Use this method to retrieve the details of a global Customer by using the password token during their [password reset process](/api/customers-overview#customer-password-reset).
+Use this method to retrieve the details of a global Customer by using the password token during their [password reset process](/api/customers-apis-overview#customer-password-reset).
 
 
 ### Example
@@ -3352,7 +3352,7 @@ $request = $builder
 ## `withProjectKey("projectKey")->customers()->search()->post(null)`
 
 If the initial indexing is in progress or the feature is inactive, a [SearchNotReady](ctp:api:type:SearchNotReadyError) error is returned.
-If inactive, you can [reactivate](/api/projects/customer-search#reactivate) it.
+If inactive, you can [reactivate](/api/customers-apis-overview#reactivate) it.
 
 
 ### Example
@@ -4905,7 +4905,7 @@ When using this endpoint, if omitted, the Customer `stores` field is set to the 
 
 If a Cart with a `store` field specified, the `store` field must reference the same [Store](ctp:api:type:Store) specified in the `{storeKey}` path parameter.
 
-Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/api/customers-overview#cart-merge-during-sign-in-and-sign-up).
+Allows converting an anonymous Cart to the active Cart of a Customer with [cart merge](/api/customers-apis-overview#cart-merge-during-sign-in-and-sign-up).
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message. Simultaneously creating two Customers with the same email address can return a [LockedField](ctp:api:type:LockedFieldError) error.
@@ -4995,7 +4995,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailConfirm()->post(null)`
 
-Use this method to verify a Store-specific Customer's email during their [email verification process](/api/customers-overview#customer-email-verification).
+Use this method to verify a Store-specific Customer's email during their [email verification process](/api/customers-apis-overview#customer-email-verification).
 
 Verifying the email of the Customer produces the [CustomerEmailVerified](ctp:api:type:CustomerEmailVerifiedMessage) Message.
 
@@ -5018,7 +5018,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->emailToken()->post(null)`
 
-Use this method to create an email token for a Store-specific Customer during their [email verification process](/api/customers-overview#customer-email-verification).
+Use this method to create an email token for a Store-specific Customer during their [email verification process](/api/customers-apis-overview#customer-email-verification).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -5040,7 +5040,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withEmailToken("emailToken")->get()`
 
-Use this method to retrieve a Store-specific Customer's details by using the email token during their [email verification process](/api/customers-overview#customer-email-verification).
+Use this method to retrieve a Store-specific Customer's details by using the email token during their [email verification process](/api/customers-apis-overview#customer-email-verification).
 
 If the Customer exists in the Project but the `stores` field references a different [Store](ctp:api:type:Store), this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -5147,7 +5147,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordReset()->post(null)`
 
-Use this method to reset a Store-specific Customer's password during their [password reset process](/api/customers-overview#customer-password-reset).
+Use this method to reset a Store-specific Customer's password during their [password reset process](/api/customers-apis-overview#customer-password-reset).
 
 Resetting the password of the Customer produces the [CustomerPasswordUpdated](ctp:api:type:CustomerPasswordUpdatedMessage) Message with `reset=true`.
 
@@ -5170,7 +5170,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->passwordToken()->post(null)`
 
-Use this method to create a password reset token for a Store-specific Customer during their [password reset process](/api/customers-overview#customer-password-reset).
+Use this method to create a password reset token for a Store-specific Customer during their [password reset process](/api/customers-apis-overview#customer-password-reset).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -5192,7 +5192,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->inStoreKeyWithStoreKeyValue("storeKey")->customers()->withPasswordToken("passwordToken")->get()`
 
-Use this method to retrieve a Store-specific Customer's details by using the password reset token during their [password reset process](/api/customers-overview#customer-password-reset).
+Use this method to retrieve a Store-specific Customer's details by using the password reset token during their [password reset process](/api/customers-apis-overview#customer-password-reset).
 
 If the Customer exists in the Project but the `stores` field references a different Store, this method returns a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error.
 
@@ -5307,7 +5307,7 @@ $request = $builder
 
 Authenticates a Customer associated with a [Store](ctp:api:type:Store).
 
-Allows [merging](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+Allows [merging](/api/customers-apis-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
 If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
@@ -6084,7 +6084,7 @@ If used with an optional [access token for an anonymous session](ctp:api:type:An
 
 If omitted in the request body, the [Customer](ctp:api:type:Customer) `stores` field is set to the [Store](ctp:api:type:Store) specified in the path parameter.
 
-If the Customer has multiple active Carts, the anonymous Cart is [merged](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
+If the Customer has multiple active Carts, the anonymous Cart is [merged](/api/customers-apis-overview#cart-merge-during-sign-in-and-sign-up) into the most recently modified active Cart.
 
 Creating a Customer produces the [CustomerCreated](ctp:api:type:CustomerCreatedMessage) Message.
 
@@ -7779,7 +7779,7 @@ $request = $builder
 
 Authenticates a global Customer.
 
-Allows [merging](/api/customers-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
+Allows [merging](/api/customers-apis-overview#cart-merge-during-sign-in-and-sign-up) items from an anonymous Cart into the most recently modified active Cart of a Customer.
 If no active Cart exists, the anonymous Cart becomes the Customer's active Cart.
 If the Customer has multiple active Carts, the anonymous Cart is merged into the most recently modified active Cart.
 
