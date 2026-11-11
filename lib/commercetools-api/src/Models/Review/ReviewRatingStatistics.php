@@ -32,7 +32,7 @@ interface ReviewRatingStatistics extends JsonObject
      * <p>Highest rating of one target</p>
      *
 
-     * @return null|float
+     * @return null|int
      */
     public function getHighestRating();
 
@@ -40,7 +40,7 @@ interface ReviewRatingStatistics extends JsonObject
      * <p>Lowest rating of one target</p>
      *
 
-     * @return null|float
+     * @return null|int
      */
     public function getLowestRating();
 
@@ -68,14 +68,14 @@ interface ReviewRatingStatistics extends JsonObject
     public function setAverageRating(?float $averageRating): void;
 
     /**
-     * @param ?float $highestRating
+     * @param ?int $highestRating
      */
-    public function setHighestRating(?float $highestRating): void;
+    public function setHighestRating(?int $highestRating): void;
 
     /**
-     * @param ?float $lowestRating
+     * @param ?int $lowestRating
      */
-    public function setLowestRating(?float $lowestRating): void;
+    public function setLowestRating(?int $lowestRating): void;
 
     /**
      * @param ?int $count
