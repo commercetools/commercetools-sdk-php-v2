@@ -119,6 +119,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <p>Maps to <code>ProductVariant.sku</code>.</p>
+     * <p>If the ProductVariant already has a <code>sku</code> and this field is omitted, the <code>sku</code> is removed.</p>
      *
      *
      * @return null|string
@@ -163,6 +164,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
     /**
      * <p>Maps to <code>ProductVariant.attributes</code>.
      * The referenced attribute must be defined in an already existing ProductType in the project, or the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be <code>unresolved</code>.</p>
+     * <p>The imported Attributes replace the existing Attributes of the ProductVariant. Existing Attributes omitted from this array are removed. To change only some Attributes, use <a href="ctp:import:type:ProductVariantPatch">ProductVariantPatch</a>.</p>
      *
      *
      * @return null|AttributeCollection
@@ -183,6 +185,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <p>Maps to <code>ProductVariant.images</code>.</p>
+     * <p>The imported images replace the existing images of the ProductVariant. If this field is omitted, all existing images are removed.</p>
      *
      *
      * @return null|ImageCollection
@@ -203,6 +206,7 @@ final class ProductVariantImportModel extends JsonObjectModel implements Product
 
     /**
      * <p>Maps to <code>ProductVariant.assets</code>.</p>
+     * <p>The imported Assets replace the existing Assets of the ProductVariant. If this field is omitted, all existing Assets are removed.</p>
      *
      *
      * @return null|AssetCollection
