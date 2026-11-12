@@ -5692,7 +5692,7 @@ Creates an Order from a Cart in a [Store](ctp:api:type:Store) for the Customer o
 
 The Cart must have a shipping address set.
 
-When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
+When creating [B2B Orders](/business-units-and-associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
 If the Cart's `customerId` does not match the [customer:{id}](/scopes#internal-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#internal-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
@@ -8468,7 +8468,7 @@ Creates an Order from a Cart for the Customer or anonymous user. The `customerId
 
 The Cart must have a shipping address set.
 
-When creating [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
+When creating [B2B Orders](/business-units-and-associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyCarts` [Permission](ctp:api:type:Permission).
 
 If the Cart's `customerId` does not match the [customer:{id}](/scopes#internal-oauth) scope, or the `anonymousId` does not match the [anonymous_id:{id}](/scopes#internal-oauth) scope, a [ResourceNotFound](ctp:api:type:ResourceNotFoundError) error is returned.
 
@@ -8546,7 +8546,7 @@ $request = $builder
 ```
 ## `withProjectKey("projectKey")->me()->orders()->orderQuote()->post(null)`
 
-Creates an Order from a [Quote](ctp:api:type:Quote) for the authenticated Customer. To create [B2B Orders](/associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
+Creates an Order from a [Quote](ctp:api:type:Quote) for the authenticated Customer. To create [B2B Orders](/business-units-and-associates-overview#b2b-resources), the Customer must have the `CreateMyOrdersFromMyQuotes` [Permission](ctp:api:type:Permission).
 
 The referenced Quote must have the `Pending` [state](ctp:api:type:QuoteState) and must be valid (not past the `validTo` date); otherwise, an [InvalidOperation](ctp:api:type:InvalidOperationError) error is returned.
 
