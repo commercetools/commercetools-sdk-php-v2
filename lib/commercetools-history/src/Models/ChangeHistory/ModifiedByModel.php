@@ -51,6 +51,12 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      *
      * @var ?string
      */
+    protected $externalUserId;
+
+    /**
+     *
+     * @var ?string
+     */
     protected $anonymousId;
 
     /**
@@ -65,6 +71,12 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
      */
     protected $associate;
 
+    /**
+     *
+     * @var ?Attribution
+     */
+    protected $attributedTo;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -74,17 +86,21 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
         ?string $id = null,
         ?string $type = null,
         ?string $clientId = null,
+        ?string $externalUserId = null,
         ?string $anonymousId = null,
         ?Reference $customer = null,
-        ?Reference $associate = null
+        ?Reference $associate = null,
+        ?Attribution $attributedTo = null
     ) {
         $this->isPlatformClient = $isPlatformClient;
         $this->id = $id;
         $this->type = $type;
         $this->clientId = $clientId;
+        $this->externalUserId = $externalUserId;
         $this->anonymousId = $anonymousId;
         $this->customer = $customer;
         $this->associate = $associate;
+        $this->attributedTo = $attributedTo;
 
     }
 
@@ -176,6 +192,27 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
+     * <p><a href="/general-concepts#external-user-ids">External user ID</a> of the user who made the change.</p>
+     * <p>Present only if the change was made by an API Client with an external user ID.</p>
+     *
+     *
+     * @return null|string
+     */
+    public function getExternalUserId()
+    {
+        if (is_null($this->externalUserId)) {
+            /** @psalm-var ?string $data */
+            $data = $this->raw(self::FIELD_EXTERNAL_USER_ID);
+            if (is_null($data)) {
+                return null;
+            }
+            $this->externalUserId = (string) $data;
+        }
+
+        return $this->externalUserId;
+    }
+
+    /**
      * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
      *
      *
@@ -238,6 +275,28 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
         return $this->associate;
     }
 
+    /**
+     * <p>Indicates if the change was made indirectly, for example by an agent acting on behalf of a user.</p>
+     * <p>Present only for changes made after 22 October 2026.</p>
+     *
+     *
+     * @return null|Attribution
+     */
+    public function getAttributedTo()
+    {
+        if (is_null($this->attributedTo)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_ATTRIBUTED_TO);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->attributedTo = AttributionModel::of($data);
+        }
+
+        return $this->attributedTo;
+    }
+
 
     /**
      * @param ?bool $isPlatformClient
@@ -272,6 +331,14 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     }
 
     /**
+     * @param ?string $externalUserId
+     */
+    public function setExternalUserId(?string $externalUserId): void
+    {
+        $this->externalUserId = $externalUserId;
+    }
+
+    /**
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void
@@ -293,6 +360,14 @@ final class ModifiedByModel extends JsonObjectModel implements ModifiedBy
     public function setAssociate(?Reference $associate): void
     {
         $this->associate = $associate;
+    }
+
+    /**
+     * @param ?Attribution $attributedTo
+     */
+    public function setAttributedTo(?Attribution $attributedTo): void
+    {
+        $this->attributedTo = $attributedTo;
     }
 
 

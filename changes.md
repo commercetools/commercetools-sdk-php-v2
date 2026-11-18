@@ -1319,6 +1319,8 @@
 <summary>Added Type(s)</summary>
 
 - added type `TooManyRequestsError`
+- added type `Attribution`
+- added type `AttributionSource`
 - added type `GraphQLTooManyRequestsError`
 - added type `ChangeSavedToLineItemChange`
 - added type `DirectDiscount`
@@ -1588,6 +1590,8 @@
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `externalUserId` to type `ModifiedBy`
+- added property `attributedTo` to type `ModifiedBy`
 - added property `catalogData` to type `AddAssetChange`
 - added property `variant` to type `AddAssetChange`
 - added property `shippingKey` to type `AddDeliveryChange`
@@ -1874,6 +1878,12 @@
 - added enum `setLineItemDeactivatedAt` to type `PlatformInitiatedChange`
 - added enum `setProductCount` to type `PlatformInitiatedChange`
 - added enum `setReservations` to type `PlatformInitiatedChange`
+- added enum `Import` to type `Source`
+- added enum `Export` to type `Source`
+- added enum `IntakeAgent` to type `Source`
+- added enum `PromotionsAgent` to type `Source`
+- added enum `ManagedCommerceMCP` to type `Source`
+- added enum `ProductEnrichmentAgent` to type `Source`
 - added enum `addShipping` to type `UpdateType`
 - added enum `addShippingRate` to type `UpdateType`
 - added enum `addZone` to type `UpdateType`

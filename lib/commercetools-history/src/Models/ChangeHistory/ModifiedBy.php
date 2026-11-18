@@ -19,9 +19,11 @@ interface ModifiedBy extends JsonObject
     public const FIELD_ID = 'id';
     public const FIELD_TYPE = 'type';
     public const FIELD_CLIENT_ID = 'clientId';
+    public const FIELD_EXTERNAL_USER_ID = 'externalUserId';
     public const FIELD_ANONYMOUS_ID = 'anonymousId';
     public const FIELD_CUSTOMER = 'customer';
     public const FIELD_ASSOCIATE = 'associate';
+    public const FIELD_ATTRIBUTED_TO = 'attributedTo';
 
     /**
      * <p>Whether the change was made using the Merchant Center.</p>
@@ -63,6 +65,15 @@ interface ModifiedBy extends JsonObject
     public function getClientId();
 
     /**
+     * <p><a href="/general-concepts#external-user-ids">External user ID</a> of the user who made the change.</p>
+     * <p>Present only if the change was made by an API Client with an external user ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalUserId();
+
+    /**
      * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
      *
 
@@ -88,6 +99,15 @@ interface ModifiedBy extends JsonObject
     public function getAssociate();
 
     /**
+     * <p>Indicates if the change was made indirectly, for example by an agent acting on behalf of a user.</p>
+     * <p>Present only for changes made after 22 October 2026.</p>
+     *
+
+     * @return null|Attribution
+     */
+    public function getAttributedTo();
+
+    /**
      * @param ?bool $isPlatformClient
      */
     public function setIsPlatformClient(?bool $isPlatformClient): void;
@@ -108,6 +128,11 @@ interface ModifiedBy extends JsonObject
     public function setClientId(?string $clientId): void;
 
     /**
+     * @param ?string $externalUserId
+     */
+    public function setExternalUserId(?string $externalUserId): void;
+
+    /**
      * @param ?string $anonymousId
      */
     public function setAnonymousId(?string $anonymousId): void;
@@ -121,4 +146,9 @@ interface ModifiedBy extends JsonObject
      * @param ?Reference $associate
      */
     public function setAssociate(?Reference $associate): void;
+
+    /**
+     * @param ?Attribution $attributedTo
+     */
+    public function setAttributedTo(?Attribution $attributedTo): void;
 }
