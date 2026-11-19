@@ -44,6 +44,7 @@ interface ProductTypeImport extends ImportResource
 
     /**
      * <p>The <code>attributes</code> of <a href="ctp:api:type:ProductType">ProductType</a>.</p>
+     * <p>When updating an existing ProductType, AttributeDefinitions omitted from this array are removed, and all corresponding Attribute values are deleted from Products with this ProductType. If this field is omitted, all AttributeDefinitions are removed.</p>
      *
 
      * @return null|AttributeDefinitionCollection

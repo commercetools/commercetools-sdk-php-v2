@@ -121,6 +121,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
     /**
      * <p>The Embedded Prices for the Product Variant.
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     * <p>When updating an existing ProductVariant, Embedded Prices omitted from this array are removed.</p>
      *
      *
      * @return null|PriceDraftImportCollection
@@ -141,6 +142,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
 
     /**
      * <p>Attributes according to the respective AttributeDefinition.</p>
+     * <p>When updating an existing ProductVariant, Attributes omitted from this array are removed.</p>
      *
      *
      * @return null|AttributeCollection
@@ -161,6 +163,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
 
     /**
      * <p>Images for the Product Variant.</p>
+     * <p>When updating an existing ProductVariant, images omitted from this array are removed.</p>
      *
      *
      * @return null|ImageCollection
@@ -181,6 +184,7 @@ final class ProductVariantDraftImportModel extends JsonObjectModel implements Pr
 
     /**
      * <p>Media assets for the Product Variant.</p>
+     * <p>When updating an existing ProductVariant, Assets omitted from this array are removed.</p>
      *
      *
      * @return null|AssetCollection

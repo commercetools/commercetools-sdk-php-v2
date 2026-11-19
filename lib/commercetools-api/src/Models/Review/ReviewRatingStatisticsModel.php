@@ -27,13 +27,13 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $highestRating;
 
     /**
      *
-     * @var ?float
+     * @var ?int
      */
     protected $lowestRating;
 
@@ -55,8 +55,8 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
      */
     public function __construct(
         ?float $averageRating = null,
-        ?float $highestRating = null,
-        ?float $lowestRating = null,
+        ?int $highestRating = null,
+        ?int $lowestRating = null,
         ?int $count = null,
         ?JsonObject $ratingsDistribution = null
     ) {
@@ -92,17 +92,17 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
      * <p>Highest rating of one target</p>
      *
      *
-     * @return null|float
+     * @return null|int
      */
     public function getHighestRating()
     {
         if (is_null($this->highestRating)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_HIGHEST_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->highestRating = (float) $data;
+            $this->highestRating = (int) $data;
         }
 
         return $this->highestRating;
@@ -112,17 +112,17 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
      * <p>Lowest rating of one target</p>
      *
      *
-     * @return null|float
+     * @return null|int
      */
     public function getLowestRating()
     {
         if (is_null($this->lowestRating)) {
-            /** @psalm-var ?float $data */
+            /** @psalm-var ?int $data */
             $data = $this->raw(self::FIELD_LOWEST_RATING);
             if (is_null($data)) {
                 return null;
             }
-            $this->lowestRating = (float) $data;
+            $this->lowestRating = (int) $data;
         }
 
         return $this->lowestRating;
@@ -180,17 +180,17 @@ final class ReviewRatingStatisticsModel extends JsonObjectModel implements Revie
     }
 
     /**
-     * @param ?float $highestRating
+     * @param ?int $highestRating
      */
-    public function setHighestRating(?float $highestRating): void
+    public function setHighestRating(?int $highestRating): void
     {
         $this->highestRating = $highestRating;
     }
 
     /**
-     * @param ?float $lowestRating
+     * @param ?int $lowestRating
      */
-    public function setLowestRating(?float $lowestRating): void
+    public function setLowestRating(?int $lowestRating): void
     {
         $this->lowestRating = $lowestRating;
     }

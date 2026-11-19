@@ -28,13 +28,13 @@ final class ReviewRatingStatisticsBuilder implements Builder
 
     /**
 
-     * @var ?float
+     * @var ?int
      */
     private $highestRating;
 
     /**
 
-     * @var ?float
+     * @var ?int
      */
     private $lowestRating;
 
@@ -66,7 +66,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
      * <p>Highest rating of one target</p>
      *
 
-     * @return null|float
+     * @return null|int
      */
     public function getHighestRating()
     {
@@ -77,7 +77,7 @@ final class ReviewRatingStatisticsBuilder implements Builder
      * <p>Lowest rating of one target</p>
      *
 
-     * @return null|float
+     * @return null|int
      */
     public function getLowestRating()
     {
@@ -120,10 +120,10 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * @param ?float $highestRating
+     * @param ?int $highestRating
      * @return $this
      */
-    public function withHighestRating(?float $highestRating)
+    public function withHighestRating(?int $highestRating)
     {
         $this->highestRating = $highestRating;
 
@@ -131,10 +131,10 @@ final class ReviewRatingStatisticsBuilder implements Builder
     }
 
     /**
-     * @param ?float $lowestRating
+     * @param ?int $lowestRating
      * @return $this
      */
-    public function withLowestRating(?float $lowestRating)
+    public function withLowestRating(?int $lowestRating)
     {
         $this->lowestRating = $lowestRating;
 

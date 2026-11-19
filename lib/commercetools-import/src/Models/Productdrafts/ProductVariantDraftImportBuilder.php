@@ -84,6 +84,7 @@ final class ProductVariantDraftImportBuilder implements Builder
     /**
      * <p>The Embedded Prices for the Product Variant.
      * Each Price must have its unique Price scope (with same currency, country, Customer Group, Channel, <code>validFrom</code> and <code>validUntil</code>).</p>
+     * <p>When updating an existing ProductVariant, Embedded Prices omitted from this array are removed.</p>
      *
 
      * @return null|PriceDraftImportCollection
@@ -95,6 +96,7 @@ final class ProductVariantDraftImportBuilder implements Builder
 
     /**
      * <p>Attributes according to the respective AttributeDefinition.</p>
+     * <p>When updating an existing ProductVariant, Attributes omitted from this array are removed.</p>
      *
 
      * @return null|AttributeCollection
@@ -106,6 +108,7 @@ final class ProductVariantDraftImportBuilder implements Builder
 
     /**
      * <p>Images for the Product Variant.</p>
+     * <p>When updating an existing ProductVariant, images omitted from this array are removed.</p>
      *
 
      * @return null|ImageCollection
@@ -117,6 +120,7 @@ final class ProductVariantDraftImportBuilder implements Builder
 
     /**
      * <p>Media assets for the Product Variant.</p>
+     * <p>When updating an existing ProductVariant, Assets omitted from this array are removed.</p>
      *
 
      * @return null|AssetCollection

@@ -65,7 +65,7 @@ interface ProductSearchProjectionParams extends JsonObject
     public function getPriceCustomerGroup();
 
     /**
-     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>, when using <a href="/api/customers-overview#customer-groups">multiple Customer Groups</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
+     * <p>IDs of existing <a href="ctp:api:type:CustomerGroup">CustomerGroups</a> used for <a href="/api/projects/productProjections#product-price-selection">Product price selection</a>, when using <a href="/api/customers-apis-overview#customer-group-assignments">multiple Customer Groups</a>. It can be used only <em>in conjunction with</em> the <code>priceCurrency</code> parameter.</p>
      *
 
      * @return null|array
