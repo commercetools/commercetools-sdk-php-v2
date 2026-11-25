@@ -31,7 +31,7 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public function getId();
 
     /**
-     * <p>Last seen version of the resource.</p>
+     * <p>Version of the message. This is always <code>1</code>.</p>
      *
 
      * @return null|int
@@ -39,7 +39,7 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public function getVersion();
 
     /**
-     * <p>Date and time (UTC) the resource was initially created.</p>
+     * <p>Date and time (UTC) the message was generated.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -47,7 +47,7 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public function getCreatedAt();
 
     /**
-     * <p>Date and time (UTC) the resource was last modified.</p>
+     * <p>Date and time (UTC) the message was last modified. This always matches the value of <code>createdAt</code>.</p>
      *
 
      * @return null|DateTimeImmutable
@@ -64,7 +64,7 @@ interface MessageDeliveryPayload extends DeliveryPayload
     public function getSequenceNumber();
 
     /**
-     * <p>Version of the resource on which the update was performed.</p>
+     * <p>Version of the resource on which the change or action was performed.</p>
      *
 
      * @return null|int
