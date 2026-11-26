@@ -99,7 +99,7 @@ final class OrderBusinessUnitSetMessageBuilder implements Builder
 
      * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
      */
-    private $oldbusinessUnit;
+    private $oldBusinessUnit;
 
     /**
      * <p>Unique identifier of the Message. Can be used to track which Messages have been processed.</p>
@@ -229,9 +229,9 @@ final class OrderBusinessUnitSetMessageBuilder implements Builder
 
      * @return null|BusinessUnitKeyReference
      */
-    public function getOldbusinessUnit()
+    public function getOldBusinessUnit()
     {
-        return $this->oldbusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldbusinessUnit->build() : $this->oldbusinessUnit;
+        return $this->oldBusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldBusinessUnit->build() : $this->oldBusinessUnit;
     }
 
     /**
@@ -356,12 +356,12 @@ final class OrderBusinessUnitSetMessageBuilder implements Builder
     }
 
     /**
-     * @param ?BusinessUnitKeyReference $oldbusinessUnit
+     * @param ?BusinessUnitKeyReference $oldBusinessUnit
      * @return $this
      */
-    public function withOldbusinessUnit(?BusinessUnitKeyReference $oldbusinessUnit)
+    public function withOldBusinessUnit(?BusinessUnitKeyReference $oldBusinessUnit)
     {
-        $this->oldbusinessUnit = $oldbusinessUnit;
+        $this->oldBusinessUnit = $oldBusinessUnit;
 
         return $this;
     }
@@ -422,12 +422,12 @@ final class OrderBusinessUnitSetMessageBuilder implements Builder
     }
 
     /**
-     * @deprecated use withOldbusinessUnit() instead
+     * @deprecated use withOldBusinessUnit() instead
      * @return $this
      */
-    public function withOldbusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $oldbusinessUnit)
+    public function withOldBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $oldBusinessUnit)
     {
-        $this->oldbusinessUnit = $oldbusinessUnit;
+        $this->oldBusinessUnit = $oldBusinessUnit;
 
         return $this;
     }
@@ -446,7 +446,7 @@ final class OrderBusinessUnitSetMessageBuilder implements Builder
             $this->resourceVersion,
             $this->resourceUserProvidedIdentifiers instanceof UserProvidedIdentifiersBuilder ? $this->resourceUserProvidedIdentifiers->build() : $this->resourceUserProvidedIdentifiers,
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
-            $this->oldbusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldbusinessUnit->build() : $this->oldbusinessUnit
+            $this->oldBusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldBusinessUnit->build() : $this->oldBusinessUnit
         );
     }
 

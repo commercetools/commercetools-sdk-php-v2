@@ -38,7 +38,7 @@ final class OrderBusinessUnitSetMessagePayloadModel extends JsonObjectModel impl
      *
      * @var ?BusinessUnitKeyReference
      */
-    protected $oldbusinessUnit;
+    protected $oldBusinessUnit;
 
 
     /**
@@ -46,11 +46,11 @@ final class OrderBusinessUnitSetMessagePayloadModel extends JsonObjectModel impl
      */
     public function __construct(
         ?BusinessUnitKeyReference $businessUnit = null,
-        ?BusinessUnitKeyReference $oldbusinessUnit = null,
+        ?BusinessUnitKeyReference $oldBusinessUnit = null,
         ?string $type = null
     ) {
         $this->businessUnit = $businessUnit;
-        $this->oldbusinessUnit = $oldbusinessUnit;
+        $this->oldBusinessUnit = $oldBusinessUnit;
         $this->type = $type ?? self::DISCRIMINATOR_VALUE;
     }
 
@@ -99,19 +99,19 @@ final class OrderBusinessUnitSetMessagePayloadModel extends JsonObjectModel impl
      *
      * @return null|BusinessUnitKeyReference
      */
-    public function getOldbusinessUnit()
+    public function getOldBusinessUnit()
     {
-        if (is_null($this->oldbusinessUnit)) {
+        if (is_null($this->oldBusinessUnit)) {
             /** @psalm-var stdClass|array<string, mixed>|null $data */
-            $data = $this->raw(self::FIELD_OLDBUSINESS_UNIT);
+            $data = $this->raw(self::FIELD_OLD_BUSINESS_UNIT);
             if (is_null($data)) {
                 return null;
             }
 
-            $this->oldbusinessUnit = BusinessUnitKeyReferenceModel::of($data);
+            $this->oldBusinessUnit = BusinessUnitKeyReferenceModel::of($data);
         }
 
-        return $this->oldbusinessUnit;
+        return $this->oldBusinessUnit;
     }
 
 
@@ -124,10 +124,10 @@ final class OrderBusinessUnitSetMessagePayloadModel extends JsonObjectModel impl
     }
 
     /**
-     * @param ?BusinessUnitKeyReference $oldbusinessUnit
+     * @param ?BusinessUnitKeyReference $oldBusinessUnit
      */
-    public function setOldbusinessUnit(?BusinessUnitKeyReference $oldbusinessUnit): void
+    public function setOldBusinessUnit(?BusinessUnitKeyReference $oldBusinessUnit): void
     {
-        $this->oldbusinessUnit = $oldbusinessUnit;
+        $this->oldBusinessUnit = $oldBusinessUnit;
     }
 }
