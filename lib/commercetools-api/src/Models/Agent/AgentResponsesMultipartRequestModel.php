@@ -44,7 +44,7 @@ final class AgentResponsesMultipartRequestModel extends JsonObjectModel implemen
     }
 
     /**
-     * <p>JSON document matching <a href="ctp:api:type:AgentResponsesPayload">AgentResponsesPayload</a>. Must include <code>outputType</code> and <code>locale</code>. At least one of <code>prompt</code> or <code>files</code> must be provided.</p>
+     * <p>JSON document matching <a href="ctp:api:type:AgentResponsesPayload">AgentResponsesPayload</a>. Must include <code>outputType</code> and <code>locale</code>. At least one of <code>prompt</code>, <code>files</code>, or <code>shoppingList</code> must be provided.</p>
      *
      *
      * @return null|AgentResponsesPayload

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Agent;
 
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierModel;
+use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierModel;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierModel;
 use Commercetools\Base\DateTimeImmutableCollection;
@@ -53,6 +55,12 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
      */
     protected $store;
 
+    /**
+     *
+     * @var ?ShoppingListResourceIdentifier
+     */
+    protected $shoppingList;
+
 
     /**
      * @psalm-suppress MissingParamType
@@ -62,13 +70,15 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
         ?string $locale = null,
         ?string $prompt = null,
         ?BusinessUnitResourceIdentifier $businessUnit = null,
-        ?StoreResourceIdentifier $store = null
+        ?StoreResourceIdentifier $store = null,
+        ?ShoppingListResourceIdentifier $shoppingList = null
     ) {
         $this->outputType = $outputType;
         $this->locale = $locale;
         $this->prompt = $prompt;
         $this->businessUnit = $businessUnit;
         $this->store = $store;
+        $this->shoppingList = $shoppingList;
     }
 
     /**
@@ -112,7 +122,7 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
     }
 
     /**
-     * <p>Natural-language description of the entity to create, such as the body of an email or a note. For a Shopping List, it must state the name of the list.</p>
+     * <p>Natural-language description of the entity to create, such as the body of an email or a note. Required if <code>shoppingList</code> is not set. For a Shopping List, it must state the name of the list.</p>
      *
      *
      * @return null|string
@@ -132,7 +142,7 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
     }
 
     /**
-     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. If omitted, Intake resolves it from <code>prompt</code>.</p>
+     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. Takes precedence over the Business Unit of the Shopping List in <code>shoppingList</code>. If omitted, Intake resolves it from <code>prompt</code> or from the Shopping List.</p>
      *
      *
      * @return null|BusinessUnitResourceIdentifier
@@ -153,7 +163,7 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
     }
 
     /**
-     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. If omitted, Intake resolves it from <code>prompt</code>.</p>
+     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. Takes precedence over the Store of the Shopping List in <code>shoppingList</code>. If omitted, Intake resolves it from <code>prompt</code> or from the Shopping List.</p>
      *
      *
      * @return null|StoreResourceIdentifier
@@ -171,6 +181,29 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
         }
 
         return $this->store;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ShoppingList">ShoppingList</a> to create the Cart or Quote Request from. Intake reads the list once and uses its Line Items as the Products of the request.</p>
+     * <p>If the Shopping List can't be read, a <a href="ctp:api:type:AgentShoppingListUnresolvedError">ShoppingListUnresolved</a> error is returned.</p>
+     * <p>If <code>outputType</code> is <code>ShoppingList</code>, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
+     *
+     *
+     * @return null|ShoppingListResourceIdentifier
+     */
+    public function getShoppingList()
+    {
+        if (is_null($this->shoppingList)) {
+            /** @psalm-var stdClass|array<string, mixed>|null $data */
+            $data = $this->raw(self::FIELD_SHOPPING_LIST);
+            if (is_null($data)) {
+                return null;
+            }
+
+            $this->shoppingList = ShoppingListResourceIdentifierModel::of($data);
+        }
+
+        return $this->shoppingList;
     }
 
 
@@ -212,5 +245,13 @@ final class AgentResponsesRequestModel extends JsonObjectModel implements AgentR
     public function setStore(?StoreResourceIdentifier $store): void
     {
         $this->store = $store;
+    }
+
+    /**
+     * @param ?ShoppingListResourceIdentifier $shoppingList
+     */
+    public function setShoppingList(?ShoppingListResourceIdentifier $shoppingList): void
+    {
+        $this->shoppingList = $shoppingList;
     }
 }

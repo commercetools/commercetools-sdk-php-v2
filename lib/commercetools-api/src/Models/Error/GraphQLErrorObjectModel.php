@@ -20,6 +20,8 @@ use Commercetools\Api\Models\Agent\GraphQLAgentFeatureDisabledError;
 use Commercetools\Api\Models\Agent\GraphQLAgentFeatureDisabledErrorModel;
 use Commercetools\Api\Models\Agent\GraphQLAgentMissingCountryError;
 use Commercetools\Api\Models\Agent\GraphQLAgentMissingCountryErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingCurrencyError;
+use Commercetools\Api\Models\Agent\GraphQLAgentMissingCurrencyErrorModel;
 use Commercetools\Api\Models\Agent\GraphQLAgentMissingCustomerEmailError;
 use Commercetools\Api\Models\Agent\GraphQLAgentMissingCustomerEmailErrorModel;
 use Commercetools\Api\Models\Agent\GraphQLAgentMissingEntityTypeError;
@@ -38,6 +40,8 @@ use Commercetools\Api\Models\Agent\GraphQLAgentQuoteRequestCreationFailedError;
 use Commercetools\Api\Models\Agent\GraphQLAgentQuoteRequestCreationFailedErrorModel;
 use Commercetools\Api\Models\Agent\GraphQLAgentShoppingListCreationFailedError;
 use Commercetools\Api\Models\Agent\GraphQLAgentShoppingListCreationFailedErrorModel;
+use Commercetools\Api\Models\Agent\GraphQLAgentShoppingListUnresolvedError;
+use Commercetools\Api\Models\Agent\GraphQLAgentShoppingListUnresolvedErrorModel;
 use Commercetools\Api\Models\Agent\GraphQLAgentStoreAmbiguousError;
 use Commercetools\Api\Models\Agent\GraphQLAgentStoreAmbiguousErrorModel;
 use Commercetools\Api\Models\Agent\GraphQLAgentStoreDistributionChannelsUnsupportedError;
@@ -130,6 +134,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'MaxResourceLimitExceeded' => GraphQLMaxResourceLimitExceededErrorModel::class,
        'MaxStoreReferencesReached' => GraphQLMaxStoreReferencesReachedErrorModel::class,
        'MissingCountry' => GraphQLAgentMissingCountryErrorModel::class,
+       'MissingCurrency' => GraphQLAgentMissingCurrencyErrorModel::class,
        'MissingCustomerEmail' => GraphQLAgentMissingCustomerEmailErrorModel::class,
        'MissingEntityType' => GraphQLAgentMissingEntityTypeErrorModel::class,
        'MissingRoleOnChannel' => GraphQLMissingRoleOnChannelErrorModel::class,
@@ -168,6 +173,7 @@ final class GraphQLErrorObjectModel extends JsonObjectModel implements GraphQLEr
        'SemanticError' => GraphQLSemanticErrorErrorModel::class,
        'ShippingMethodDoesNotMatchCart' => GraphQLShippingMethodDoesNotMatchCartErrorModel::class,
        'ShoppingListCreationFailed' => GraphQLAgentShoppingListCreationFailedErrorModel::class,
+       'ShoppingListUnresolved' => GraphQLAgentShoppingListUnresolvedErrorModel::class,
        'StoreAmbiguous' => GraphQLAgentStoreAmbiguousErrorModel::class,
        'StoreCartDiscountsLimitReached' => GraphQLStoreCartDiscountsLimitReachedErrorModel::class,
        'StoreDistributionChannelsUnsupported' => GraphQLAgentStoreDistributionChannelsUnsupportedErrorModel::class,

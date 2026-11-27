@@ -157,6 +157,7 @@ final class ProductSelectionImportModel extends JsonObjectModel implements Produ
 
     /**
      * <p>List of product assignments.</p>
+     * <p>When updating an existing ProductSelection, the imported list becomes the complete set of assignments, and Products omitted from the list are removed from the ProductSelection. If this field is omitted, the existing assignments are not changed.</p>
      *
      *
      * @return null|ProductSelectionAssignmentCollection

@@ -50,6 +50,12 @@ final class ModifiedByBuilder implements Builder
 
      * @var ?string
      */
+    private $externalUserId;
+
+    /**
+
+     * @var ?string
+     */
     private $anonymousId;
 
     /**
@@ -63,6 +69,12 @@ final class ModifiedByBuilder implements Builder
      * @var null|Reference|ReferenceBuilder
      */
     private $associate;
+
+    /**
+
+     * @var null|Attribution|AttributionBuilder
+     */
+    private $attributedTo;
 
     /**
      * <p>Whether the change was made using the Merchant Center.</p>
@@ -116,6 +128,18 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
+     * <p><a href="/general-concepts#external-user-ids">External user ID</a> of the user who made the change.</p>
+     * <p>Present only if the change was made by an API Client with an external user ID.</p>
+     *
+
+     * @return null|string
+     */
+    public function getExternalUserId()
+    {
+        return $this->externalUserId;
+    }
+
+    /**
      * <p>Present only if the change was made using a token from an <a href="/authorization#tokens-for-anonymous-sessions">anonymous session</a>.</p>
      *
 
@@ -139,7 +163,7 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
-     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects when an Associate acts on behalf of a company using the <a href="/associates-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
+     * <p>The <a href="ctp:api:type:Associate">Associate</a> who made the change in the context of a <a href="ctp:api:type:BusinessUnit">Business Unit</a>. Only available for <a href="/offering/commerce-b2b">B2B</a>-enabled Projects when an Associate acts on behalf of a company using the <a href="/business-units-and-associates-apis-overview#on-the-associate-endpoints">associate endpoints</a>.</p>
      *
 
      * @return null|Reference
@@ -147,6 +171,18 @@ final class ModifiedByBuilder implements Builder
     public function getAssociate()
     {
         return $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate;
+    }
+
+    /**
+     * <p>Indicates if the change was made indirectly, for example by an agent acting on behalf of a user.</p>
+     * <p>Present only for changes made after 22 October 2026.</p>
+     *
+
+     * @return null|Attribution
+     */
+    public function getAttributedTo()
+    {
+        return $this->attributedTo instanceof AttributionBuilder ? $this->attributedTo->build() : $this->attributedTo;
     }
 
     /**
@@ -194,6 +230,17 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
+     * @param ?string $externalUserId
+     * @return $this
+     */
+    public function withExternalUserId(?string $externalUserId)
+    {
+        $this->externalUserId = $externalUserId;
+
+        return $this;
+    }
+
+    /**
      * @param ?string $anonymousId
      * @return $this
      */
@@ -227,6 +274,17 @@ final class ModifiedByBuilder implements Builder
     }
 
     /**
+     * @param ?Attribution $attributedTo
+     * @return $this
+     */
+    public function withAttributedTo(?Attribution $attributedTo)
+    {
+        $this->attributedTo = $attributedTo;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withCustomer() instead
      * @return $this
      */
@@ -248,6 +306,17 @@ final class ModifiedByBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withAttributedTo() instead
+     * @return $this
+     */
+    public function withAttributedToBuilder(?AttributionBuilder $attributedTo)
+    {
+        $this->attributedTo = $attributedTo;
+
+        return $this;
+    }
+
     public function build(): ModifiedBy
     {
         return new ModifiedByModel(
@@ -255,9 +324,11 @@ final class ModifiedByBuilder implements Builder
             $this->id,
             $this->type,
             $this->clientId,
+            $this->externalUserId,
             $this->anonymousId,
             $this->customer instanceof ReferenceBuilder ? $this->customer->build() : $this->customer,
-            $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate
+            $this->associate instanceof ReferenceBuilder ? $this->associate->build() : $this->associate,
+            $this->attributedTo instanceof AttributionBuilder ? $this->attributedTo->build() : $this->attributedTo
         );
     }
 

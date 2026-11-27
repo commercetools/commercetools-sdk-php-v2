@@ -48,6 +48,7 @@
 - added type `AgentFeatureDisabledError`
 - added type `AgentFileNotProcessedWarning`
 - added type `AgentMissingCountryError`
+- added type `AgentMissingCurrencyError`
 - added type `AgentMissingCustomerEmailError`
 - added type `AgentMissingEntityTypeError`
 - added type `AgentMissingShoppingListNameError`
@@ -68,6 +69,7 @@
 - added type `AgentResponsesShoppingListSuccess`
 - added type `AgentResponsesSuccess`
 - added type `AgentShoppingListCreationFailedError`
+- added type `AgentShoppingListUnresolvedError`
 - added type `AgentStoreAmbiguousError`
 - added type `AgentStoreDistributionChannelsUnsupportedError`
 - added type `AgentStoreUnresolvedError`
@@ -77,6 +79,7 @@
 - added type `GraphQLAgentExtractionFailedError`
 - added type `GraphQLAgentFeatureDisabledError`
 - added type `GraphQLAgentMissingCountryError`
+- added type `GraphQLAgentMissingCurrencyError`
 - added type `GraphQLAgentMissingCustomerEmailError`
 - added type `GraphQLAgentMissingEntityTypeError`
 - added type `GraphQLAgentMissingShoppingListNameError`
@@ -86,6 +89,7 @@
 - added type `GraphQLAgentProductsNotFoundError`
 - added type `GraphQLAgentQuoteRequestCreationFailedError`
 - added type `GraphQLAgentShoppingListCreationFailedError`
+- added type `GraphQLAgentShoppingListUnresolvedError`
 - added type `GraphQLAgentStoreAmbiguousError`
 - added type `GraphQLAgentStoreDistributionChannelsUnsupportedError`
 - added type `GraphQLAgentStoreUnresolvedError`
@@ -866,6 +870,7 @@
 - :warning: changed property `paymentMethodInfo` of type `MyPaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
 - :warning: changed property `paymentMethodInfo` of type `PaymentDraft` from type `PaymentMethodInfo` to `PaymentMethodInfoDraft`
 - :warning: changed property `expand` of type `ProductSearchProjectionParams` from type `Expansion[]` to `string[]`
+- :warning: changed property `count` of type `ReviewRatingStatistics` from type `integer` to `number`
 - :warning: changed property `filter` of type `SearchSorting` from type `SearchQueryExpression` to `SearchQuery`
 </details>
 
@@ -1314,6 +1319,8 @@
 <summary>Added Type(s)</summary>
 
 - added type `TooManyRequestsError`
+- added type `Attribution`
+- added type `AttributionSource`
 - added type `GraphQLTooManyRequestsError`
 - added type `ChangeSavedToLineItemChange`
 - added type `DirectDiscount`
@@ -1583,6 +1590,8 @@
 <details>
 <summary>Added Property(s)</summary>
 
+- added property `externalUserId` to type `ModifiedBy`
+- added property `attributedTo` to type `ModifiedBy`
 - added property `catalogData` to type `AddAssetChange`
 - added property `variant` to type `AddAssetChange`
 - added property `shippingKey` to type `AddDeliveryChange`
@@ -1869,6 +1878,12 @@
 - added enum `setLineItemDeactivatedAt` to type `PlatformInitiatedChange`
 - added enum `setProductCount` to type `PlatformInitiatedChange`
 - added enum `setReservations` to type `PlatformInitiatedChange`
+- added enum `Import` to type `Source`
+- added enum `Export` to type `Source`
+- added enum `IntakeAgent` to type `Source`
+- added enum `PromotionsAgent` to type `Source`
+- added enum `ManagedCommerceMCP` to type `Source`
+- added enum `ProductEnrichmentAgent` to type `Source`
 - added enum `addShipping` to type `UpdateType`
 - added enum `addShippingRate` to type `UpdateType`
 - added enum `addZone` to type `UpdateType`

@@ -10,6 +10,8 @@ namespace Commercetools\Api\Models\Agent;
 
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifier;
 use Commercetools\Api\Models\BusinessUnit\BusinessUnitResourceIdentifierBuilder;
+use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifier;
+use Commercetools\Api\Models\ShoppingList\ShoppingListResourceIdentifierBuilder;
 use Commercetools\Api\Models\Store\StoreResourceIdentifier;
 use Commercetools\Api\Models\Store\StoreResourceIdentifierBuilder;
 use Commercetools\Base\Builder;
@@ -55,6 +57,12 @@ final class AgentResponsesPayloadBuilder implements Builder
     private $store;
 
     /**
+
+     * @var null|ShoppingListResourceIdentifier|ShoppingListResourceIdentifierBuilder
+     */
+    private $shoppingList;
+
+    /**
      * <p>The entity to create.</p>
      *
 
@@ -77,7 +85,7 @@ final class AgentResponsesPayloadBuilder implements Builder
     }
 
     /**
-     * <p>Natural-language description of the entity to create, such as the body of an email or a note. Required if no file is attached. For a Shopping List, the name of the list must be stated in either the prompt or an attached file.</p>
+     * <p>Natural-language description of the entity to create, such as the body of an email or a note. Required if no file is attached and <code>shoppingList</code> is not set. For a Shopping List, the name of the list must be stated in either the prompt or an attached file.</p>
      *
 
      * @return null|string
@@ -88,7 +96,7 @@ final class AgentResponsesPayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. If omitted, Intake resolves it from the input.</p>
+     * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> to use for the request. Takes precedence over the Business Unit of the Shopping List in <code>shoppingList</code>. If omitted, Intake resolves it from the input or from the Shopping List.</p>
      *
 
      * @return null|BusinessUnitResourceIdentifier
@@ -99,7 +107,7 @@ final class AgentResponsesPayloadBuilder implements Builder
     }
 
     /**
-     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. If omitted, Intake resolves it from the input.</p>
+     * <p><a href="ctp:api:type:Store">Store</a> to use for the request. Takes precedence over the Store of the Shopping List in <code>shoppingList</code>. If omitted, Intake resolves it from the input or from the Shopping List.</p>
      *
 
      * @return null|StoreResourceIdentifier
@@ -107,6 +115,20 @@ final class AgentResponsesPayloadBuilder implements Builder
     public function getStore()
     {
         return $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store;
+    }
+
+    /**
+     * <p><a href="ctp:api:type:ShoppingList">ShoppingList</a> to create the Cart or Quote Request from. Intake reads the list once and uses its Line Items as the Products of the request. The ShoppingList must exist and be accessible to the caller.</p>
+     * <p>If the Shopping List can't be read, a <a href="ctp:api:type:AgentShoppingListUnresolvedError">ShoppingListUnresolved</a> error is returned.</p>
+     * <p>If files are attached, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
+     * <p>If <code>outputType</code> is <code>ShoppingList</code>, an <a href="ctp:api:type:InvalidFieldError">InvalidField</a> error is returned.</p>
+     *
+
+     * @return null|ShoppingListResourceIdentifier
+     */
+    public function getShoppingList()
+    {
+        return $this->shoppingList instanceof ShoppingListResourceIdentifierBuilder ? $this->shoppingList->build() : $this->shoppingList;
     }
 
     /**
@@ -165,6 +187,17 @@ final class AgentResponsesPayloadBuilder implements Builder
     }
 
     /**
+     * @param ?ShoppingListResourceIdentifier $shoppingList
+     * @return $this
+     */
+    public function withShoppingList(?ShoppingListResourceIdentifier $shoppingList)
+    {
+        $this->shoppingList = $shoppingList;
+
+        return $this;
+    }
+
+    /**
      * @deprecated use withBusinessUnit() instead
      * @return $this
      */
@@ -186,6 +219,17 @@ final class AgentResponsesPayloadBuilder implements Builder
         return $this;
     }
 
+    /**
+     * @deprecated use withShoppingList() instead
+     * @return $this
+     */
+    public function withShoppingListBuilder(?ShoppingListResourceIdentifierBuilder $shoppingList)
+    {
+        $this->shoppingList = $shoppingList;
+
+        return $this;
+    }
+
     public function build(): AgentResponsesPayload
     {
         return new AgentResponsesPayloadModel(
@@ -193,7 +237,8 @@ final class AgentResponsesPayloadBuilder implements Builder
             $this->locale,
             $this->prompt,
             $this->businessUnit instanceof BusinessUnitResourceIdentifierBuilder ? $this->businessUnit->build() : $this->businessUnit,
-            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store
+            $this->store instanceof StoreResourceIdentifierBuilder ? $this->store->build() : $this->store,
+            $this->shoppingList instanceof ShoppingListResourceIdentifierBuilder ? $this->shoppingList->build() : $this->shoppingList
         );
     }
 

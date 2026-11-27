@@ -239,7 +239,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
+     * <p>Overall amount of stock (<code>availableQuantity</code> + reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/api/inventory-apis-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
 
      * @return null|int
@@ -250,7 +250,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/api/inventory-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
+     * <p>Available amount of stock (<code>quantityOnStock</code> - reserved). This value is eventually consistent with the internal SKU availability used for reservation logic, with a delay of up to 10 seconds. See <a href="/api/inventory-apis-overview#inventory-checks-and-consistency">Inventory checks and consistency</a> for more information.</p>
      *
 
      * @return null|int
@@ -261,7 +261,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Minimum quantity that can be added to a Cart. See <a href="/api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Minimum quantity that can be added to a Cart. See <a href="/api/inventory-apis-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int
@@ -272,7 +272,7 @@ final class InventoryEntryBuilder implements Builder
     }
 
     /**
-     * <p>Maximum quantity that can be added to a Cart. See <a href="/api/inventory-overview#quantity-limits">Quantity limits</a>.</p>
+     * <p>Maximum quantity that can be added to a Cart. See <a href="/api/inventory-apis-overview#quantity-limits">Quantity limits</a>.</p>
      *
 
      * @return null|int

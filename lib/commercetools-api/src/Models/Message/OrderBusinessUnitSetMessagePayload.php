@@ -15,7 +15,7 @@ use Commercetools\Base\JsonObject;
 interface OrderBusinessUnitSetMessagePayload extends OrderMessagePayload
 {
     public const FIELD_BUSINESS_UNIT = 'businessUnit';
-    public const FIELD_OLDBUSINESS_UNIT = 'oldbusinessUnit';
+    public const FIELD_OLD_BUSINESS_UNIT = 'oldBusinessUnit';
 
     /**
      * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetBusinessUnitAction">Set Business Unit</a> update action on Orders or <a href="ctp:api:type:StagedOrderSetBusinessUnitAction">Set Business Unit</a> update action on Order Edits.</p>
@@ -31,7 +31,7 @@ interface OrderBusinessUnitSetMessagePayload extends OrderMessagePayload
 
      * @return null|BusinessUnitKeyReference
      */
-    public function getOldbusinessUnit();
+    public function getOldBusinessUnit();
 
     /**
      * @param ?BusinessUnitKeyReference $businessUnit
@@ -39,7 +39,7 @@ interface OrderBusinessUnitSetMessagePayload extends OrderMessagePayload
     public function setBusinessUnit(?BusinessUnitKeyReference $businessUnit): void;
 
     /**
-     * @param ?BusinessUnitKeyReference $oldbusinessUnit
+     * @param ?BusinessUnitKeyReference $oldBusinessUnit
      */
-    public function setOldbusinessUnit(?BusinessUnitKeyReference $oldbusinessUnit): void;
+    public function setOldBusinessUnit(?BusinessUnitKeyReference $oldBusinessUnit): void;
 }

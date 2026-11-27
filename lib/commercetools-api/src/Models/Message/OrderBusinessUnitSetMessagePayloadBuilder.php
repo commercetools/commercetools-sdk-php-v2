@@ -32,7 +32,7 @@ final class OrderBusinessUnitSetMessagePayloadBuilder implements Builder
 
      * @var null|BusinessUnitKeyReference|BusinessUnitKeyReferenceBuilder
      */
-    private $oldbusinessUnit;
+    private $oldBusinessUnit;
 
     /**
      * <p><a href="ctp:api:type:BusinessUnit">BusinessUnit</a> on the <a href="ctp:api:type:Order">Order</a> after the <a href="ctp:api:type:OrderSetBusinessUnitAction">Set Business Unit</a> update action on Orders or <a href="ctp:api:type:StagedOrderSetBusinessUnitAction">Set Business Unit</a> update action on Order Edits.</p>
@@ -51,9 +51,9 @@ final class OrderBusinessUnitSetMessagePayloadBuilder implements Builder
 
      * @return null|BusinessUnitKeyReference
      */
-    public function getOldbusinessUnit()
+    public function getOldBusinessUnit()
     {
-        return $this->oldbusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldbusinessUnit->build() : $this->oldbusinessUnit;
+        return $this->oldBusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldBusinessUnit->build() : $this->oldBusinessUnit;
     }
 
     /**
@@ -68,12 +68,12 @@ final class OrderBusinessUnitSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @param ?BusinessUnitKeyReference $oldbusinessUnit
+     * @param ?BusinessUnitKeyReference $oldBusinessUnit
      * @return $this
      */
-    public function withOldbusinessUnit(?BusinessUnitKeyReference $oldbusinessUnit)
+    public function withOldBusinessUnit(?BusinessUnitKeyReference $oldBusinessUnit)
     {
-        $this->oldbusinessUnit = $oldbusinessUnit;
+        $this->oldBusinessUnit = $oldBusinessUnit;
 
         return $this;
     }
@@ -90,12 +90,12 @@ final class OrderBusinessUnitSetMessagePayloadBuilder implements Builder
     }
 
     /**
-     * @deprecated use withOldbusinessUnit() instead
+     * @deprecated use withOldBusinessUnit() instead
      * @return $this
      */
-    public function withOldbusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $oldbusinessUnit)
+    public function withOldBusinessUnitBuilder(?BusinessUnitKeyReferenceBuilder $oldBusinessUnit)
     {
-        $this->oldbusinessUnit = $oldbusinessUnit;
+        $this->oldBusinessUnit = $oldBusinessUnit;
 
         return $this;
     }
@@ -104,7 +104,7 @@ final class OrderBusinessUnitSetMessagePayloadBuilder implements Builder
     {
         return new OrderBusinessUnitSetMessagePayloadModel(
             $this->businessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->businessUnit->build() : $this->businessUnit,
-            $this->oldbusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldbusinessUnit->build() : $this->oldbusinessUnit
+            $this->oldBusinessUnit instanceof BusinessUnitKeyReferenceBuilder ? $this->oldBusinessUnit->build() : $this->oldBusinessUnit
         );
     }
 

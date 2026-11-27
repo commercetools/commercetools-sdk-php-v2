@@ -80,6 +80,7 @@ interface ProductDraftImport extends ImportResource
 
     /**
      * <p>Maps to <code>ProductData.categories</code>. If the referenced <a href="ctp:api:type:Category">Categories</a> do not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced Categories are created.</p>
+     * <p>When updating an existing Product, Categories omitted from this array are removed from the Product.</p>
      *
 
      * @return null|CategoryKeyReferenceCollection
@@ -87,6 +88,9 @@ interface ProductDraftImport extends ImportResource
     public function getCategories();
 
     /**
+     * <p>Maps to <code>ProductData.attributes</code>, the product-level Attributes.</p>
+     * <p>When updating an existing Product, product-level Attributes omitted from this array are removed from the Product. If this field is omitted, all product-level Attributes are removed.</p>
+     *
 
      * @return null|AttributeCollection
      */
@@ -127,6 +131,7 @@ interface ProductDraftImport extends ImportResource
 
     /**
      * <p>An array of related ProductVariants.</p>
+     * <p>When updating an existing Product, ProductVariants that are omitted from this array are removed from the Product, including their Attributes, Prices, images, and Assets. An empty array removes all non-master ProductVariants.</p>
      *
 
      * @return null|ProductVariantDraftImportCollection
@@ -135,6 +140,7 @@ interface ProductDraftImport extends ImportResource
 
     /**
      * <p>Maps to <code>Product.taxCategory</code>. If the referenced <a href="ctp:api:type:TaxCategory">TaxCategory</a> does not exist, the <code>state</code> of the <a href="ctp:import:type:ImportOperation">ImportOperation</a> will be set to <code>unresolved</code> until the referenced TaxCategory is created.</p>
+     * <p>When updating an existing Product, omitting this field removes the TaxCategory from the Product.</p>
      *
 
      * @return null|TaxCategoryKeyReference
